@@ -1,0 +1,15 @@
+{
+  "name": "fewd",
+  "version": "1.0.0",
+  "description": "Allows users to share their favorite recipes, as well as their leftovers for said recipes.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon index.js"
+  },
+  "author": "Rock Zhou & Lee Ma",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^1.15.1"
+  }
+}
