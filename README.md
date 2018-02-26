@@ -1,17 +1,17 @@
 # fewd
 
-**Server NPM Commands:**
+## Server NPM Commands:
 
 
 
-Run Server: npm run server
+**Run Server:** npm run server
 
-Run Client: npm run client
+**Run Client:** npm run client
 
-Run Both: npm run dev
+**Run Both:** npm run dev
 
-**Client NPM Commands:**
+## Client NPM Commands:
 
 
 
-Run Client: npm run start
+**Run Client:** npm run start
