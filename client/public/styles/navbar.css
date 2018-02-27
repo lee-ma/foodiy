@@ -1,0 +1,24 @@
+.navbar-light .navbar-brand {
+  color: #ffffff;
+}
+.navbar-light .navbar-nav .nav-link {
+  color: #ffffff;
+  font-size: 1.25em;
+}
+
+.navbar-light:hover .navbar-nav:hover .nav-link:hover {
+  color: #ffffff;
+  height: 50px;
+  border-bottom: #ffffff 2.5px solid;
+}
+
+@media(max-width: 767px) {
+  .navbar-light:hover .navbar-nav:hover .nav-link:hover {
+    height: 100%;
+  }
+}
+
+.bg-red {
+  background-color: #e53835;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
