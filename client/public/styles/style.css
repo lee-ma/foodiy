@@ -3,6 +3,14 @@
   font-family: 'Courgette', cursive;
 }
 
+.weight-400 {
+  font-weight: 400;
+}
+
+.weight-700 {
+  font-weight: 700;
+}
+
 /****************************** POSITIONING ***************************/
 .justify-content-center {
   justify-content: center;

@@ -7,7 +7,7 @@ class Home extends Component {
         <div className="jumbotron-fluid text-align-center">
           <div className="row">
             <div className="col-xs-12 col-sm-5 col-sm-offset-1">
-              <h1>FOODIY</h1>
+              <h1 className="cursive">FOODIY</h1>
             </div>
             <div className="col-xs-12 col-sm-5">
               <a className="btn btn-danger" href="/auth/google">

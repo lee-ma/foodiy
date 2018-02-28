@@ -6,6 +6,44 @@ class Navbar extends Component {
   componentDidMount() {
     this.props.fetchUser();
   }
+  renderNavLinks() {
+    switch (this.props.user) {
+      case null:
+        return;
+      // Not logged in
+      case false:
+        return (
+          <ul className="navbar-nav ml-auto">
+            <li className="nav-item">
+              <a className="nav-link" href="#">
+                Login
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#">
+                Sign up
+              </a>
+            </li>
+          </ul>
+        );
+      // Logged in
+      default:
+        return (
+          <ul className="navbar-nav ml-auto">
+            <li className="nav-item">
+              <a className="nav-link" href="/api/current_user">
+                Current User
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/api/logout">
+                Logout
+              </a>
+            </li>
+          </ul>
+        );
+    }
+  }
   render() {
     return (
       <nav
@@ -34,18 +72,7 @@ class Navbar extends Component {
               </a>
             </li>
           </ul>
-          <ul className="navbar-nav ml-auto">
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Login
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Sign up
-              </a>
-            </li>
-          </ul>
+          {this.renderNavLinks()}
         </div>
       </nav>
     );
