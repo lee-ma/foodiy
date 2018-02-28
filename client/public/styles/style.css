@@ -2,3 +2,12 @@
 .cursive {
   font-family: 'Courgette', cursive;
 }
+
+/****************************** POSITIONING ***************************/
+.justify-content-center {
+  justify-content: center;
+}
+
+.text-align-center {
+  text-align: center;
+}

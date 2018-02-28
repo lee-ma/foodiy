@@ -7,7 +7,7 @@
       "target": "http://localhost:6969/"
     },
     "/auth/*": {
-      "target": "https://localhost:6969/"
+      "target": "http://localhost:6969/"
     }
   },
   "dependencies": {
