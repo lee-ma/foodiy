@@ -1,7 +1,8 @@
 {
   "name": "fewd",
   "version": "1.0.0",
-  "description": "Allows users to share their favorite recipes, as well as their leftovers for said recipes.",
+  "description":
+    "Allows users to share their favorite recipes, as well as their leftovers for said recipes.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
