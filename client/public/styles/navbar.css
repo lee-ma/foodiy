@@ -8,7 +8,6 @@
 
 .navbar-inverse:hover .navbar-nav:hover .nav-link:hover {
   color: #ffffff;
-  height: 50px;
   border-bottom: #ffffff 2.5px solid;
 }
 
@@ -21,6 +20,30 @@
 .navbar-toggler-icon {
   color: white;
 }
+
+/*.collapsed {
+  background-color: black;
+}*/
+
+.transparent-black {
+  background-color: rgba(0,0,0,0.25);
+}
+
+@media(max-width: 767px) {
+  .transparent-black {
+    background-color: #212121;
+  }
+}
+
+.navbar {
+  position: absolute;
+  z-index: 1;
+  width: 100vw;
+}
+
+/*.collapse.show {
+  background-color: black;
+}*/
 
 html, body {
   width: 100%;

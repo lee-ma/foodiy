@@ -7,11 +7,7 @@ class Navbar extends Component {
     this.props.fetchUser();
   }
   renderNavLinks() {
-    switch (this.props.user) {
-      case null:
-        return;
-      // Not logged in
-      case false:
+    if (!this.props.user) {
         return (
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
@@ -26,8 +22,8 @@ class Navbar extends Component {
             </li>
           </ul>
         );
+      } else {
       // Logged in
-      default:
         return (
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
@@ -47,8 +43,8 @@ class Navbar extends Component {
   render() {
     return (
       <nav
-        className="navbar navbar-toggleable-md navbar-inverse fixed-top"
-        style={{ backgroundColor: 'rgba(0,0,0,0.25)' }}
+        className="navbar navbar-toggleable-md navbar-inverse transparent-black"
+        // style={{ backgroundColor: 'rgba(0,0,0,0.25)' }}
       >
         <button
           className="navbar-toggler navbar-toggler-right"
