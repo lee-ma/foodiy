@@ -8,7 +8,7 @@
 }
 
 .font-color-green {
-  color: #388e3c;
+  color: #00c853;
 }
 
 .ordered-list-large {
@@ -26,16 +26,142 @@
   font-weight: 700;
 }
 
-/****************************** DIVS / CARDS **************************/
+h3 {
+  font-size: 1.75em;
+}
+
+/****************************** AUTH BUTTONS**************************/
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+.google {
+  background-color: #4285f4;
+}
+
+.google .logo-wrapper {
+  background-color: #ffffff
+}
+
+.facebook {
+  background-color: #4267b2;
+}
+
+.facebook:hover {
+  color: #001970;
+}
+
+.email-login {
+  background-color: #00c853;
+}
+
+.email-login:hover {
+  color: #00701a;
+}
+
+.email-signup {
+  background-color: #ffe0b2;
+}
+
+.email-signup:hover {
+  color: #ca9b52;
+}
+
+.sign-in-button {
+  margin: 0px;
+  display: inline-block;
+  width: 240px;
+  height: 50px;
+  color: #fff;
+  border-radius: 1px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.25);
+  transition: background-color .218s, border-color .218s, box-shadow .218s;
+}
+.sign-in-button:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0 0 3px 3px rgba(66,133,244,.3);
+  box-shadow: 0 0 3px 3px rgba(66,133,244,.3);
+}
+.sign-in-button:active {
+  background-color: #3367D6;
+  transition: background-color 0.2s;
+}
+.sign-in-button .content-wrapper {
+  height: 100%;
+  width: 100%;
+  border: 1px solid transparent;
+}
+.sign-in-button img {
+    width: 18px;
+    height: 18px;
+    vertical-align: top;
+}
+.sign-in-button .logo-wrapper {
+   padding: 15px;
+   width: 48px;
+   height: 100%;
+   border-radius: 1px;
+   display: inline-block;
+   margin-left: -10px;
+}
+.sign-in-button .text-container {
+    font-family: Roboto,arial,sans-serif;
+    font-weight: 500;
+    letter-spacing: .21px;
+    font-size: 16px;
+    line-height: 48px;
+    vertical-align: top;
+    border: none;
+    display: inline-block;
+    text-align: center;
+    width: 180px;
+}
+
+
+/****************************** DIVS / CARDS**************************/
 .homepage-card {
   background-color: #fffeff;
-  padding-top: 2em;
+  padding-top: 1em;
   margin-bottom: 3em;
+  padding-bottom: 22.5em;
+  margin-top: 5.5em;
 
   border-radius: 2px;
 
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.mobile-card {
+  display:none;
+}
+
+@media(max-width: 767px) {
+  .homepage-card{
+    display:none;
+  }
+
+  .mobile-card {
+    display:block;
+    background-color: rgba(255,255,255,0.5);
+    vertical-align: middle;
+    padding-top: 1.2em;
+    margin-bottom: 2em;
+    width: 75%;
+
+    border-radius: 2px;
+
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+}
+
+.hero-image {
+  background: url(https://images.unsplash.com/photo-1467020323552-36f7bf0e30e6?ixlib=rb-0.3.5&s=b3885f1c152f7357fa0a7393bb8f6112&auto=format&fit=crop&w=2550&q=80);
+  height: 50vh;
+  width: inherit;
+  justify-content: center;
+  padding: auto;
 }
 
 /****************************** POSITIONING ***************************/
@@ -47,8 +173,20 @@
   text-align: center;
 }
 
+.text-align-left {
+  text-align: left;
+}
+
+.margin-vertical-md {
+  margin-top: 1em;
+}
+
 .margin-vertical-sm {
   margin-top: 0.5em;
+}
+
+.margin-vertical-xs {
+  margin-top: 0.25em;
 }
 
 .display-inline-block {

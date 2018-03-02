@@ -47,8 +47,8 @@ class Navbar extends Component {
   render() {
     return (
       <nav
-        className="navbar navbar-toggleable-md navbar-light fixed-top"
-        style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}
+        className="navbar navbar-toggleable-md navbar-inverse fixed-top"
+        style={{ backgroundColor: 'rgba(0,0,0,0.25)' }}
       >
         <button
           className="navbar-toggler navbar-toggler-right"
