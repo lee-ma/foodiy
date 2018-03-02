@@ -3,6 +3,21 @@
   font-family: 'Courgette', cursive;
 }
 
+.font-color-white {
+  color: white;
+}
+
+.font-color-green {
+  color: #388e3c;
+}
+
+.ordered-list-large {
+  font-size: 2.5em;
+  margin-right: 1em;
+  padding: 0;
+  margin: 0;
+}
+
 .weight-400 {
   font-weight: 400;
 }
@@ -18,4 +33,12 @@
 
 .text-align-center {
   text-align: center;
+}
+
+.margin-vertical-sm {
+  margin-top: 0.5em;
+}
+
+.display-inline-block {
+  display: inline-block;
 }
