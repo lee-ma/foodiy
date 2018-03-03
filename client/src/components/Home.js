@@ -90,8 +90,6 @@ class Home extends Component {
             <h3 className="margin-vertical-sm">
               3. Buy and sell extra portions from people in your area
             </h3>
-            <h3>please</h3>
-            <h3>bleh</h3>
           </div>
         </div>
       </div>
