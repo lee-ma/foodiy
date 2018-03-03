@@ -1,6 +1,20 @@
+/******************************* DEFAULTS *****************************/
+html,
+body {
+  width: 100%;
+  min-height: 100% !important;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+  font-family: 'Open Sans', sans-serif;
+}
 /******************************* TEXT *********************************/
 .cursive {
   font-family: 'Courgette', cursive;
+}
+
+.sans-serif {
+  font-family: 'Open Sans', sans-serif;
 }
 
 .font-color-white {
@@ -31,6 +45,9 @@ h3 {
 }
 
 /******************************* BUTTONS *********************************/
+.btn {
+  border-radius: 0;
+}
 
 .btn-green {
   background-color: #00c853;
@@ -52,7 +69,9 @@ h3 {
 }
 
 /****************************** AUTH BUTTONS**************************/
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
 }
 
@@ -66,7 +85,7 @@ h3 {
 }
 
 .google .logo-wrapper {
-  background-color: #ffffff
+  background-color: #ffffff;
 }
 
 .facebook {
@@ -93,8 +112,8 @@ h3 {
   height: 50px;
   color: #fff;
   border-radius: 1px;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,.25);
-  transition: background-color .218s, border-color .218s, box-shadow .218s;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+  transition: background-color 0.218s, border-color 0.218s, box-shadow 0.218s;
 }
 .sign-in-button:hover {
   cursor: pointer;
@@ -102,7 +121,7 @@ h3 {
   box-shadow: 0 0 3px 3px rgba(66,133,244,.3);*/
 }
 .sign-in-button:active {
-  background-color: #3367D6;
+  background-color: #3367d6;
   transition: background-color 0.2s;
 }
 .sign-in-button .content-wrapper {
@@ -111,42 +130,40 @@ h3 {
   border: 1px solid transparent;
 }
 .sign-in-button img {
-    width: 18px;
-    height: 18px;
-    vertical-align: top;
+  width: 18px;
+  height: 18px;
+  vertical-align: top;
 }
 .sign-in-button .logo-wrapper {
-   padding: 15px;
-   width: 48px;
-   height: 100%;
-   border-radius: 1px;
-   display: inline-block;
-   margin-left: -10px;
+  padding: 15px;
+  width: 48px;
+  height: 100%;
+  border-radius: 1px;
+  display: inline-block;
+  margin-left: -10px;
 }
 .sign-in-button .text-container {
-    font-family: Roboto,arial,sans-serif;
-    font-weight: 500;
-    letter-spacing: .21px;
-    font-size: 16px;
-    line-height: 48px;
-    vertical-align: top;
-    border: none;
-    display: inline-block;
-    text-align: center;
-    width: 180px;
+  font-family: Roboto, arial, sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.21px;
+  font-size: 16px;
+  line-height: 48px;
+  vertical-align: top;
+  border: none;
+  display: inline-block;
+  text-align: center;
+  width: 180px;
 }
-
 
 /****************************** DIVS / CARDS**************************/
 .homepage-card {
-  background-color: rgba(255,255,255,0.5);
+  background-color: rgba(255, 255, 255, 0.5);
   padding-top: 1em;
   padding-bottom: 1.5em;
   margin-bottom: 3em;
   margin-top: 5em;
   height: fit-content;
   width: 100%;
-
 
   border-radius: 2px;
 
@@ -155,17 +172,17 @@ h3 {
 }
 
 .mobile-card {
-  display:none;
+  display: none;
 }
 
-@media(max-width: 767px) {
-  .homepage-card{
-    display:none;
+@media (max-width: 767px) {
+  .homepage-card {
+    display: none;
   }
 
   .mobile-card {
     display: block;
-    background-color: rgba(255,255,255,0.5);
+    background-color: rgba(255, 255, 255, 0.5);
     vertical-align: middle;
     text-align: center;
     padding-top: 1em;
@@ -201,7 +218,7 @@ h3 {
 }
 
 .text-align-left {
-  text-align: left;
+  text-align: left !important;
 }
 
 .margin-vertical-md {
