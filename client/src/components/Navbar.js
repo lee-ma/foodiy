@@ -8,36 +8,36 @@ class Navbar extends Component {
   }
   renderNavLinks() {
     if (!this.props.user) {
-        return (
-          <ul className="navbar-nav ml-auto">
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Login
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                Sign up
-              </a>
-            </li>
-          </ul>
-        );
-      } else {
+      return (
+        <ul className="navbar-nav ml-auto">
+          <li className="nav-item">
+            <a className="nav-link" href="/login">
+              Login
+            </a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="#">
+              Sign up
+            </a>
+          </li>
+        </ul>
+      );
+    } else {
       // Logged in
-        return (
-          <ul className="navbar-nav ml-auto">
-            <li className="nav-item">
-              <a className="nav-link" href="/api/current_user">
-                Current User
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/api/logout">
-                Logout
-              </a>
-            </li>
-          </ul>
-        );
+      return (
+        <ul className="navbar-nav ml-auto">
+          <li className="nav-item">
+            <a className="nav-link" href="/api/current_user">
+              Current User
+            </a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="/api/logout">
+              Logout
+            </a>
+          </li>
+        </ul>
+      );
     }
   }
   render() {
@@ -53,8 +53,7 @@ class Navbar extends Component {
           data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent"
           aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+          aria-label="Toggle navigation">
           <span className="navbar-toggler-icon" />
         </button>
         <a className="navbar-brand" href="/">
