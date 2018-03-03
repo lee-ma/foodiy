@@ -27,9 +27,10 @@ class Home extends Component {
               </a>
             </div>
             <div
-              className="col-xs-12 col-sm-4 homepage-card text-align-center"
+              className="col-xs-12 col-sm-6"
             >
-              <h3 className="text-align-center">Show me tasty recipes!</h3>
+              <div className="homepage-card text-align-center">
+                <h3 className="text-align-center">Show me tasty recipes!</h3>
                 <a className="google sign-in-button margin-vertical-sm" href="/auth/google">
                   <div className="content-wrapper">
                   <div className="logo-wrapper">
@@ -73,6 +74,7 @@ class Home extends Component {
                   </span>
                 </div>
               </a>
+              </div>
             </div>
           </div>
 

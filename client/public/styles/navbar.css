@@ -8,6 +8,7 @@
 
 .navbar-inverse:hover .navbar-nav:hover .nav-link:hover {
   color: #ffffff;
+  height: 50px;
   border-bottom: #ffffff 2.5px solid;
 }
 
