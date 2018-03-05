@@ -67,7 +67,7 @@ class Home extends Component {
                   </span>
                 </div>
               </a>
-              <hr style={{ width: '240px' }} />
+              <hr style={{ width: '240px', color: "#616161" }} />
               <a className="btn-yellow sign-in-button" href="#">
                 <div className="content-wrapper">
                   <div className="logo-wrapper">
