@@ -175,12 +175,6 @@ h3 {
   display: none;
 }
 
-@media(min-width: 1441px) {
-  .sign-in-button {
-    transform: scale(0.25);
-  }
-}
-
 @media (max-width: 767px) {
   .homepage-card {
     display: none;
@@ -206,7 +200,7 @@ h3 {
 
 .hero-image {
   background: url(https://images.unsplash.com/photo-1467020323552-36f7bf0e30e6?ixlib=rb-0.3.5&s=b3885f1c152f7357fa0a7393bb8f6112&auto=format&fit=crop&w=2550&q=80);
-  height: 50vh;
+  height: 35em;
   width: inherit;
   justify-content: center;
   padding: auto;
