@@ -175,7 +175,7 @@ h3 {
   display: none;
 }
 
-@media(width: 2560px) {
+@media(min-width: 1441px) {
   .sign-in-button {
     transform: scale(0.25);
   }
