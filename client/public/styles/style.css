@@ -175,6 +175,12 @@ h3 {
   display: none;
 }
 
+@media(width: 2560px) {
+  .sign-in-button {
+    transform: scale(0.25);
+  }
+}
+
 @media (max-width: 767px) {
   .homepage-card {
     display: none;
