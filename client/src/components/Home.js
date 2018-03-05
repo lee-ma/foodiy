@@ -5,11 +5,6 @@ class Home extends Component {
     return (
       <div className="container-fluid">
         <div className="row hero-image">
-          <div
-            className="col-xs-12 col-sm-5 offset-sm-1"
-            style={{ marginTop: '5em', marginLeft: '0', padding: '0' }}>
-            <h1 className="cursive font-color-white text-align-left">FOODIY</h1>
-          </div>
           <div className="mobile-card text-align-center">
             <a className="btn-green sign-in-button" href="/login">
               <div className="content-wrapper text-align-center">
@@ -28,7 +23,7 @@ class Home extends Component {
               </div>
             </a>
           </div>
-          <div className="col-xs-12 col-sm-6">
+          <div className="col-xs-12 col-sm-4 margin-vertical-lg">
             <div className="homepage-card text-align-center">
               <h3 className="text-align-center">Show me tasty recipes!</h3>
               <a
@@ -95,7 +90,7 @@ class Home extends Component {
             <h1
               className="font-color-green cursive"
               style={{ marginTop: '0.25em' }}>
-              FOODIY
+              The ultimate website for foodies
             </h1>
             <h3>1. Find and save recipes you love (placeholder)</h3>
             <h3 className="margin-vertical-sm">

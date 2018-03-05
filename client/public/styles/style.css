@@ -44,6 +44,10 @@ h3 {
   font-size: 1.75em;
 }
 
+h1 {
+  font-size: 5em;
+}
+
 /******************************* BUTTONS *********************************/
 .btn {
   border-radius: 0;
@@ -175,7 +179,7 @@ h3 {
   display: none;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 950px) {
   .homepage-card {
     display: none;
   }
@@ -231,6 +235,14 @@ h3 {
 
 .margin-vertical-xs {
   margin-top: 0.25em;
+}
+
+.margin-vertical-lg {
+  margin-top: 2.5em;
+}
+
+.margin-vertical-xl {
+  margin-top: 5em;
 }
 
 .display-inline-block {
