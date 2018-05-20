@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import types from 'prop-types'
-import { fontWeights, fonts, fontSizes, colors, lineHeights } from '../theme'
+import { fontWeights, fonts, fontSizes, colors, lineHeights, fontStyles } from '../theme'
 
 const Text = (props) => {
   const { children, element = 'span' } = props
@@ -34,7 +34,10 @@ const Text = (props) => {
       line-height: ${
         props => props.tight ? lineHeights.tight :
                 props.loose ? lineHeights.loose : lineHeights.default
-      }
+      };
+      font-style: ${
+        props => props.italic ? fontStyles.italic : 'normal'
+      };
       display: ${'block'};
     }`
   return <StyledText {...props}>{children}</StyledText>

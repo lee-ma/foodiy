@@ -1,9 +1,11 @@
 .navbar-light .navbar-brand {
   color: #00C853;
+  font-family: 'Oxygen', 'sans-serif'
 }
 .navbar-light .navbar-nav .nav-link {
   color: #484848;
   font-size: 1.25em;
+  font-family: 'Oxygen', 'sans-serif'
 }
 
 .navbar-light:hover .navbar-nav:hover .nav-link:hover {

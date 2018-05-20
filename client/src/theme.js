@@ -31,3 +31,7 @@ export const lineHeights = {
   default: '1.25em',
   loose: '1.4em'
 }
+
+export const fontStyles = {
+  italic: 'italic'
+}
