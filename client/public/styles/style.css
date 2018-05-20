@@ -6,24 +6,8 @@ body {
   margin: 0px;
   padding: 0px;
   overflow-x: hidden;
-  font-family: 'Open Sans', sans-serif;
 }
 /******************************* TEXT *********************************/
-.cursive {
-  font-family: 'Courgette', cursive;
-}
-
-.sans-serif {
-  font-family: 'Open Sans', sans-serif;
-}
-
-.font-color-white {
-  color: white;
-}
-
-.font-color-green {
-  color: #00c853;
-}
 
 .ordered-list-large {
   font-size: 2.5em;
@@ -32,20 +16,8 @@ body {
   margin: 0;
 }
 
-.weight-400 {
-  font-weight: 400;
-}
-
-.weight-700 {
-  font-weight: 700;
-}
-
-h3 {
-  font-size: 1.75em;
-}
-
-h1 {
-  font-size: 5em;
+.flexbox::-webkit-scrollbar {
+  display: none;
 }
 
 /******************************* BUTTONS *********************************/

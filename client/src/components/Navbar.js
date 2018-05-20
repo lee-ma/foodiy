@@ -43,7 +43,7 @@ class Navbar extends Component {
   render() {
     return (
       <nav
-        className="navbar navbar-toggleable-md navbar-inverse transparent-black"
+        className="navbar navbar-toggleable-md navbar-light transparent-black"
         // style={{ backgroundColor: 'rgba(0,0,0,0.25)' }}
       >
         <button

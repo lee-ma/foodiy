@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import {Text} from '../components'
 
 class Home extends Component {
   render() {
     return (
       <div className="container-fluid">
         <div className="row hero-image">
+          <Text center green big>Hello</Text>
           <div className="mobile-card text-align-center">
             <a className="btn-green sign-in-button" href="/login">
               <div className="content-wrapper text-align-center">
@@ -87,11 +89,7 @@ class Home extends Component {
 
         <div className="row">
           <div className="col-12" style={{ marginLeft: '0.25em' }}>
-            <h1
-              className="font-color-green cursive"
-              style={{ marginTop: '0.25em' }}>
-              The ultimate website for foodies
-            </h1>
+            <Text green huge>The ultimate webiste for foodies</Text>
             <h3>1. Find and save recipes you love (placeholder)</h3>
             <h3 className="margin-vertical-sm">
               2. Share your recipes to be enjoyed by people all over the world
