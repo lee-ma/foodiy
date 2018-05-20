@@ -20,12 +20,6 @@
   color: white;
 }
 
-.transparent-black {
-  background-color: #ffffff;
-}
-
-@media (max-width: 767px) {
-  .transparent-black {
-    background-color: #ffffff;
-  }
+.bkg-white {
+  background-color: #feffff;
 }

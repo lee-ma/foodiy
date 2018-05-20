@@ -17,7 +17,7 @@ export const fontSizes = {
   default: '1em',
   medium: '1.5em',
   big: '2em',
-  huge: '4em'
+  huge: '3em'
 }
 
 export const colors = {

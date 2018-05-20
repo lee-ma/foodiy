@@ -6,13 +6,13 @@ class Dashboard extends Component {
     return (
       <div className="container-fluid" style={{minHeight: '100vh', marginTop: "2.5em"}}>
 
-        <div className="row">
+        <div className="row fadein">
           <div className="col-xs-12 col-sm-10 offset-sm-1">
             <div className="row">
-              <Text big black>Welcome back, Elon</Text>
+              <Text huge green>Welcome back, Elon</Text>
             </div>
-            <div className="row">
-              <Text default black>Favorites:</Text>
+            <div className="row" style={{marginTop: "1.5em"}}>
+              <Text medium black>Favorites:</Text>
             </div>
             <div className="flexbox" style={{display: 'flex', minHeight: 'wrap-content', overflowX: 'auto', padding: '0.5em'}}>
               <RecipeCard
@@ -58,8 +58,8 @@ class Dashboard extends Component {
                 href="#"
               />
             </div>
-            <div className="row">
-              <Text default black>Recommended for you:</Text>
+            <div className="row" style={{marginTop: "1.25em"}}>
+              <Text medium black>Recommended for you:</Text>
             </div>
             <div className="flexbox" style={{display: 'flex', minHeight: 'wrap-content', overflowX: 'auto', padding: '0.5em'}}>
               <RecipeCard
@@ -105,8 +105,8 @@ class Dashboard extends Component {
                 href="#"
               />
             </div>
-            <div className="row">
-              <Text default black>Popular:</Text>
+            <div className="row" style={{marginTop: "1.25em"}}>
+              <Text medium black>Popular:</Text>
             </div>
             <div className="flexbox" style={{display: 'flex', minHeight: 'wrap-content', overflowX: 'auto', padding: '0.5em'}}>
               <RecipeCard
