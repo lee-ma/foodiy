@@ -3,17 +3,11 @@ import styled from 'styled-components'
 import { Text } from './index'
 
 const StyledModal = styled('div') `
-    position: absolute;
-    left: 50%;
-    top: 300px;
-    margin-top: -200px;
-    margin-left: -200px;
-    width: 400px;
-    z-index: 1000;
+    margin-top: 100px;
     background-color: #feffff;
     display: inline-block;
     border-radius: 0.25em;
-    padding: 1em;
+    padding: 1em 2em;
 `
 
 const Overlay = styled('div')`
@@ -32,17 +26,17 @@ class Modal extends Component {
         if (show) {
             return (
                 <Overlay>
-                    <StyledModal>
-                        <div className="container-fluid">
-                            <div className="row" style={{ marginBottom: '1em', display: 'flex', justifyContent: 'space-between' }}>
-                                <Text big>{title}</Text>
-                                <span onClick={hide} className="pointer" style={{marginTop: '0.5em'}}>
-                                    <i className="fas fa-times" />
-                                </span>
-                            </div>
-                            {children}
+                  <div className="row">
+                    <StyledModal className="col-10 offset-1 col-sm-6 offset-sm-3 col-lg-4 offset-lg-4">
+                        <div style={{ marginBottom: '1em', display: 'flex', justifyContent: 'space-between' }}>
+                          <Text big>{title}</Text>
+                          <span onClick={hide} className="pointer">
+                              <i className="fas fa-times" />
+                          </span>
                         </div>
+                        {children}
                     </StyledModal>
+                  </div>
                 </Overlay>
             )
         }

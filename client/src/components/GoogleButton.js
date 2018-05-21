@@ -35,8 +35,9 @@ const GoogleButton = (props) => {
     .logo-wrapper {
         background-color: #ffffff;
         padding: 15px;
+        margin-left: 0.05%;
         width: 48px;
-        height: 100%;
+        height: 48px;
         border-radius: 1px;
         display: inline-block;
     }
@@ -50,7 +51,12 @@ const GoogleButton = (props) => {
         border: none;
         display: inline-block;
         text-align: center;
-        width: 180px;
+        width: 83%;
+    }
+    @media(max-width: 375px) {
+      .text-container {
+        width: 75%;
+      }
     }
 `
     return (

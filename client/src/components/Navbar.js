@@ -95,19 +95,20 @@ class Navbar extends Component {
           </div>
         </nav>
         <Modal show={this.state.showLogin} hide={this.closeLoginModal} title="Log In">
-          <div className="row">
+          <div className="col-xs-12">
             <GoogleButton text="Sign in with Google" />
             <FacebookButton text="Sign in with Facebook" />
-            <Text bold style={{marginTop: '2em', textAlign: 'center'}}>OR</Text>
-            <form style={{ width: "100%" }}>
-              <div className="form-group" style={{marginTop: '2em'}}>
-                <Text>Email/Username</Text>
-                <input type="email" className="form-control" />
-                <Text>Password</Text>
-                <input className="form-control" />
-              </div>
-            </form>
           </div>
+          <Text bold style={{marginTop: '2em', textAlign: 'center'}}>OR</Text>
+          <form style={{ width: "100%" }}>
+            <div className="form-group" style={{marginTop: '2em'}}>
+              <Text>Email/Username</Text>
+              <input type="email" className="form-control" />
+              <Text>Password</Text>
+              <input className="form-control" />
+            </div>
+            <button className="btn btn-success" style={{float: 'right'}} type="submit">Login</button>
+          </form>
         </Modal>
       </div>
     );
