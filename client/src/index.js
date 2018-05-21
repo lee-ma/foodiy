@@ -19,7 +19,6 @@ ReactDOM.render(
       <div>
         <Navbar/>
         <Route exact path="/" component={Landing} />
-        <Route exact path="/dashboard" component={Dashboard} />
       </div>
     </BrowserRouter>
   </Provider>,
