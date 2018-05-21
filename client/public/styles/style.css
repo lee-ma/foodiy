@@ -20,31 +20,6 @@ body {
 .flexbox::-webkit-scrollbar {
   display: none;
 }
-
-/******************************* BUTTONS *********************************/
-.btn {
-  border-radius: 0;
-}
-
-.btn-green {
-  background-color: #00c853;
-  color: #fff;
-}
-
-.btn-green:hover {
-  background-color: #00a027;
-  color: #ffffff;
-}
-
-.btn-yellow {
-  background-color: #f4cd00;
-}
-
-.btn-yellow:hover {
-  background-color: #e2b800;
-  color: #fff;
-}
-
 /****************************** AUTH BUTTONS**************************/
 *,
 *:before,

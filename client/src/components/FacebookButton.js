@@ -49,7 +49,7 @@ const FacebookButton = (props) => {
             border: none;
             display: inline-block;
             text-align: center;
-            width: 180px;
+            width: 83%;
         }
     `
     return (
