@@ -34,7 +34,7 @@ class Modal extends Component {
                 <Overlay>
                     <StyledModal>
                         <div className="container-fluid">
-                            <div className="row" style={{ marginBottom: '1em', display: 'inline-block' }}>
+                            <div className="row" style={{ marginBottom: '1em', display: 'flex', justifyContent: 'space-between' }}>
                                 <Text big>{title}</Text>
                                 <button onClick={hide}>close modal</button>
                             </div>
