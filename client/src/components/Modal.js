@@ -21,7 +21,7 @@ class Modal extends Component {
         const { title, show, hide, children } = this.props
         if (show) {
             return (
-                <div
+                <div 
                     style={{
                         position: 'absolute',
                         top: 0,
@@ -34,8 +34,9 @@ class Modal extends Component {
                 >
                     <StyledModal>
                         <div className="container-fluid">
-                            <div className="row" style={{ marginBottom: '1em' }}>
+                            <div className="row" style={{ marginBottom: '1em', display: 'inline-block' }}>
                                 <Text big>{title}</Text>
+                                <button onClick={hide}>close modal</button>
                             </div>
                             {children}
                         </div>

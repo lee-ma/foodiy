@@ -8,25 +8,30 @@ class Navbar extends Component {
     super(props)
 
     this.state = {
-      showLogin: true
+      showLogin: false
     }
+
+    this.closeLoginModal.bind(this)
+    this.openLoginModal.bind(this)
   }
   componentDidMount() {
     this.props.fetchUser();
   }
 
-  toggleLoginModal = () => {
-    this.setState({ showLogin: !this.showLogin })
+  closeLoginModal = () => {
+    this.setState({ showLogin: false })
+  }
+
+  openLoginModal = () => {
+    this.setState({ showLogin: true })
   }
 
   renderNavLinks() {
     if (!this.props.user) {
       return (
         <ul className="navbar-nav ml-auto">
-          <li className="nav-link" onClick={this.toggleLoginModal}>
-
+          <li className="nav-link" onClick={this.openLoginModal}>
               Login
-
           </li>
           <li className="nav-item">
             <a className="nav-link" href="#">
@@ -84,7 +89,7 @@ class Navbar extends Component {
             {this.renderNavLinks()}
           </div>
         </nav>
-            <Modal show={this.state.showLogin} hide={!this.state.showLogin} title="Log In">
+            <Modal show={this.state.showLogin} hide={this.closeLoginModal} title="Log In">
               <div className="row">
                 <form style={{width: "100%"}}>
                   <div className="form-group">
