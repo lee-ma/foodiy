@@ -51,6 +51,11 @@ const FacebookButton = (props) => {
             text-align: center;
             width: 83%;
         }
+        @media(max-width: 375px) {
+          .text-container {
+            width: 75%;
+          }
+        }
     `
     return (
         <Facebook

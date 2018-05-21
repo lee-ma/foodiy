@@ -35,8 +35,7 @@ const GoogleButton = (props) => {
     .logo-wrapper {
         background-color: #ffffff;
         padding: 15px;
-        margin-left: 0.25px;
-        margin-top: 0.5px;
+        margin-left: 0.05%;
         width: 48px;
         height: 48px;
         border-radius: 1px;
@@ -54,19 +53,24 @@ const GoogleButton = (props) => {
         text-align: center;
         width: 83%;
     }
+    @media(max-width: 375px) {
+      .text-container {
+        width: 75%;
+      }
+    }
 `
     return (
         <Google
             className="google sign-in-button margin-vertical-sm"
             href="/auth/google">
-            <span className="content-wrapper">
+            <div className="content-wrapper">
                 <div className="logo-wrapper">
                     <img src="https://developers.google.com/identity/images/g-logo.png" />
                 </div>
                 <span className="text-container">
                     <span>{text}</span>
                 </span>
-            </span>
+            </div>
         </Google>
     )
 }

@@ -95,7 +95,7 @@ class Navbar extends Component {
           </div>
         </nav>
         <Modal show={this.state.showLogin} hide={this.closeLoginModal} title="Log In">
-          <div className="col-xs-10 offset-xs-1">
+          <div className="col-xs-12">
             <GoogleButton text="Sign in with Google" />
             <FacebookButton text="Sign in with Facebook" />
           </div>
