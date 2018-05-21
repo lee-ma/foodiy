@@ -5,7 +5,7 @@ import { Text } from './index'
 const StyledModal = styled('div') `
     position: absolute;
     left: 50%;
-    top: 30%;
+    top: 300px;
     margin-top: -200px;
     margin-left: -200px;
     width: 400px;
@@ -36,7 +36,9 @@ class Modal extends Component {
                         <div className="container-fluid">
                             <div className="row" style={{ marginBottom: '1em', display: 'flex', justifyContent: 'space-between' }}>
                                 <Text big>{title}</Text>
-                                <button onClick={hide}>close modal</button>
+                                <span onClick={hide} className="pointer" style={{marginTop: '0.5em'}}>
+                                    <i className="fas fa-times" />
+                                </span>
                             </div>
                             {children}
                         </div>
