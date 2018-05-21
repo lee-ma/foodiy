@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchUser } from '../actions';
-import { Modal, Text } from './index'
+import {
+  Modal,
+  Text,
+  GoogleButton,
+  FacebookButton
+} from './index'
 
 class Navbar extends Component {
   constructor(props) {
@@ -31,7 +36,7 @@ class Navbar extends Component {
       return (
         <ul className="navbar-nav ml-auto">
           <li className="nav-link" onClick={this.openLoginModal}>
-              Login
+            Login
           </li>
           <li className="nav-item">
             <a className="nav-link" href="#">
@@ -89,18 +94,21 @@ class Navbar extends Component {
             {this.renderNavLinks()}
           </div>
         </nav>
-            <Modal show={this.state.showLogin} hide={this.closeLoginModal} title="Log In">
-              <div className="row">
-                <form style={{width: "100%"}}>
-                  <div className="form-group">
-                    <Text>Email/Username</Text>
-                    <input type="email" className="form-control"/>
-                    <Text>Password</Text>
-                    <input className="form-control"/>
-                  </div>
-                </form>
-             </div>
-          </Modal>
+        <Modal show={this.state.showLogin} hide={this.closeLoginModal} title="Log In">
+          <div className="row">
+            <GoogleButton text="Sign in with Google" />
+            <FacebookButton text="Sign in with Facebook" />
+            <Text bold style={{marginTop: '2em', textAlign: 'center'}}>OR</Text>
+            <form style={{ width: "100%" }}>
+              <div className="form-group" style={{marginTop: '2em'}}>
+                <Text>Email/Username</Text>
+                <input type="email" className="form-control" />
+                <Text>Password</Text>
+                <input className="form-control" />
+              </div>
+            </form>
+          </div>
+        </Modal>
       </div>
     );
   }

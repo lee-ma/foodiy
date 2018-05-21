@@ -15,3 +15,5 @@ class Landing extends Component {
 const mapStateToProps = (state) => {
     user: state.auth
 }
+
+export default Landing

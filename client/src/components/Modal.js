@@ -5,7 +5,7 @@ import { Text } from './index'
 const StyledModal = styled('div') `
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 30%;
     margin-top: -200px;
     margin-left: -200px;
     width: 400px;
@@ -16,22 +16,22 @@ const StyledModal = styled('div') `
     padding: 1em;
 `
 
+const Overlay = styled('div')`
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 9000;
+`
+
 class Modal extends Component {
     render() {
         const { title, show, hide, children } = this.props
         if (show) {
             return (
-                <div 
-                    style={{
-                        position: 'absolute',
-                        top: 0,
-                        bottom: 0,
-                        left: 0,
-                        right: 0,
-                        backgroundColor: 'rgba(0,0,0,0.5)',
-                        zIndex: 9000
-                    }}
-                >
+                <Overlay>
                     <StyledModal>
                         <div className="container-fluid">
                             <div className="row" style={{ marginBottom: '1em', display: 'inline-block' }}>
@@ -41,7 +41,7 @@ class Modal extends Component {
                             {children}
                         </div>
                     </StyledModal>
-                </div>
+                </Overlay>
             )
         }
         else {
