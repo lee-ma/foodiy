@@ -26,7 +26,7 @@ class Navbar extends Component {
           <li className="nav-link" onClick={this.toggleLoginModal}>
 
               Login
-          
+
           </li>
           <li className="nav-item">
             <a className="nav-link" href="#">
@@ -86,16 +86,14 @@ class Navbar extends Component {
         </nav>
             <Modal show={this.state.showLogin} hide={!this.state.showLogin} title="Log In">
               <div className="row">
-                <div className="col-xs-12">
-                  <form>
-                    <div className="form-group">
-                      <Text>Email/Username</Text>
-                      <input className="form-control"/>
-                      <Text>Password</Text>
-                      <input className="form-control"/>
-                    </div>
-                  </form>
-                </div>
+                <form style={{width: "100%"}}>
+                  <div className="form-group">
+                    <Text>Email/Username</Text>
+                    <input type="email" className="form-control"/>
+                    <Text>Password</Text>
+                    <input className="form-control"/>
+                  </div>
+                </form>
              </div>
           </Modal>
       </div>

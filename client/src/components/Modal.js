@@ -21,7 +21,7 @@ class Modal extends Component {
         const { title, show, hide, children } = this.props
         if (show) {
             return (
-                <div 
+                <div
                     style={{
                         position: 'absolute',
                         top: 0,
