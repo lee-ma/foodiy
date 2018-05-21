@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
@@ -7,9 +7,9 @@ import reduxThunk from 'redux-thunk';
 
 import reducers from './reducers';
 
-import Home from './scenes/Home';
+import { Landing, Dashboard } from './scenes'
+
 import Navbar from './components/Navbar';
-import Dashboard from './scenes/Dashboard'
 
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 
@@ -18,7 +18,8 @@ ReactDOM.render(
     <BrowserRouter>
       <div>
         <Navbar/>
-        <Route exact path="/" component={Dashboard} />
+        <Route exact path="/" component={Landing} />
+        <Route exact path="/dashboard" component={Dashboard} />
       </div>
     </BrowserRouter>
   </Provider>,

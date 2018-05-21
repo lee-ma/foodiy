@@ -8,22 +8,6 @@ class Home extends Component {
         <div className="row hero-image">
           <Text center green big>Hello</Text>
           <div className="mobile-card text-align-center">
-            <a className="btn-green sign-in-button" href="/login">
-              <div className="content-wrapper text-align-center">
-                <span className="text-container">
-                  <span>Sign in</span>
-                </span>
-              </div>
-            </a>
-            <a
-              className="btn-yellow sign-in-button margin-vertical-md"
-              href="#">
-              <div className="content-wrapper">
-                <span className="text-container">
-                  <span>Register</span>
-                </span>
-              </div>
-            </a>
           </div>
           <div className="col-xs-12 col-sm-4 margin-vertical-lg">
             <div className="homepage-card text-align-center">
@@ -54,35 +38,7 @@ class Home extends Component {
                 </div>
               </a>
               <br />
-              <a
-                className="btn-green sign-in-button margin-vertical-md"
-                href="/login">
-                <div className="content-wrapper">
-                  <div className="logo-wrapper">
-                    <i
-                      className="fas fa-envelope"
-                      style={{ marginBottom: '2.75px' }}
-                    />
-                  </div>
-                  <span className="text-container">
-                    <span>Sign in with Email</span>
-                  </span>
-                </div>
-              </a>
               <hr style={{ width: '240px', color: "#616161" }} />
-              <a className="btn-yellow sign-in-button" href="#">
-                <div className="content-wrapper">
-                  <div className="logo-wrapper">
-                    <i
-                      className="fas fa-at"
-                      style={{ marginBottom: '2.75px' }}
-                    />
-                  </div>
-                  <span className="text-container">
-                    <span>Register with Email</span>
-                  </span>
-                </div>
-              </a>
             </div>
           </div>
         </div>

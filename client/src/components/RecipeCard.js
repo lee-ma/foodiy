@@ -13,8 +13,8 @@ const RecipeCard = (props) => {
       text-decoration: none;
       box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     };
-}
-  `
+}`
+
   return (
       <StyledCard href={href}>
         <div
