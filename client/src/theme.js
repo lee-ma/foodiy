@@ -7,7 +7,7 @@ export const fontWeights = {
 
 export const fonts = {
   serif: 'serif',
-  sansSerif: "'Oxygen', 'sans-serif'",
+  sansSerif: "'Source Sans Pro', 'sans-serif'",
   logo: 'serif'
 }
 
