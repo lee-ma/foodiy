@@ -21,6 +21,7 @@ export const fontSizes = {
 }
 
 export const colors = {
+  error: '#cc0000',
   green: '#00C853',
   black: '#484848',
   grey: '#b6b6b6'

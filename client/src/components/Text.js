@@ -29,6 +29,7 @@ const Text = (props) => {
       };
       color: ${
         props => props.green ? colors.green :
+                props.error ? colors.error :
                 props.grey ? colors.grey : colors.black
       };
       line-height: ${

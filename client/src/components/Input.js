@@ -19,55 +19,23 @@ const StyledInput = styled('input') `
   font-family: ${fonts.sansSerif};
 `
 
-const InputFeedback = ({ error }) => {
-  return (
-    error ? (
-      <inputFeedback>{error}</inputFeedback>
-    ) : null
-  )
-
-}
-
-
-const Label = ({
-  error,
-  className,
-  children,
-  ...props
-}) => {
-  return (
-    <StyledLabel {...props}>
-      {children}
-    </StyledLabel>
-  );
-};
-
-const TextInput = ({
-  type,
-  id,
-  label,
-  error,
-  value,
-  onChange,
-  className,
-  ...props
-}) => {
-  return (
-    <div>
-      <Label htmlFor={id} error={error}>
-        {label}
-      </Label>
-      <StyledInput
-        className="form-control"
-        id={id}
-        type={type}
-        value={value}
-        onChange={onChange}
-        {...props}
-      />
-      <InputFeedback error={error} />
-    </div>
-  );
-};
+const TextInput = ({ name, label, ...rest }) => (
+  <Field
+    name={name}
+    render={({ field, form }) => {
+      const error = form.touched[name] && form.errors[name];
+      return (
+        <div>
+          <StyledLabel htmlFor={name}>{label}</StyledLabel>
+          <StyledInput className="form-control" {...field} {...rest} />
+          {form.errors[name] &&
+            form.touched[name] && (
+              <Text small italic error>{form.errors[name]}</Text>
+            )}
+        </div>
+      );
+    }}
+  />
+);
 
 export default TextInput

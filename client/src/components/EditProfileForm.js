@@ -26,9 +26,10 @@ class EditProfileForm extends Component {
         }
     }
 
-    handleSubmit = values => {
+    handleSubmit = (values) => {
+        alert('clicked')
         console.log(values)
-        this.props.updateUser(values)
+        //this.props.updateUser(values)
     }
 
     render() {
@@ -54,6 +55,7 @@ class EditProfileForm extends Component {
                                 />
                             </Form>
                             {error ? <Text error small italic>{error}</Text> : null}
+                            <button className="btn btn-success" style={{marginTop: '0.75em', cursor: 'pointer'}} type="submit">Submit</button>
                         </div>
                     )
                 }}
