@@ -37,26 +37,23 @@ class EditProfileForm extends Component {
         return (
             <Formik
                 initialValues={this.EditProfileValues()}
-                onSubmit={this.handleSubmit}
+                onSubmit={(values) => console.log(values)}
                 validationSchema={createEditProfileSchema}
                 render={() => {
                     return (
-                        <div>
-                            <Form>
-                                <Input
-                                    label="First Name"
-                                    type="text"
-                                    name="firstName"
-                                />
-                                <Input
-                                    label="Last Name"
-                                    type="text"
-                                    name="lastName"
-                                />
-                            </Form>
-                            {error ? <Text error small italic>{error}</Text> : null}
-                            <button className="btn btn-success" style={{marginTop: '0.75em', cursor: 'pointer'}} type="submit">Submit</button>
-                        </div>
+                        <Form>
+                            <Input
+                                label="First Name"
+                                type="text"
+                                name="firstName"
+                            />
+                            <Input
+                                label="Last Name"
+                                type="text"
+                                name="lastName"
+                            />
+                            <button className="btn btn-success" style={{ marginTop: '0.75em', cursor: 'pointer' }} type="submit">Submit</button>
+                        </Form>
                     )
                 }}
             />

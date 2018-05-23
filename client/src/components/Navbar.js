@@ -51,8 +51,8 @@ class Navbar extends Component {
       return (
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">
-            <a className="nav-link" href="/api/user">
-              Current User
+            <a className="nav-link" href="/profile">
+              Profile
             </a>
           </li>
           <li className="nav-item">
