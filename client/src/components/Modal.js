@@ -28,7 +28,7 @@ class Modal extends Component {
             return (
                 <Overlay>
                     <div className="row">
-                        <StyledModal className="col-10 offset-1 col-sm-6 offset-sm-3 col-lg-4 offset-lg-4">
+                        <StyledModal className="col-10 offset-1 col-sm-6 offset-sm-3 col-lg-4 offset-lg-4 slideinfromtop">
                             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                                 <Text big>{title}</Text>
                                 <span onClick={hide} className="pointer">
