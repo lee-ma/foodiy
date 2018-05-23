@@ -29,13 +29,13 @@ class Modal extends Component {
                 <Overlay>
                   <div className="row">
                     <StyledModal className="col-10 offset-1 col-sm-6 offset-sm-3 col-lg-4 offset-lg-4">
-                        <div style={{ marginBottom: '1em', display: 'flex', justifyContent: 'space-between' }}>
+                        <div style={{display: 'flex', justifyContent: 'space-between' }}>
                           <Text big>{title}</Text>
                           <span onClick={hide} className="pointer">
                               <i className="fas fa-times" />
                           </span>
                         </div>
-                        <hr style={{ borderColor: colors.green }} />
+                        <hr style={{ borderColor: colors.green, width: "20%", float: "left", margin: "10px 0 35px 0", borderWidth: "2px"}} />
                         {children}
                     </StyledModal>
                   </div>
