@@ -11,7 +11,7 @@ const StyledModal = styled('div') `
     padding: 1em 2em;
 `
 
-const Overlay = styled('div')`
+const Overlay = styled('div') `
     position: absolute;
     top: 0;
     bottom: 0;
@@ -27,18 +27,24 @@ class Modal extends Component {
         if (show) {
             return (
                 <Overlay>
-                  <div className="row">
-                    <StyledModal className="col-10 offset-1 col-sm-6 offset-sm-3 col-lg-4 offset-lg-4">
-                        <div style={{display: 'flex', justifyContent: 'space-between' }}>
-                          <Text big>{title}</Text>
-                          <span onClick={hide} className="pointer">
-                              <i className="fas fa-times" />
-                          </span>
-                        </div>
-                        <hr style={{ borderColor: colors.green, width: "20%", float: "left", margin: "10px 0 35px 0", borderWidth: "2px"}} />
-                        {children}
-                    </StyledModal>
-                  </div>
+                    <div className="row">
+                        <StyledModal className="col-10 offset-1 col-sm-6 offset-sm-3 col-lg-4 offset-lg-4">
+                            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                <Text big>{title}</Text>
+                                <span onClick={hide} className="pointer">
+                                    <i className="fas fa-times" />
+                                </span>
+                            </div>
+                            <div className="row">
+                                <div className="col-3">
+                                    <hr style={{ borderColor: colors.green, width: '100%', float: "left", margin: "10px 0 35px 0", borderWidth: "2px", display: "block" }} />
+                                </div>
+                            </div>
+                            <div>
+                                {children}
+                            </div>
+                        </StyledModal>
+                    </div>
                 </Overlay>
             )
         }
