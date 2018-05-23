@@ -7,7 +7,7 @@ import reduxThunk from 'redux-thunk';
 
 import reducers from './reducers';
 
-import { Landing, Dashboard } from './scenes'
+import { Landing, Profile } from './scenes'
 
 import Navbar from './components/Navbar';
 
@@ -19,6 +19,7 @@ ReactDOM.render(
       <div>
         <Navbar/>
         <Route exact path="/" component={Landing} />
+        <Route exact path="/profile" component={Profile} />
       </div>
     </BrowserRouter>
   </Provider>,

@@ -5,7 +5,8 @@ import {
   Modal,
   Text,
   GoogleButton,
-  FacebookButton
+  FacebookButton,
+  LoginForm
 } from './index'
 
 class Navbar extends Component {
@@ -50,7 +51,7 @@ class Navbar extends Component {
       return (
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">
-            <a className="nav-link" href="/api/current_user">
+            <a className="nav-link" href="/api/user">
               Current User
             </a>
           </li>
@@ -68,7 +69,6 @@ class Navbar extends Component {
       <div>
         <nav
           className="navbar navbar-toggleable-md navbar-light bkg-white"
-        // style={{ backgroundColor: 'rgba(0,0,0,0.25)' }}
         >
           <button
             className="navbar-toggler navbar-toggler-right"
@@ -95,20 +95,7 @@ class Navbar extends Component {
           </div>
         </nav>
         <Modal show={this.state.showLogin} hide={this.closeLoginModal} title="Log In">
-          <div className="col-xs-12">
-            <GoogleButton text="Sign in with Google" />
-            <FacebookButton text="Sign in with Facebook" />
-          </div>
-          <Text bold style={{marginTop: '2em', textAlign: 'center'}}>OR</Text>
-          <form style={{ width: "100%" }}>
-            <div className="form-group" style={{marginTop: '2em'}}>
-              <Text>Email/Username</Text>
-              <input type="email" className="form-control" />
-              <Text>Password</Text>
-              <input className="form-control" />
-            </div>
-            <button className="btn btn-success" style={{float: 'right'}} type="submit">Login</button>
-          </form>
+          <LoginForm />
         </Modal>
       </div>
     );

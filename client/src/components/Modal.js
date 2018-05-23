@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { Text } from './index'
+import { colors } from '../theme'
 
 const StyledModal = styled('div') `
     margin-top: 100px;
@@ -34,6 +35,7 @@ class Modal extends Component {
                               <i className="fas fa-times" />
                           </span>
                         </div>
+                        <hr style={{ borderColor: colors.green }} />
                         {children}
                     </StyledModal>
                   </div>
