@@ -18,15 +18,20 @@ const SearchButton = styled('button')`
   transform: scale(0.9);
 `
 
-const Button = ({children, searchbar, secondary}) => {
+const Button = ({
+  children,
+  searchbar,
+  secondary,
+  ...otherProps
+}) => {
   if(searchbar) {
-    return <SearchButton className="btn">{children}</SearchButton>
+    return <SearchButton {...otherProps} className="btn">{children}</SearchButton>
   }
   else if (secondary) {
-    return <SecondaryButton>{children}</SecondaryButton>
+    return <SecondaryButton {...otherProps}>{children}</SecondaryButton>
   }
   else {
-    return <PrimaryButton>{children}</PrimaryButton>
+    return <PrimaryButton {...otherProps}>{children}</PrimaryButton>
   }
 }
 

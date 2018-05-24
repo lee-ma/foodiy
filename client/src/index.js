@@ -8,6 +8,7 @@ import reduxThunk from 'redux-thunk';
 import reducers from './reducers';
 
 import { Landing, Profile } from './scenes'
+import { NewRecipeForm } from './components'
 
 import Navbar from './components/Navbar';
 
@@ -20,6 +21,7 @@ ReactDOM.render(
         <Navbar/>
         <Route exact path="/" component={Landing} />
         <Route exact path="/profile" component={Profile} />
+        <Route exact path="/newrecipe" component={NewRecipeForm} />
       </div>
     </BrowserRouter>
   </Provider>,
