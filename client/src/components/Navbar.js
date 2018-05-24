@@ -6,7 +6,8 @@ import {
   Text,
   GoogleButton,
   FacebookButton,
-  LoginForm
+  LoginForm,
+  SearchBar
 } from './index'
 
 class Navbar extends Component {
@@ -51,6 +52,11 @@ class Navbar extends Component {
       return (
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">
+            <a className="nav-link" href="#">
+              New Recipe
+          </a>
+          </li>
+          <li className="nav-item">
             <a className="nav-link" href="/profile">
               Profile
             </a>
@@ -82,14 +88,10 @@ class Navbar extends Component {
           </button>
           <a className="navbar-brand" href="/">
             FOODIY
-        </a>
+          </a>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">
-              <li className="nav-item">
-                <a className="nav-link" href="#">
-                  New Recipe
-              </a>
-              </li>
+              <SearchBar/>
             </ul>
             {this.renderNavLinks()}
           </div>
