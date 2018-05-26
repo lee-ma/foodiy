@@ -1,7 +1,6 @@
 import React from 'react';
-import {Input, Text, Button} from './index';
-import {Formik, Form} from 'formik';
-import { connect } from 'react-redux'
+import { Input, Button } from './index';
+import { Formik, Form } from 'formik';
 
 const searchBarInitialValues = {
   searchQuery: ""

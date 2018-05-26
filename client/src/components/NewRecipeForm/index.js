@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Formik } from 'formik'
-import { Form, Input, Button } from '../index'
-import * as yup from 'yup'
+import { Button } from '../index'
 
 import InfoForm, { InfoSchema } from './InfoForm'
 import RecipeForm, { RecipeSchema } from './RecipeForm'
@@ -64,7 +63,6 @@ class NewRecipeForm extends Component {
 
   render() {
     const { stage } = this.state
-    console.log(stage)
     return (
       <div>
         {(stage !== "info") && <Button onClick={() => this.goBack()}>

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchUser } from '../actions';
 import {
   Modal,
   LoginForm,
@@ -17,9 +16,6 @@ class Navbar extends Component {
 
     this.closeLoginModal.bind(this)
     this.openLoginModal.bind(this)
-  }
-  componentDidMount() {
-    this.props.fetchUser();
   }
 
   closeLoginModal = () => {
@@ -107,4 +103,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { fetchUser })(Navbar);
+export default connect(mapStateToProps)(Navbar);

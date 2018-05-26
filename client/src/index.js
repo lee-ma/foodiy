@@ -16,7 +16,7 @@ import Navbar from './components/Navbar';
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 
 /**  Request User No Matter Where They Entered From  **/
-fetchUser()
+store.dispatch(fetchUser())
 
 ReactDOM.render(
   <Provider store={store}>
