@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Formik } from 'formik'
 import { Button } from '../index'
+import { connect } from 'react-redux'
+import { addRecipe } from '../../actions'
 
 import InfoForm, { InfoSchema } from './InfoForm'
 import RecipeForm, { RecipeSchema } from './RecipeForm'
@@ -55,7 +57,11 @@ class NewRecipeForm extends Component {
       this.setState({ "stage": nextStage, "inputs": { ...this.state.inputs, ...inputValues }})
     }
     else {
-      console.log({...this.state.inputs, ...values})
+      const data = {...this.state.inputs, ...values}
+      console.log(data)
+
+      this.props.addRecipe(data)
+      this.props.history.push('/')
     }
   }
 
@@ -91,4 +97,4 @@ class NewRecipeForm extends Component {
   }
 }
 
-export default NewRecipeForm
+export default connect(null, { addRecipe })(NewRecipeForm)

@@ -4,8 +4,8 @@ import { Form } from 'formik'
 import * as yup from 'yup'
 
 export const RecipeSchema = yup.object().shape({
-  ingredients: yup.string().trim(),
-  steps: yup.string().trim()
+  ingredients: yup.array().min(1, "Please enter at least one ingredient"),
+  steps: yup.array().min(1, "Please enter at least one step")
 })
 
 class RecipeForm extends Component {

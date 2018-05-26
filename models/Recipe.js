@@ -8,7 +8,7 @@ const RecipeSchema = new Schema({
   steps: [String],
   image: String,
   rating: Number,
-  time: String,
+  time: Number,
   author: {
       type: Schema.Types.ObjectId,
       ref: 'user'
