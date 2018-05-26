@@ -27,9 +27,8 @@ class EditProfileForm extends Component {
     }
 
     handleSubmit = (values) => {
-        alert('clicked')
-        console.log(values)
-        //this.props.updateUser(values)
+        this.props.hide()
+        this.props.updateUser(values)
     }
 
     render() {
@@ -37,7 +36,7 @@ class EditProfileForm extends Component {
         return (
             <Formik
                 initialValues={this.EditProfileValues()}
-                onSubmit={(values) => console.log(values)}
+                onSubmit={this.handleSubmit}
                 validationSchema={createEditProfileSchema}
                 render={() => {
                     return (

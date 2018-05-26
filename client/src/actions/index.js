@@ -7,8 +7,8 @@ export const fetchUser = () => dispatch => {
     .then(res => dispatch({ type: FETCH_USER, payload: res.data }));
 };
 
-export const updateUser = (user) => dispatch => {
+export const updateUser = userValues => dispatch => {
   axios
-  .put('/api/user', user)
+  .put('/api/user', userValues)
   .then(res => dispatch({ type: UPDATE_USER, payload: res.data }))
 }

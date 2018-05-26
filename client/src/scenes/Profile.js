@@ -23,7 +23,7 @@ class Home extends Component {
             <div>
                 <button onClick={this.openEditProfileModal}>OPEN EDIT PROFILE MODAL</button>
                 <Modal show={this.state.showEditProfileModal} hide={this.closeEditProfileModal} title="Edit Profile">
-                    <EditProfileForm />
+                    <EditProfileForm hide={this.closeEditProfileModal}/> {/*get rid of this later when we move to new page*/}
                 </Modal>
             </div>
         )

@@ -9,7 +9,7 @@ class Dashboard extends Component {
       return <Text>Loading Animation</Text>
     }
     return (
-      <div className="container-fluid" style={{minHeight: '100vh', marginTop: "2.5em"}}>
+      <div className="container-fluid" style={{minHeight: '100vh', marginTop: "2.5em" }}>
 
         <div className="row fadein">
           <div className="col-xs-12 col-sm-10 offset-sm-1">

@@ -1,4 +1,6 @@
 const passport = require('passport');
+const mongoose = require('mongoose');
+const User = mongoose.model('user');
 
 module.exports = app => {
   app.get(
@@ -26,6 +28,8 @@ module.exports = app => {
   });
 
   app.put('/api/user', (req, res) => {
-    res.send(req.body);
+    User.findByIdAndUpdate(req.user._id, req.body)
+    .then()
+    .catch(err => console.log(err));
   })
 };

@@ -21,7 +21,7 @@ const StyledInput = styled('input') `
     transition: 1s;
     :focus {
       padding-right: ${
-        props => props.searchbar ? '65%' : 'auto'
+        props => props.searchbar ? '40%' : 'auto'
       };
       transition: ${
         props => props.searchbar ? '0.5s' : ''
