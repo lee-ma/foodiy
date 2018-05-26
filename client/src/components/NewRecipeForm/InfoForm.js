@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Input, Button } from '../index'
 import { Form } from 'formik'
 import * as yup from 'yup'

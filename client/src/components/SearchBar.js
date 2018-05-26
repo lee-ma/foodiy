@@ -3,12 +3,16 @@ import {Input, Text, Button} from './index';
 import {Formik, Form} from 'formik';
 import { connect } from 'react-redux'
 
+const searchBarInitialValues = {
+  searchQuery: ""
+}
+
 class SearchBar extends React.Component {
   render() {
     return(
       <div>
         <Formik
-          initialValues = {""}
+          initialValues = {searchBarInitialValues}
           onSubmit = {(searchTerm) => console.log(searchTerm)}
           render = {() => {
             return (

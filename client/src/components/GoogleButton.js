@@ -65,7 +65,7 @@ const GoogleButton = (props) => {
             href="/auth/google">
             <div className="content-wrapper">
                 <div className="logo-wrapper">
-                    <img src="https://developers.google.com/identity/images/g-logo.png" />
+                    <img alt="Google Icon" src="https://developers.google.com/identity/images/g-logo.png" />
                 </div>
                 <span className="text-container">
                     <span>{text}</span>

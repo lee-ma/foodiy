@@ -62,7 +62,7 @@ const FacebookButton = (props) => {
             href="#">
             <div className="content-wrapper">
                 <div className="logo-wrapper">
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/14082/icon_facebook.png" />
+                    <img alt="Facebook Icon" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/14082/icon_facebook.png" />
                 </div>
                 <span className="text-container">
                     <span>{text}</span>

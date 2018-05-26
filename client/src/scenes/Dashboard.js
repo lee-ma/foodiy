@@ -1,24 +1,29 @@
 import React, { Component } from 'react'
 import { RecipeCard, Text } from '../components'
+import { connect } from 'react-redux'
 
 class Dashboard extends Component {
   render() {
+    const { user } = this.props
+    if (!user) {
+      return <Text>Loading Animation</Text>
+    }
     return (
       <div className="container-fluid" style={{minHeight: '100vh', marginTop: "2.5em"}}>
 
         <div className="row fadein">
           <div className="col-xs-12 col-sm-10 offset-sm-1">
             <div className="row">
-              <Text huge green>Welcome back, Elon</Text>
+              <Text huge green>Welcome back, {user.firstName}</Text>
             </div>
             <div className="row" style={{marginTop: "1.5em"}}>
               <Text medium black>Favorites:</Text>
-              <div 
-                className="flexbox" 
+              <div
+                className="flexbox"
                 style={{
-                  display: 'flex', 
-                  minHeight: 'wrap-content', 
-                  overflowX: 'auto', 
+                  display: 'flex',
+                  minHeight: 'wrap-content',
+                  overflowX: 'auto',
                   padding: '0.5em'}}
               >
               <RecipeCard
@@ -65,7 +70,7 @@ class Dashboard extends Component {
               />
             </div>
           </div>
-    
+
             <div className="row" style={{marginTop: "1.25em"}}>
               <Text medium black>Recommended for you:</Text>
               <div className="flexbox" style={{display: 'flex', minHeight: 'wrap-content', overflowX: 'auto', padding: '0.5em'}}>
@@ -113,7 +118,7 @@ class Dashboard extends Component {
               />
             </div>
             </div>
-            
+
             <div className="row" style={{marginTop: "1.25em"}}>
               <Text medium black>Popular:</Text>
               <div className="flexbox" style={{display: 'flex', minHeight: 'wrap-content', overflowX: 'auto', padding: '0.5em'}}>
@@ -168,4 +173,10 @@ class Dashboard extends Component {
   }
 }
 
-export default Dashboard;
+const mapStateToProps = state => {
+  return {
+    user: state.auth
+  }
+}
+
+export default connect(mapStateToProps)(Dashboard);

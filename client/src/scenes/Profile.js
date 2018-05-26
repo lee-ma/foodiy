@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, Modal, EditProfileForm } from '../components'
+import { Modal, EditProfileForm } from '../components'
 
 class Home extends Component {
     constructor(props) {

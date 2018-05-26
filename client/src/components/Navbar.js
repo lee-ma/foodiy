@@ -3,9 +3,6 @@ import { connect } from 'react-redux';
 import { fetchUser } from '../actions';
 import {
   Modal,
-  Text,
-  GoogleButton,
-  FacebookButton,
   LoginForm,
   SearchBar
 } from './index'

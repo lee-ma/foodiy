@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchUser } from '../actions'
+import { Text } from '../components'
 import { Home, Dashboard } from './index'
 
 class Landing extends Component {
-    componentDidMount() {
-        this.props.fetchUser()
-    }
     render() {
-        console.log(this.props.user)
-        if (!this.props.user) {
+        const { user } = this.props
+        if (user === null) {
+          return <Text>Loading Animation</Text>
+        }
+        if (user === false) {
             return <Home />
         }
         else {
@@ -24,4 +24,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { fetchUser })(Landing)
+export default connect(mapStateToProps)(Landing)
