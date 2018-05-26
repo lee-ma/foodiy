@@ -20,16 +20,18 @@ const flowControl = (current, skipNext = false, goBack = false) => {
   return flow[0]
 }
 
-const infoInitValues = {
-  title: "",
-  description: "",
-  image: [],
-  time: ""
+const infoInitValues = (inputs) => {
+  return {
+    title: inputs.title || "",
+    description: inputs.description || "",
+    image: [],
+    time: inputs.time || ""
+  }
 }
 
 const recipeInitValues = {
-  ingredients: "",
-  steps: ""
+  ingredients: [],
+  steps: []
 }
 
 class NewRecipeForm extends Component {
@@ -65,13 +67,13 @@ class NewRecipeForm extends Component {
     const { stage } = this.state
     return (
       <div>
-        {(stage !== "info") && <Button onClick={() => this.goBack()}>
+        {(stage !== "info") && <Button style={{ marginBottom: '30px'}} onClick={() => this.goBack()}>
           <i className="fa fa-angle-left m-r-1" />
                   Back
         </Button>}
         {stage === "info" &&
           <Formik
-            initialValues={infoInitValues}
+            initialValues={infoInitValues(this.state.inputs)}
             onSubmit={(values, action) => {this.handleSubmit(values, action)}}
             component={InfoForm}
             validationSchema={InfoSchema} />

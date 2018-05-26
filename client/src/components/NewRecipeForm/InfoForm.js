@@ -6,7 +6,7 @@ import * as yup from 'yup'
 export const InfoSchema = yup.object().shape({
   title: yup.string().trim().required("Enter a title for your recipe!"),
   description: yup.string().trim().required("Don't forget a short description!"),
-  time: yup.string().trim()
+  time: yup.number().moreThan(0.0001, "There's no such thing as negative or zero time!").required("Remember to tell others the cooking time!")
 })
 
 const InfoForm = ({handleSubmit}) => {
@@ -25,6 +25,12 @@ const InfoForm = ({handleSubmit}) => {
               label="Description"
               name="description"
               type="text"
+            />
+            <Input
+              label="Time (hours)"
+              name="time"
+              type="number"
+              step={0.25}
             />
             <Button type="submit">
               To Ingredients and Steps
