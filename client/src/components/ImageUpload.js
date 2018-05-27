@@ -58,9 +58,8 @@ class ImageUpload extends Component {
                   setFieldValue("images", [])
                 }
                 else {
-                  console.log(values.images[i])
-                  setFieldValue("images", values.images.splice(i, 1))
-                  console.log(values.images[i])
+                  values.images.splice(i, 1)
+                  setFieldValue("images", values.images)
                 }
               }}
               key={i}
