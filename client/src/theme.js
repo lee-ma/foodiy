@@ -26,7 +26,8 @@ export const colors = {
   green: '#00C853',
   greenDark: '#009624',
   black: '#484848',
-  grey: '#b6b6b6'
+  grey: '#b6b6b6',
+  greyDark: '#616161'
 }
 
 export const lineHeights = {

@@ -52,7 +52,7 @@ class RecipeForm extends Component {
             <Text big bold>Ingredients</Text>
             <Form id="recipe_form">
               {this.renderIngredientInputs()}
-              <Button type="button" onClick={this.addIngredient}>
+              <Button secondary type="button" onClick={this.addIngredient}>
                 <i className="fas fa-plus" style={{marginRight: "5px"}}></i>
                 Add Ingredient
               </Button>
@@ -62,15 +62,15 @@ class RecipeForm extends Component {
             <Text big bold>Steps</Text>
             <Form>
                 {this.renderStepInputs()}
-              <Button type="button" onClick={this.addStep}>
+              <Button secondary type="button" onClick={this.addStep}>
                 <i className="fas fa-plus" style={{marginRight: "5px"}}></i>
                 Add Step
               </Button>
             </Form>
           </div>
         </div>
-          <div className="col-xs-12">
-            <Button type="submit" form="recipe_form">Submit</Button>
+          <div className="col-xs-12" style={{marginTop: "5em"}}>
+            <Button style={{padding: "1em 5em"}}type="submit" form="recipe_form">Submit</Button>
           </div>
       </div>
     )

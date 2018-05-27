@@ -10,10 +10,10 @@ const PrimaryButton = styled('button')`
   margin: 0.5em 0;
   color: ${colors.white};
   padding: .5em 1.5em;
-  border-radius: 0.5em;
+  border-radius: 2px;
   font-family: ${fonts.sansSerif};
   font-size: ${fontSizes.default};
-  font-weight: ${fontWeights.bold};
+  font-weight: ${fontWeights.default};
   border: none;
   cursor: pointer;
   transition: 0.1s;
@@ -24,8 +24,21 @@ const PrimaryButton = styled('button')`
 `
 
 const SecondaryButton = styled('button')`
-  background-color: #b6b6b6;
+  background-color: ${colors.grey};
   margin: 0.5em 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: ${colors.white};
+  padding: 0.5em 1.5em;
+  border-radius: 2px;
+  font-family: ${fonts.sansSerif};
+  border: none;
+  cursor: pointer;
+  &:hover {
+    transition: 0.3s;
+    background-color: ${colors.greyDark};
+  }
 `
 
 const SearchButton = styled('button')`
