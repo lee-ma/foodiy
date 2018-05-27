@@ -21,18 +21,30 @@ class Thumbnail extends React.Component {
   }
 
   render() {
-    const { file } = this.props;
+    const { file, remove, index } = this.props;
     const { loading, thumb } = this.state;
 
     if (!file) { return null; }
 
     if (loading) { return <p>loading...</p>; }
 
-    return (<img src={thumb}
-      alt={file.name}
-      className="img-thumbnail mt-2"
-      height={200}
-      width={200} />);
+    return (
+      <div>
+        <span onClick={(e) => {
+          e.stopPropagation()
+          remove()
+          this.forceUpdate()
+        }}>
+          <i className="far fa-times-circle"></i>
+        </span>
+        <img src={thumb}
+        alt={file.name}
+        className="img-thumbnail mt-2"
+        height={200}
+        width={200} />
+      </div>
+
+    );
   }
 }
 

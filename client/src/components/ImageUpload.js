@@ -23,6 +23,7 @@ const rejectDropzoneStyle = {
 }
 
 class ImageUpload extends Component {
+
   render() {
     let { values, setFieldValue } = this.props
     return (
@@ -41,7 +42,7 @@ class ImageUpload extends Component {
           if (isDragReject) {
             return "Invalid file type.";
           }
-          
+
           if (isDragActive) {
             return "Let go to add your image!";
           }
@@ -50,7 +51,20 @@ class ImageUpload extends Component {
             return <p>Try dragging a file here, or click to upload images.</p>
           }
 
-          return values.images.map((file, i) => (<Thumbnail key={i} file={file} />));
+          return values.images.map((file, i) => (
+            <Thumbnail
+              remove={() => {
+                if (values.images.length === 1) {
+                  setFieldValue("images", [])
+                }
+                else {
+                  console.log(values.images[i])
+                  setFieldValue("images", values.images.splice(i, 1))
+                  console.log(values.images[i])
+                }
+              }}
+              key={i}
+              file={file} />));
         }}
       </Dropzone>
     )
