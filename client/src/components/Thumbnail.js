@@ -33,7 +33,6 @@ class Thumbnail extends Component {
         <span onClick={(e) => {
           e.stopPropagation()
           remove()
-          this.forceUpdate()
         }}>
           <i className="far fa-times-circle"></i>
         </span>
