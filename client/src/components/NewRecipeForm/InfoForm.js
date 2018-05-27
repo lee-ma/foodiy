@@ -1,6 +1,7 @@
 import React from 'react'
-import { Input, Button, Text } from '../index'
+import { Input, Button, Text, Thumbnail, ImageUpload } from '../index'
 import { Form } from 'formik'
+import Dropzone from "react-dropzone";
 import * as yup from 'yup'
 
 export const InfoSchema = yup.object().shape({
@@ -9,7 +10,7 @@ export const InfoSchema = yup.object().shape({
   time: yup.number().moreThan(0.0001, "There's no such thing as negative or zero time!").required("Remember to tell others the cooking time!")
 })
 
-const InfoForm = ({handleSubmit}) => {
+const InfoForm = ({ values, handleSubmit, setFieldValue }) => {
   return (
     <div className="container-fluid" style={{ marginTop: "2.5em" }}>
       <div className="row">
@@ -32,6 +33,7 @@ const InfoForm = ({handleSubmit}) => {
               type="number"
               step={0.25}
             />
+            <ImageUpload values={values} setFieldValue={setFieldValue}/>
             <Button type="submit">
               To Ingredients and Steps
               <i className="fas fa-arrow-right" style={{ marginLeft: '5px', marginTop: '1.75px' }}></i>

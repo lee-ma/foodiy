@@ -26,7 +26,7 @@ const infoInitValues = (inputs) => {
   return {
     title: inputs.title || "",
     description: inputs.description || "",
-    image: [],
+    images: inputs.images || [],
     time: inputs.time || ""
   }
 }

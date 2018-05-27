@@ -3,6 +3,12 @@ const User = mongoose.model('user');
 const Recipe = mongoose.model('recipe');
 
 module.exports = app => {
+  app.get('/api/recipes', (req, res) => {
+    Recipe.find({})
+    .then(res => console.log(res))
+    .catch(err => console.log(err))
+  })
+
   app.put('/api/recipes', (req, res) => {
 
     // Construct the recipe that'll be sent up
