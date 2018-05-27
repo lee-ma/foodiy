@@ -14,23 +14,36 @@ const dropzoneStyle = {
   borderRadius: 5,
 }
 
+const acceptDropzoneStyle = {
+  borderColor: "green"
+}
+
+const rejectDropzoneStyle = {
+  borderColor: "red"
+}
+
 class ImageUpload extends Component {
   render() {
     let { values, setFieldValue } = this.props
     return (
-      <Dropzone style={dropzoneStyle} accept="image/*" onDrop={(acceptedFiles) => {
+      <Dropzone
+        style={dropzoneStyle}
+        acceptStyle={acceptDropzoneStyle}
+        rejectStyle={rejectDropzoneStyle}
+        accept="image/*"
+        onDrop={(acceptedFiles) => {
         // do nothing if no files
         if (acceptedFiles.length === 0) { return; }
         // on drop we add to the existing files
         setFieldValue("images", values.images.concat(acceptedFiles));
       }}>
         {({ isDragActive, isDragReject, acceptedFiles, rejectedFiles }) => {
-          if (isDragActive) {
-            return "This file is authorized";
-          }
-
           if (isDragReject) {
-            return "This file is not authorized";
+            return "Invalid file type.";
+          }
+          
+          if (isDragActive) {
+            return "Let go to add your image!";
           }
 
           if (values.images.length === 0) {
