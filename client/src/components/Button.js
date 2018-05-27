@@ -5,6 +5,7 @@ import { colors, fonts, fontSizes, fontWeights } from '../theme';
 const PrimaryButton = styled('button')`
   display: flex;
   justify-content: center;
+  vertical-align: middle;
   align-items: center;
   background-color: ${colors.green};
   margin: 0.5em 0;

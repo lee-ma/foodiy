@@ -36,7 +36,7 @@ const InfoForm = ({ values, handleSubmit, setFieldValue }) => {
             <ImageUpload values={values} setFieldValue={setFieldValue}/>
             <Button type="submit">
               To Ingredients and Steps
-              <i className="fas fa-arrow-right" style={{ marginLeft: '5px', marginTop: '2.07%' }}></i>
+              <i className="fas fa-arrow-right" style={{ marginLeft: '5px'}}></i>
             </Button>
           </Form>
         </div>
