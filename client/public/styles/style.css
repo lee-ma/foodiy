@@ -30,70 +30,18 @@ body {
 .flexbox::-webkit-scrollbar {
   display: none;
 }
-/****************************** AUTH BUTTONS**************************/
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
+/****************************** BUTTONS**************************/
+.back-btn {
+  margin-bottom: 30px;
+  position: fixed;
+  z-index: 900;
 }
 
-
-.email-signup {
-  background-color: #f4cd00;
-}
-
-.email-signup:hover {
-  color: #ca9b52;
-}
-
-.sign-in-button {
-  margin: 0px;
-  display: inline-block;
-  width: 240px;
-  height: 50px;
-  color: #fff;
-  border-radius: 1px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
-  transition: background-color 0.218s, border-color 0.218s, box-shadow 0.218s;
-}
-.sign-in-button:hover {
-  cursor: pointer;
-  /*-webkit-box-shadow: 0 0 3px 3px rgba(66,133,244,.3);
-  box-shadow: 0 0 3px 3px rgba(66,133,244,.3);*/
-}
-.sign-in-button:active {
-  background-color: #3367d6;
-  transition: background-color 0.2s;
-}
-.sign-in-button .content-wrapper {
-  height: 100%;
-  width: 100%;
-  border: 1px solid transparent;
-}
-.sign-in-button img {
-  width: 18px;
-  height: 18px;
-  vertical-align: top;
-}
-.sign-in-button .logo-wrapper {
-  padding: 15px;
-  width: 48px;
-  height: 100%;
-  border-radius: 1px;
-  display: inline-block;
-  margin-left: -10px;
-}
-.sign-in-button .text-container {
-  font-family: Roboto, arial, sans-serif;
-  font-weight: 500;
-  letter-spacing: 0.21px;
-  font-size: 16px;
-  line-height: 48px;
-  vertical-align: top;
-  border: none;
-  display: inline-block;
-  text-align: center;
-  width: 180px;
+@media(max-width: 768px) {
+  .back-btn {
+    margin-bottom: 30px;
+    position: relative;
+  }
 }
 
 /****************************** POSITIONING ***************************/

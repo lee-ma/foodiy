@@ -72,10 +72,9 @@ class NewRecipeForm extends Component {
   render() {
     const { stage } = this.state
     return (
-      <div>
-        {(stage !== "info") && <Button style={{ marginBottom: '30px'}} onClick={() => this.goBack()}>
+      <div style={{marginTop: "2.5em"}}>
+        {(stage !== "info") && <Button className="fadein back-btn" onClick={() => this.goBack()}>
           <i className="fa fa-angle-left m-r-1" />
-                  Back
         </Button>}
         {stage === "info" &&
           <Formik

@@ -29,7 +29,7 @@ const StyledInput = styled('input') `
     };
     height: ${
       props => props.searchbar ? '2.75em' : 'auto'
-    }
+    };
   }
 `
 

@@ -29,6 +29,7 @@ const SecondaryButton = styled('button')`
   margin: 0.5em 0;
   display: flex;
   justify-content: center;
+  vertical-align: middle;
   align-items: center;
   color: ${colors.white};
   padding: 0.5em 1.5em;
