@@ -54,13 +54,8 @@ class ImageUpload extends Component {
           return values.images.map((file, i) => (
             <Thumbnail
               remove={() => {
-                if (values.images.length === 1) {
-                  setFieldValue("images", [])
-                }
-                else {
-                  values.images.splice(i, 1)
-                  setFieldValue("images", values.images)
-                }
+                values.images.splice(i, 1)
+                setFieldValue("images", values.images)
               }}
               key={i}
               file={file} />));
