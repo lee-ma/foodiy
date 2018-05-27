@@ -1,7 +1,6 @@
 import React from 'react'
-import { Input, Button, Text, Thumbnail, ImageUpload } from '../index'
+import { Input, Button, Text, ImageUpload } from '../index'
 import { Form } from 'formik'
-import Dropzone from "react-dropzone";
 import * as yup from 'yup'
 
 export const InfoSchema = yup.object().shape({

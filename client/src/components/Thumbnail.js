@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class Thumbnail extends React.Component {
+class Thumbnail extends Component {
   state = {
     loading: false,
     thumb: undefined,
@@ -21,7 +21,7 @@ class Thumbnail extends React.Component {
   }
 
   render() {
-    const { file, remove, index } = this.props;
+    const { file, remove } = this.props;
     const { loading, thumb } = this.state;
 
     if (!file) { return null; }
