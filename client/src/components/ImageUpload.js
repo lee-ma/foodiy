@@ -1,25 +1,28 @@
 import React, { Component } from 'react'
 import Dropzone from 'react-dropzone'
-import { Thumbnail } from './index'
+import { Thumbnail, Text } from './index'
+import {colors} from '../theme'
 
 const dropzoneStyle = {
   width: "100%",
   cursor: "pointer",
-  padding: "10px 20px 20px 20px",
+  padding: "25px 20px 20px 20px",
   marginTop: "10px",
   height: "auto",
-  borderWidth: 2,
-  borderColor: "rgb(102, 102, 102)",
-  borderStyle: "dashed",
+  border:`2px #b6b6b6 dashed`,
   borderRadius: 5,
 }
 
 const acceptDropzoneStyle = {
-  borderColor: "green"
+  borderColor: colors.green
 }
 
 const rejectDropzoneStyle = {
   borderColor: "red"
+}
+
+const activeDropzoneStyle = {
+  borderColor: colors.grey
 }
 
 class ImageUpload extends Component {
@@ -31,6 +34,8 @@ class ImageUpload extends Component {
         style={dropzoneStyle}
         acceptStyle={acceptDropzoneStyle}
         rejectStyle={rejectDropzoneStyle}
+        activeStyle={activeDropzoneStyle}
+        preventDropOnDocument={true}
         accept="image/*"
         onDrop={(acceptedFiles) => {
         // do nothing if no files
@@ -40,15 +45,30 @@ class ImageUpload extends Component {
       }}>
         {({ isDragActive, isDragReject, acceptedFiles, rejectedFiles }) => {
           if (isDragReject) {
-            return "Invalid file type.";
+            return (
+              <p style={{color: colors.error, textAlign: "center", margin: "0"}}>That's not an image!
+                <br style={{lineHeight: "2em"}}/>
+                <i style={{fontSize: "50px"}} className="fas fa-cloud-upload-alt"></i>
+              </p>
+            )
           }
 
           if (isDragActive) {
-            return "Let go to add your image!";
+            return (
+              <p style={{color: colors.green, textAlign: "center", margin: "0"}}>Let go to add your image!
+                <br style={{lineHeight: "2em"}}/>
+                <i style={{fontSize: "50px"}} className="fas fa-cloud-upload-alt"></i>
+              </p>
+            )
           }
 
           if (values.images.length === 0) {
-            return <p>Try dragging a file here, or click to upload images.</p>
+            return (
+              <Text grey center>Try dragging a file here, or click to upload images.
+                <br style={{lineHeight: "2em"}}/>
+                <i style={{fontSize: "50px"}} className="fas fa-cloud-upload-alt"></i>
+              </Text>
+            )
           }
 
           return values.images.map((file, i) => (

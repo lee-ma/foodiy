@@ -44,6 +44,17 @@ body {
   }
 }
 
+.dropzone-x {
+  float: left;
+  margin-top: -15px;
+  font-size: 25px;
+  transition: 0.3s;
+}
+
+.dropzone-x:hover {
+  transform: scale(1.2);
+}
+
 /****************************** POSITIONING ***************************/
 .justify-content-center {
   justify-content: center;
