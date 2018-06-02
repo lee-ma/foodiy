@@ -9,6 +9,7 @@ class Dashboard extends Component {
       return <Text>Loading Animation</Text>
     }
     return (
+      //TODO: Fix the alignment problems
       <div className="container-fluid" style={{minHeight: '100vh', marginTop: "2.5em" }}>
 
         <div className="row fadein">

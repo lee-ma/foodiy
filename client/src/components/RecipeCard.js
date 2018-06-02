@@ -7,7 +7,6 @@ const RecipeCard = (props) => {
   const StyledCard = styled('a')`
     padding: 1em;
     min-width: 20em;
-    height: 100%;
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
     :hover {
       text-decoration: none;

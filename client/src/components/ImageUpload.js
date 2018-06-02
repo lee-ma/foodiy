@@ -11,6 +11,9 @@ const dropzoneStyle = {
   height: "auto",
   border:`2px #b6b6b6 dashed`,
   borderRadius: 5,
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center"
 }
 
 const acceptDropzoneStyle = {
