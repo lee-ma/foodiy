@@ -7,6 +7,8 @@ const RecipeCard = (props) => {
   const StyledCard = styled('a')`
     padding: 1em;
     min-width: 20em;
+    max-width: 20em;
+    max-height: 25em;
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
     :hover {
       text-decoration: none;
@@ -31,7 +33,7 @@ const RecipeCard = (props) => {
       <div style={{ marginTop: "0.5em" }}>
         <Text medium bold style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: "ellipsis" }}>{title}</Text>
         <Text>Cooking Time:{' '}{time}</Text>
-        <Text grey small>{description}</Text>
+        <Text grey small style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: "ellipsis" }}>{description}</Text>
       </div>
     </StyledCard>
   )

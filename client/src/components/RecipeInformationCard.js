@@ -5,8 +5,6 @@ import { colors, fonts } from '../theme'
 import { isEmpty } from 'lodash'
 
 const StyledCard = styled("div")`
-  /* border: 1px solid;
-  border-color: ${colors.greyLight}; */
   min-height: 70vh;
   overflow: visible;
 `
@@ -16,20 +14,22 @@ const TabButton = styled("div")`
   cursor: pointer;
   text-align: center;
   padding-bottom: 0.3em;
-  transition: 0.1s;
+  transition: 0.2s;
   font-family: ${fonts.sansSerif};
-  font-size: 18px;
+  font-size: 22px;
+  font-weight: 600;
+  color: ${colors.black};
 `
 
-const Tabs = ({ toggle, selected }) => {
+const Tabs = ({ toggleToDirections, toggleToIngredients, selected }) => {
   return (
-    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "0.5em" }}>
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1.5em" }}>
       <TabButton
-        style={{ borderBottom: selected === "ingredients" ? `2px solid ${colors.green}` : `1px solid ${colors.grey}` }}
-        onClick={toggle}>Ingredients</TabButton>
+        style={{ borderBottom: selected === "ingredients" ? `2px solid ${colors.green}` : `2px solid ${colors.grey}` }}
+        onClick={toggleToIngredients}>Ingredients</TabButton>
       <TabButton
-        style={{ borderBottom: selected === "directions" ? `2px solid ${colors.green}` : `1px solid ${colors.grey}` }}
-        onClick={toggle}>Directions</TabButton>
+        style={{ borderBottom: selected === "directions" ? `2px solid ${colors.green}` : `2px solid ${colors.grey}` }}
+        onClick={toggleToDirections}>Directions</TabButton>
     </div>
   )
 }
@@ -80,25 +80,16 @@ class RecipeInformationCard extends Component {
     if (selectedTab === "ingredients") {
       return (
         <StyledCard>
-          <Tabs toggle={this.toggleToDirections} selected="ingredients"/>
-          <Text black bold medium
-            style={{ marginBottom: '0.5em' }}>
-                Ingredients
-          </Text>
+          <Tabs toggleToIngredients={this.toggleToIngredients} toggleToDirections={this.toggleToDirections} selected="ingredients"/>
           <ul>
             {this.renderIngredients(recipe.ingredients)}
           </ul>
         </StyledCard>
       )
     }
-
     return (
       <StyledCard>
-        <Tabs toggle={this.toggleToIngredients} selected="directions"/>
-        <Text black bold medium
-          style={{ marginBottom: '0.5em' }}>
-                Directions
-        </Text>
+        <Tabs toggleToIngredients={this.toggleToIngredients} toggleToDirections={this.toggleToDirections} selected="directions"/>
         <ol>
           {this.renderDirections(recipe.steps)}
         </ol>

@@ -7,7 +7,8 @@ class Recipe extends React.Component {
     super(props)
 
     this.state = {
-      recipe: {}
+      recipe: {},
+      descriptionHidden: true
     }
   }
 
@@ -19,8 +20,14 @@ class Recipe extends React.Component {
       }))
   }
 
+  toggleHiddenDescription = () => {
+    this.state.descriptionHidden
+      ? this.setState({ descriptionHidden: false })
+      : this.setState({ descriptionHidden: true })
+  }
+
   render() {
-    const { recipe } = this.state
+    const { recipe, descriptionHidden } = this.state
     console.log(recipe)
     if (!recipe) return null
     return(
@@ -37,7 +44,9 @@ class Recipe extends React.Component {
               margin: '0' }}
             />
             <Text big bold>{recipe.title}</Text>
-            <Text grey>{recipe.description}</Text>
+            <Text style={descriptionHidden ? { textOverflow: "ellipsis", overflow: "hidden", whiteSpace: "nowrap", transition: "0.4s" } : {}} grey>{recipe.description}</Text>
+            <Text onClick={this.toggleHiddenDescription} style={{ cursor: "pointer" }} green
+              underline>{descriptionHidden ? "Show More" : "Show Less"}</Text>
             {window.innerWidth < 770 && <hr />}
           </div>
           <div className="col-xs-12 col-md-4">
