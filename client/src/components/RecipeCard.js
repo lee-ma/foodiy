@@ -32,7 +32,7 @@ const RecipeCard = (props) => {
       />
       <div style={{ marginTop: "0.5em" }}>
         <Text medium bold style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: "ellipsis" }}>{title}</Text>
-        <Text>Cooking Time:{' '}{time}</Text>
+        <Text>Cooking Time:{' '}{time}{` hour${time === 1 ? "" : "s"}`}</Text>
         <Text grey small style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: "ellipsis" }}>{description}</Text>
       </div>
     </StyledCard>

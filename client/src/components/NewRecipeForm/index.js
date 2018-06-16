@@ -46,7 +46,7 @@ class NewRecipeForm extends Component {
     }
   }
 
-  handleSubmit = (values, action) => {
+  handleSubmit = (values) => {
     let nextStage = ""
     if (this.state.stage === "info") {
       nextStage = "recipe"
@@ -58,7 +58,6 @@ class NewRecipeForm extends Component {
     }
     else {
       const data = { ...this.state.inputs, ...values }
-      console.log(data)
 
       this.props.addRecipe(data)
       this.props.history.push('/')

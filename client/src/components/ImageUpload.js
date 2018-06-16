@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Dropzone from 'react-dropzone'
 import { Thumbnail, Text } from './index'
-import {colors} from '../theme'
+import { colors } from '../theme'
 
 const dropzoneStyle = {
   width: "100%",
@@ -42,25 +42,25 @@ class ImageUpload extends Component {
         accept="image/*"
         onDrop={(acceptedFiles) => {
         // do nothing if no files
-        if (acceptedFiles.length === 0) { return; }
-        // on drop we add to the existing files
-        setFieldValue("images", values.images.concat(acceptedFiles));
-      }}>
+          if (acceptedFiles.length === 0) { return }
+          // on drop we add to the existing files
+          setFieldValue("images", values.images.concat(acceptedFiles))
+        }}>
         {({ isDragActive, isDragReject, acceptedFiles, rejectedFiles }) => {
           if (isDragReject) {
             return (
-              <p style={{color: colors.error, textAlign: "center", margin: "0"}}>That's not an image!
-                <br style={{lineHeight: "2em"}}/>
-                <i style={{fontSize: "50px"}} className="fas fa-cloud-upload-alt"></i>
+              <p style={{ color: colors.error, textAlign: "center", margin: "0" }}>That's not an image!
+                <br style={{ lineHeight: "2em" }}/>
+                <i style={{ fontSize: "50px" }} className="fas fa-cloud-upload-alt"></i>
               </p>
             )
           }
 
           if (isDragActive) {
             return (
-              <p style={{color: colors.green, textAlign: "center", margin: "0"}}>Let go to add your image!
-                <br style={{lineHeight: "2em"}}/>
-                <i style={{fontSize: "50px"}} className="fas fa-cloud-upload-alt"></i>
+              <p style={{ color: colors.green, textAlign: "center", margin: "0" }}>Let go to add your image!
+                <br style={{ lineHeight: "2em" }}/>
+                <i style={{ fontSize: "50px" }} className="fas fa-cloud-upload-alt"></i>
               </p>
             )
           }
@@ -68,8 +68,8 @@ class ImageUpload extends Component {
           if (values.images.length === 0) {
             return (
               <Text grey center>Try dragging a file here, or click to upload images.
-                <br style={{lineHeight: "2em"}}/>
-                <i style={{fontSize: "50px"}} className="fas fa-cloud-upload-alt"></i>
+                <br style={{ lineHeight: "2em" }}/>
+                <i style={{ fontSize: "50px" }} className="fas fa-cloud-upload-alt"></i>
               </Text>
             )
           }
@@ -81,7 +81,8 @@ class ImageUpload extends Component {
                 setFieldValue("images", values.images)
               }}
               key={i}
-              file={file} />));
+              file={file}
+            />))
         }}
       </Dropzone>
     )
