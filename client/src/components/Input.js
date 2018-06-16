@@ -42,7 +42,7 @@ const TextInput = ({ name, label, placeholder, ...rest }) => (
         <div>
           <StyledLabel htmlFor={name}>{label}</StyledLabel>
           <StyledInput className="form-control" placeholder={placeholder} {...field}
-{...rest} />
+            {...rest} />
           {form.errors[name] &&
             form.touched[name] && (
               <Text small italic error>{form.errors[name]}</Text>

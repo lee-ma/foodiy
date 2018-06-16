@@ -8,7 +8,7 @@ import { fetchUser } from './actions'
 
 import reducers from './reducers';
 
-import { Landing, Profile } from './scenes'
+import { Landing, Profile, Recipe, Home } from './scenes'
 import { NewRecipeForm } from './components'
 
 import Navbar from './components/Navbar';
@@ -26,6 +26,8 @@ ReactDOM.render(
         <Route exact path="/" component={Landing} />
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/newrecipe" component={NewRecipeForm} />
+        <Route path="/recipes/:id" component={Recipe} />
+        <Route exact path="/browse" component={Home} />
       </div>
     </BrowserRouter>
   </Provider>,

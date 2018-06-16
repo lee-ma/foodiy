@@ -1,15 +1,59 @@
 import React, { Component } from 'react'
-import { Text } from '../components'
+import { Text, RecipeCard } from '../components'
+import { connect } from 'react-redux'
+import { fetchRecipes } from '../actions'
 
 class Home extends Component {
+  componentDidMount() {
+    this.props.fetchRecipes()
+  }
+  renderRecipeCards = () => {
+    if (!this.props.recipes) return null
+
+    return this.props.recipes.map(
+      (recipe, index) => {
+        return(
+          <RecipeCard
+            key={index}
+            imgSrc="https://rasamalaysia.com/wp-content/uploads/2012/10/chicken-teriyaki.jpg"
+            title={recipe.title}
+            description={recipe.description}
+            time={recipe.time}
+            href={`/recipes/${recipe._id}`}
+          />
+        )
+      }
+    )
+  }
+
   render() {
     return (
       <div className="container-fluid">
-        {/* Probably the same component as the component we put into /browse */}
-        <Text big bold>THIS IS WHERE BROWSE GOES</Text>
+        <div className="row fadein">
+          <div className="col-xs-12 col-sm-10 offset-sm-1">
+            <Text big black>All Recipes</Text>
+            <div className="row" style={{ marginTop: "1.5em" }}>
+              <div
+                className="flexbox"
+                style={{
+                  display: 'flex',
+                  minHeight: 'wrap-content',
+                  flexWrap: 'wrap',
+                  padding: '0.5em' }}>
+                {this.renderRecipeCards()}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     )
   }
 }
 
-export default Home
+const mapStateToProps = (state) => {
+  return {
+    recipes: state.recipes
+  }
+}
+
+export default connect(mapStateToProps, { fetchRecipes })(Home)

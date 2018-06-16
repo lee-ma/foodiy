@@ -30,7 +30,7 @@ class Thumbnail extends Component {
 
     return (
       <div>
-        <span onClick={(e) => {
+        <span className="dropzone-x" onClick={(e) => {
           e.stopPropagation()
           remove()
         }}>

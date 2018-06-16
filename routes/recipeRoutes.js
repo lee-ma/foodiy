@@ -5,7 +5,13 @@ const Recipe = mongoose.model('recipe');
 module.exports = app => {
   app.get('/api/recipes', (req, res) => {
     Recipe.find({})
-    .then(res => console.log(res))
+    .then(allRecipes => res.send(allRecipes))
+    .catch(err => console.log(err))
+  })
+
+  app.get('/api/recipes/:id', (req,res) => {
+    Recipe.findById(req.params.id)
+    .then(foundRecipe => res.send(foundRecipe))
     .catch(err => console.log(err))
   })
 

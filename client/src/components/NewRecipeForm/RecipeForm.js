@@ -32,7 +32,9 @@ class RecipeForm extends Component {
     // Creates array of numbers from 0 --- (numberOfSteps - 1)
     const tempArr = Array.from(Array(this.state.numberOfSteps).keys())
     return tempArr.map(index => {
-      return <Input key={index} name={`steps[${index}]`} type="text" />
+      return (
+        <Input key={index} name={`steps[${index}]`} type="text" />
+      )
     })
   }
 
@@ -48,8 +50,14 @@ class RecipeForm extends Component {
     return (
       <div className="container-fluid">
         <div className="row">
-          <div className="col-xs-12 col-sm-6">
-            <Text big bold>Ingredients</Text>
+          <div className="col-xs-12 col-sm-10 offset-sm-1">
+            <Text big semiBold green>Create a New Recipe (2/2)</Text>
+            <Text style={{marginBottom: "2.5em", fontSize: "1.35em"}}>How do we make this, boss?</Text>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-xs-12 col-sm-5 offset-sm-1">
+            <Text big semiBold>Ingredients</Text>
             <Form id="recipe_form">
               {this.renderIngredientInputs()}
               <Button secondary type="button" onClick={this.addIngredient}>
@@ -58,10 +66,10 @@ class RecipeForm extends Component {
               </Button>
             </Form>
           </div>
-          <div className="col-xs-12 col-sm-6">
-            <Text big bold>Steps</Text>
+          <div className="col-xs-12 col-sm-5">
+            <Text big semiBold>Steps</Text>
             <Form>
-                {this.renderStepInputs()}
+              {this.renderStepInputs()}
               <Button secondary type="button" onClick={this.addStep}>
                 <i className="fas fa-plus" style={{marginRight: "5px"}}></i>
                 Add Step
@@ -69,9 +77,11 @@ class RecipeForm extends Component {
             </Form>
           </div>
         </div>
-          <div className="col-xs-12" style={{marginTop: "5em"}}>
-            <Button style={{padding: "1em 5em"}}type="submit" form="recipe_form">Submit</Button>
+        <div className="row">
+          <div className="col-xs-12 col-sm-10 offset-md-1">
+            <Button style={{padding: "0.75em 1.5em", width: "100%", marginTop: "5em"}}type="submit" form="recipe_form">Submit <i className="fas fa-check" style={{marginLeft: "5px"}}></i></Button>
           </div>
+        </div>
       </div>
     )
   }
