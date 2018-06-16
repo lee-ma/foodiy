@@ -8,10 +8,10 @@ import LoginForm from './LoginForm'
 import Modal from './Modal'
 import NewRecipeForm from './NewRecipeForm'
 import RecipeCard from './RecipeCard'
+import RecipeInformationCard from './RecipeInformationCard'
 import SearchBar from './SearchBar'
 import Text from './Text'
 import Thumbnail from './Thumbnail'
-
 
 export {
   Button,
@@ -24,6 +24,7 @@ export {
   Modal,
   NewRecipeForm,
   RecipeCard,
+  RecipeInformationCard,
   SearchBar,
   Text,
   Thumbnail

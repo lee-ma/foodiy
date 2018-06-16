@@ -22,10 +22,12 @@ export const fontSizes = {
 
 export const colors = {
   white: '#feffff',
+  beige: '#fffcef',
   error: '#cc0000',
   green: '#00C853',
   greenDark: '#009624',
   black: '#484848',
+  greyLight: '#d6d6d6',
   grey: '#b6b6b6',
   greyDark: '#616161'
 }
@@ -39,3 +41,14 @@ export const lineHeights = {
 export const fontStyles = {
   italic: 'italic'
 }
+
+const theme = {
+  "fontWeights": fontWeights,
+  "fonts": fonts,
+  "fontSizes": fontSizes,
+  "colors": colors,
+  "lineHeights": lineHeights,
+  "fontStyles": fontStyles
+}
+
+export default theme

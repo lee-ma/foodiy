@@ -8,37 +8,37 @@ const Text = (props) => {
   const StyledText = styled(element)`
     &&{
       font-family: ${
-        props => props.serif ? fonts.serif :
-                props.logo ? fonts.logo : fonts.sansSerif
-                };
+  props => props.serif ? fonts.serif :
+    props.logo ? fonts.logo : fonts.sansSerif
+};
       font-weight: ${
-        props => props.bold ? fontWeights.bold :
-                props.semiBold ? fontWeights.semiBold :
-                props.light ? fontWeights.light : fontWeights.default
-      };
+  props => props.bold ? fontWeights.bold :
+    props.semiBold ? fontWeights.semiBold :
+      props.light ? fontWeights.light : fontWeights.default
+};
       font-size: ${
-        props => props.tiny ? fontSizes.tiny :
-                props.small ? fontSizes.small :
-                props.medium ? fontSizes.medium :
-                props.big ? fontSizes.big :
-                props.huge ? fontSizes.huge : fontSizes.default
-      };
+  props => props.tiny ? fontSizes.tiny :
+    props.small ? fontSizes.small :
+      props.medium ? fontSizes.medium :
+        props.big ? fontSizes.big :
+          props.huge ? fontSizes.huge : fontSizes.default
+};
       text-align: ${
-        props => props.center ? 'center' :
-                props.right ? 'right' : 'left'
-      };
+  props => props.center ? 'center' :
+    props.right ? 'right' : 'left'
+};
       color: ${
-        props => props.green ? colors.green :
-                props.error ? colors.error :
-                props.grey ? colors.grey : colors.black
-      };
+  props => props.green ? colors.green :
+    props.error ? colors.error :
+      props.grey ? colors.grey : colors.black
+};
       line-height: ${
-        props => props.tight ? lineHeights.tight :
-                props.loose ? lineHeights.loose : lineHeights.default
-      };
+  props => props.tight ? lineHeights.tight :
+    props.loose ? lineHeights.loose : lineHeights.default
+};
       font-style: ${
-        props => props.italic ? fontStyles.italic : 'normal'
-      };
+  props => props.italic ? fontStyles.italic : 'normal'
+};
       display: ${'block'};
     }`
   return <StyledText {...props}>{children}</StyledText>

@@ -11,6 +11,7 @@ module.exports = app => {
 
   app.get('/api/recipes/:id', (req,res) => {
     Recipe.findById(req.params.id)
+    .populate("author")
     .then(foundRecipe => res.send(foundRecipe))
     .catch(err => console.log(err))
   })
