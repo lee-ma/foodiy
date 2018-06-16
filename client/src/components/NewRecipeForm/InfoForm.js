@@ -15,7 +15,7 @@ const InfoForm = ({ values, handleSubmit, setFieldValue }) => {
       <div className="row">
         <div className="col-xs-12 col-md-10 offset-md-1">
           <Text big semiBold green>Create a New Recipe (1/2)</Text>
-          <Text style={{marginBottom: "2.5em", fontSize: "1.35em"}}>What are we making?</Text>
+          <Text style={{ marginBottom: "2.5em", fontSize: "1.35em" }}>What are we making?</Text>
           <Form onSubmit={handleSubmit}>
             <Input
               label="Recipe Name"
@@ -36,7 +36,7 @@ const InfoForm = ({ values, handleSubmit, setFieldValue }) => {
             <ImageUpload values={values} setFieldValue={setFieldValue}/>
             <Button type="submit">
               To Ingredients and Steps
-              <i className="fas fa-arrow-right" style={{ marginLeft: '5px'}}></i>
+              <i className="fas fa-arrow-right" style={{ marginLeft: '5px' }}></i>
             </Button>
           </Form>
         </div>

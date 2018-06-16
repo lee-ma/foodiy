@@ -5,9 +5,9 @@ import Profile from './Profile'
 import Recipe from './Recipe'
 
 export {
-    Dashboard,
-    Home,
-    Landing,
-    Profile,
-    Recipe
+  Dashboard,
+  Home,
+  Landing,
+  Profile,
+  Recipe
 }

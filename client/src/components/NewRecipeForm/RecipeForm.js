@@ -52,7 +52,7 @@ class RecipeForm extends Component {
         <div className="row">
           <div className="col-xs-12 col-sm-10 offset-sm-1">
             <Text big semiBold green>Create a New Recipe (2/2)</Text>
-            <Text style={{marginBottom: "2.5em", fontSize: "1.35em"}}>How do we make this, boss?</Text>
+            <Text style={{ marginBottom: "2.5em", fontSize: "1.35em" }}>How do we make this, boss?</Text>
           </div>
         </div>
         <div className="row">
@@ -61,7 +61,7 @@ class RecipeForm extends Component {
             <Form id="recipe_form">
               {this.renderIngredientInputs()}
               <Button secondary type="button" onClick={this.addIngredient}>
-                <i className="fas fa-plus" style={{marginRight: "5px"}}></i>
+                <i className="fas fa-plus" style={{ marginRight: "5px" }}></i>
                 Add Ingredient
               </Button>
             </Form>
@@ -71,7 +71,7 @@ class RecipeForm extends Component {
             <Form>
               {this.renderStepInputs()}
               <Button secondary type="button" onClick={this.addStep}>
-                <i className="fas fa-plus" style={{marginRight: "5px"}}></i>
+                <i className="fas fa-plus" style={{ marginRight: "5px" }}></i>
                 Add Step
               </Button>
             </Form>
@@ -79,7 +79,7 @@ class RecipeForm extends Component {
         </div>
         <div className="row">
           <div className="col-xs-12 col-sm-10 offset-md-1">
-            <Button style={{padding: "0.75em 1.5em", width: "100%", marginTop: "5em"}}type="submit" form="recipe_form">Submit <i className="fas fa-check" style={{marginLeft: "5px"}}></i></Button>
+            <Button style={{ padding: "0.75em 1.5em", width: "100%", marginTop: "5em" }}type="submit" form="recipe_form">Submit <i className="fas fa-check" style={{ marginLeft: "5px" }}></i></Button>
           </div>
         </div>
       </div>

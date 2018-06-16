@@ -4,24 +4,24 @@ import { Text } from '../components'
 import { Home, Dashboard } from './index'
 
 class Landing extends Component {
-    render() {
-        const { user } = this.props
-        if (user === null) {
-          return <Text>Loading Animation</Text>
-        }
-        if (user === false) {
-            return <Home />
-        }
-        else {
-            return <Dashboard />
-        }
+  render() {
+    const { user } = this.props
+    if (user === null) {
+      return <Text>Loading Animation</Text>
     }
+    if (user === false) {
+      return <Home />
+    }
+    else {
+      return <Dashboard />
+    }
+  }
 }
 
 const mapStateToProps = (state) => {
-    return {
-        user: state.auth
-    }
+  return {
+    user: state.auth
+  }
 }
 
 export default connect(mapStateToProps)(Landing)

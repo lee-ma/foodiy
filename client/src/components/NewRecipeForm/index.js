@@ -57,7 +57,7 @@ class NewRecipeForm extends Component {
       this.setState({ "stage": nextStage, "inputs": { ...this.state.inputs, ...inputValues }})
     }
     else {
-      const data = {...this.state.inputs, ...values}
+      const data = { ...this.state.inputs, ...values }
       console.log(data)
 
       this.props.addRecipe(data)
@@ -72,7 +72,7 @@ class NewRecipeForm extends Component {
   render() {
     const { stage } = this.state
     return (
-      <div style={{marginTop: "2.5em"}}>
+      <div style={{ marginTop: "2.5em" }}>
         {(stage !== "info") && <Button className="fadein back-btn" onClick={() => this.goBack()}>
           <i className="fa fa-angle-left m-r-1" />
         </Button>}
@@ -81,14 +81,16 @@ class NewRecipeForm extends Component {
             initialValues={infoInitValues(this.state.inputs)}
             onSubmit={(values, action) => {this.handleSubmit(values, action)}}
             component={InfoForm}
-            validationSchema={InfoSchema} />
+            validationSchema={InfoSchema}
+          />
         }
         {stage === "recipe" &&
           <Formik
             initialValues={recipeInitValues}
             onSubmit={(values, action) => {this.handleSubmit(values, action)}}
             component={RecipeForm}
-            validationSchema={RecipeSchema} />
+            validationSchema={RecipeSchema}
+          />
         }
       </div>
 
