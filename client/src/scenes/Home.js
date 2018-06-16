@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import {Text} from '../components'
+import React, { Component } from 'react'
+import { Text } from '../components'
 
 class Home extends Component {
   render() {
@@ -12,4 +12,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default Home

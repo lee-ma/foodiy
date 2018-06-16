@@ -21,15 +21,15 @@ const StyledInput = styled('input') `
     transition: 1s;
     :focus {
       padding-right: ${
-        props => props.searchbar ? '40%' : 'auto'
-      };
+  props => props.searchbar ? '40%' : 'auto'
+};
       transition: ${
-        props => props.searchbar ? '0.5s' : ''
-      }
+  props => props.searchbar ? '0.5s' : ''
+}
     };
     height: ${
-      props => props.searchbar ? '2.75em' : 'auto'
-    }
+  props => props.searchbar ? '2.75em' : 'auto'
+}
   }
 `
 
@@ -37,19 +37,20 @@ const TextInput = ({ name, label, placeholder, ...rest }) => (
   <Field
     name={name}
     render={({ field, form }) => {
-      const error = form.touched[name] && form.errors[name];
+      const error = form.touched[name] && form.errors[name]
       return (
         <div>
           <StyledLabel htmlFor={name}>{label}</StyledLabel>
-          <StyledInput className="form-control" placeholder={placeholder} {...field} {...rest} />
+          <StyledInput className="form-control" placeholder={placeholder} {...field}
+{...rest} />
           {form.errors[name] &&
             form.touched[name] && (
               <Text small italic error>{form.errors[name]}</Text>
             )}
         </div>
-      );
+      )
     }}
   />
-);
+)
 
 export default TextInput
