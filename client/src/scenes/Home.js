@@ -15,7 +15,7 @@ class Home extends Component {
         return(
           <RecipeCard
             key={index}
-            imgSrc="https://rasamalaysia.com/wp-content/uploads/2012/10/chicken-teriyaki.jpg"
+            imgSrc={recipe.images[0]}
             title={recipe.title}
             description={recipe.description}
             time={recipe.time}

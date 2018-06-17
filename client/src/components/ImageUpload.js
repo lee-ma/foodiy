@@ -31,7 +31,7 @@ const activeDropzoneStyle = {
 class ImageUpload extends Component {
 
   render() {
-    let { values, setFieldValue } = this.props
+    let { values, setFieldValue, ...otherProps } = this.props
     return (
       <Dropzone
         style={dropzoneStyle}
@@ -40,6 +40,7 @@ class ImageUpload extends Component {
         activeStyle={activeDropzoneStyle}
         preventDropOnDocument={true}
         accept="image/*"
+        {...otherProps}
         onDrop={(acceptedFiles) => {
         // do nothing if no files
           if (acceptedFiles.length === 0) { return }

@@ -9,8 +9,10 @@ require('./models/User');
 require('./models/Recipe');
 require('./models/Comment');
 require('./services/passport');
+require('./services/awsconfig');
 
 const User = mongoose.model('user');
+const Recipe = mongoose.model('recipe');
 
 mongoose.Promise = global.Promise;
 
@@ -18,6 +20,9 @@ mongoose.connect(keys.mongoURI);
 
 const app = express();
 
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.use(bodyParser.json());
 
 app.use(

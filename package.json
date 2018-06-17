@@ -12,7 +12,7 @@
   "author": "Rock Zhou & Lee Ma",
   "license": "ISC",
   "dependencies": {
-    "aws-sdk": "^2.203.0",
+    "aws-sdk": "^2.259.1",
     "bcrypt": "^1.0.3",
     "body-parser": "^1.18.2",
     "concurrently": "^3.5.1",

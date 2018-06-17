@@ -18,8 +18,19 @@ export const updateUser = userValues => dispatch => {
 /** RECIPE ACTIONS **/
 
 export const addRecipe = recipeData => dispatch => {
+  // Create new FormData object
+  let data = new FormData()
+  data.append('title', recipeData.title)
+  data.append('description', recipeData.description)
+  data.append('time', recipeData.time)
+  data.append('steps', JSON.stringify(recipeData.steps))
+  data.append('ingredients', JSON.stringify(recipeData.ingredients))
+  for (var i = 0; i < recipeData.images.length; i++) {
+    data.append("images", recipeData.images[i])
+  }
+
   axios
-    .put('/api/recipes', recipeData)
+    .post('/api/recipes', data)
     .then(res => dispatch({ type: ADD_RECIPE, payload: res.data }))
 }
 
