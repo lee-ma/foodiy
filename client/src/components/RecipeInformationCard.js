@@ -14,6 +14,7 @@ const TabButton = styled("div")`
   cursor: pointer;
   text-align: center;
   padding-bottom: 0.3em;
+  padding-top: 0.3em;
   transition: 0.2s;
   font-family: ${fonts.sansSerif};
   font-size: 22px;
@@ -25,10 +26,14 @@ const Tabs = ({ toggleToDirections, toggleToIngredients, selected }) => {
   return (
     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1.5em" }}>
       <TabButton
-        style={{ borderBottom: selected === "ingredients" ? `2px solid ${colors.green}` : `2px solid ${colors.grey}` }}
+        style={{
+          borderLeft: selected === "ingredients" ? `5px solid ${colors.green}` : `2px solid ${colors.grey}`
+        }}
         onClick={toggleToIngredients}>Ingredients</TabButton>
       <TabButton
-        style={{ borderBottom: selected === "directions" ? `2px solid ${colors.green}` : `2px solid ${colors.grey}` }}
+        style={{
+          borderRight: selected === "directions" ? `5px solid ${colors.green}` : `2px solid ${colors.grey}`
+        }}
         onClick={toggleToDirections}>Directions</TabButton>
     </div>
   )
