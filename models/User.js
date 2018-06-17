@@ -6,6 +6,7 @@ const UserSchema = new Schema({
   lastName: String,
   createdAt: Date,
   googleId: String,
+  avatarImage: String,
   recipes: [
     {
       type: Schema.Types.ObjectId,

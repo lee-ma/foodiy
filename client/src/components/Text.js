@@ -30,7 +30,8 @@ const Text = (props) => {
       color: ${
   props => props.green ? colors.green :
     props.error ? colors.error :
-      props.grey ? colors.grey : colors.black
+      props.grey ? colors.grey :
+        props.greyDark ? colors.greyDark : colors.black
 };
       line-height: ${
   props => props.tight ? lineHeights.tight :

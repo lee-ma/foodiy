@@ -33,14 +33,14 @@ const Tabs = ({ toggleToDirections, toggleToIngredients, selected }) => {
     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1.5em" }}>
       <TabButton
         style={{
-          color: selected === "ingredients" ? colors.green : colors.grey
-          //borderLeft: selected === "ingredients" ? `5px solid ${colors.green}` : `2px solid ${colors.grey}`
+          color: selected === "ingredients" ? colors.green : colors.grey,
+          borderBottom: selected === "ingredients" ? `2px solid ${colors.green}` : `2px solid transparent`
         }}
         onClick={toggleToIngredients}>Ingredients</TabButton>
       <TabButton
         style={{
-          color: selected === "directions" ? colors.green : colors.grey
-          //borderRight: selected === "directions" ? `5px solid ${colors.green}` : `2px solid ${colors.grey}`
+          color: selected === "directions" ? colors.green : colors.grey,
+          borderBottom: selected === "directions" ? `2px solid ${colors.green}` : `2px solid transparent`
         }}
         onClick={toggleToDirections}>Directions</TabButton>
     </div>
@@ -67,8 +67,8 @@ class RecipeInformationCard extends Component {
   renderIngredients(ingredients) {
     return ingredients.map((ingredient, index) => {
       return (
-        <li>
-          <Text style={{ marginBottom: "0.4em", lineHeight: "0.9" }} block key={index}>{ingredient}</Text>
+        <li key={index} style={{ marginBottom: "0.85em" }}>
+          <Text style={{ marginBottom: "0.4em", lineHeight: "1.25em" }} block>{ingredient}</Text>
         </li>
       )
     })
@@ -77,8 +77,8 @@ class RecipeInformationCard extends Component {
   renderDirections(directions) {
     return directions.map((direction, index) => {
       return (
-        <li style={{ marginBottom: "0.75em", lineHeight: "1.35" }} key={index}>
-          <Text>{direction}</Text>
+        <li style={{ marginBottom: "0.85em" }} key={index}>
+          <Text style={{ marginBottom: "0.4em", lineHeight: "1.25em" }} block>{direction}</Text>
         </li>
       )
     })

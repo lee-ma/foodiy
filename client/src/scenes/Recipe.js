@@ -1,12 +1,12 @@
 import React from 'react'
-import { Text, RecipeInformationCard } from '../components'
+import { Text, RecipeInformationCard, AvatarImage } from '../components'
 import shortenText from '../utils/shortenText'
 import axios from 'axios'
 import { isEmpty } from 'lodash'
 import styled from 'styled-components'
 import { colors } from '../theme'
 
-const ScrollToRecipe = styled('div')`
+const ScrollToRecipeButton = styled('div')`
   position: fixed;
   display: flex;
   justify-content: center;
@@ -74,12 +74,16 @@ class Recipe extends React.Component {
               margin: '0.5em 0 1em 0' }}
             />
             <Text big bold block
-              style={{ marginBottom: "0.5em", lineHeight: "1" }}>{recipe.title}</Text>
-            <Text grey>{descriptionHidden ? shortenText(recipe.description, maxLength) : recipe.description}</Text>
+              style={{ marginBottom: "0.2em", lineHeight: "1" }}>{recipe.title}</Text>
+            <div style={{ display: "flex", justifyContent: "left", verticalAlign: "center", marginBottom: "1.3em" }}>
+              <AvatarImage user={recipe.author}/>
+              <Text style={{ marginLeft: "0.5em", marginTop: "0.25em" }} semiBold>{`${recipe.author.firstName} ${recipe.author.lastName}`}</Text>
+            </div>
+            <Text greyDark>{descriptionHidden ? shortenText(recipe.description, maxLength) : recipe.description}</Text>
             {showButton &&
             <Text
               onClick={this.toggleHiddenDescription}
-              style={{ cursor: "pointer" }}
+              style={{ cursor: "pointer", display: "inline" }}
               green
               underline>{descriptionHidden ? "Show More" : "Show Less"}</Text>
             }
@@ -91,9 +95,9 @@ class Recipe extends React.Component {
         </div>
         {window.innerWidth < 768 &&
         <a href="#recipe">
-          <ScrollToRecipe>
+          <ScrollToRecipeButton>
             <i style={{ fontSize: '22px', color: 'white' }} className="fas fa-chevron-down"></i>
-          </ScrollToRecipe>
+          </ScrollToRecipeButton>
         </a>
         }
       </div>

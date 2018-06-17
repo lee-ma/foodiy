@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Modal, EditProfileForm } from '../components'
+import { EditProfileForm, AvatarImage } from '../components'
+import { connect } from 'react-redux'
 
 class Home extends Component {
   constructor(props) {
@@ -19,15 +20,27 @@ class Home extends Component {
     }
 
     render() {
+      const { user } = this.props
+      if (!user) return null
       return (
-        <div>
-          <button onClick={this.openEditProfileModal}>OPEN EDIT PROFILE MODAL</button>
-          <Modal show={this.state.showEditProfileModal} hide={this.closeEditProfileModal} title="Edit Profile">
-            <EditProfileForm hide={this.closeEditProfileModal}/> {/*get rid of this later when we move to new page*/}
-          </Modal>
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-xs-12 col-md-10 offset-md-1">
+              <div style={{ display: "flex", justifyContent: "center", verticalAlign: "center" }}>
+                <AvatarImage size="100px" user={user} />
+                <EditProfileForm hide={this.closeEditProfileModal}/> {/*get rid of this later when we move to new page*/}
+              </div>
+            </div>
+          </div>
         </div>
       )
     }
 }
 
-export default Home
+const mapStateToProps = state => {
+  return {
+    user: state.auth
+  }
+}
+
+export default connect(mapStateToProps)(Home)

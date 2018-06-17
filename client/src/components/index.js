@@ -1,3 +1,4 @@
+import AvatarImage from './AvatarImage'
 import Button from './Button'
 import EditProfileForm from './EditProfileForm'
 import FacebookButton from './FacebookButton'
@@ -14,6 +15,7 @@ import Text from './Text'
 import Thumbnail from './Thumbnail'
 
 export {
+  AvatarImage,
   Button,
   EditProfileForm,
   FacebookButton,
