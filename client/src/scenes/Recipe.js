@@ -1,5 +1,6 @@
 import React from 'react'
 import { Text, RecipeInformationCard } from '../components'
+import shortenText from '../utils/shortenText'
 import axios from 'axios'
 import { isEmpty } from 'lodash'
 
@@ -9,16 +10,21 @@ class Recipe extends React.Component {
 
     this.state = {
       recipe: {},
-      descriptionHidden: true
+      descriptionHidden: true,
+      showButton: false,
+      maxLength: 100
     }
   }
 
   componentWillMount() {
     const { id } = this.props.match.params
     axios.get(`/api/recipes/${id}`)
-      .then(res => this.setState({
-        recipe: res.data
-      }))
+      .then(res => {
+        this.checkShowButton(res.data.description)
+        this.setState({
+          recipe: res.data
+        })
+      })
   }
 
   toggleHiddenDescription = () => {
@@ -27,8 +33,14 @@ class Recipe extends React.Component {
       : this.setState({ descriptionHidden: true })
   }
 
+  checkShowButton(desc) {
+    if (desc.length > this.state.maxLength) {
+      this.setState({ showButton: true })
+    }
+  }
+
   render() {
-    const { recipe, descriptionHidden } = this.state
+    const { recipe, descriptionHidden, maxLength, showButton } = this.state
     const { images } = recipe
     if (isEmpty(recipe)) return null
     return(
@@ -45,9 +57,14 @@ class Recipe extends React.Component {
               margin: '0' }}
             />
             <Text big bold>{recipe.title}</Text>
-            <Text style={descriptionHidden ? { textOverflow: "ellipsis", overflow: "hidden", whiteSpace: "nowrap", transition: "0.4s" } : {}} grey>{recipe.description}</Text>
-            <Text onClick={this.toggleHiddenDescription} style={{ cursor: "pointer" }} green
+            <Text grey>{descriptionHidden ? shortenText(recipe.description, maxLength) : recipe.description}</Text>
+            {showButton &&
+            <Text
+              onClick={this.toggleHiddenDescription}
+              style={{ cursor: "pointer" }}
+              green
               underline>{descriptionHidden ? "Show More" : "Show Less"}</Text>
+            }
             {window.innerWidth < 770 && <hr />}
           </div>
           <div className="col-xs-12 col-md-4">
