@@ -6,15 +6,21 @@ import { isEmpty } from 'lodash'
 
 const StyledCard = styled("div")`
   min-height: 70vh;
-  overflow: visible;
+  max-height: ${window.innerWidth < 992 ? "" : "70vh"};
+  overflow-y: ${window.innerWidth < 992 ? "" : "scroll"};
+  overflow-x: hidden;
+  &&::-webkit-scrollbar {
+    display: none;
+  }
+  position: relative;
 `
 
 const TabButton = styled("div")`
+  top: 0;
   flex: 1;
   cursor: pointer;
   text-align: center;
-  padding-bottom: 0.3em;
-  padding-top: 0.3em;
+  padding: 0;
   transition: 0.2s;
   font-family: ${fonts.sansSerif};
   font-size: 22px;
@@ -27,12 +33,14 @@ const Tabs = ({ toggleToDirections, toggleToIngredients, selected }) => {
     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1.5em" }}>
       <TabButton
         style={{
-          borderLeft: selected === "ingredients" ? `5px solid ${colors.green}` : `2px solid ${colors.grey}`
+          color: selected === "ingredients" ? colors.green : colors.grey
+          //borderLeft: selected === "ingredients" ? `5px solid ${colors.green}` : `2px solid ${colors.grey}`
         }}
         onClick={toggleToIngredients}>Ingredients</TabButton>
       <TabButton
         style={{
-          borderRight: selected === "directions" ? `5px solid ${colors.green}` : `2px solid ${colors.grey}`
+          color: selected === "directions" ? colors.green : colors.grey
+          //borderRight: selected === "directions" ? `5px solid ${colors.green}` : `2px solid ${colors.grey}`
         }}
         onClick={toggleToDirections}>Directions</TabButton>
     </div>
@@ -60,7 +68,7 @@ class RecipeInformationCard extends Component {
     return ingredients.map((ingredient, index) => {
       return (
         <li>
-          <Text style={{ marginBottom: "0.1em" }} block key={index}>{ingredient}</Text>
+          <Text style={{ marginBottom: "0.4em", lineHeight: "0.9" }} block key={index}>{ingredient}</Text>
         </li>
       )
     })
@@ -84,21 +92,25 @@ class RecipeInformationCard extends Component {
 
     if (selectedTab === "ingredients") {
       return (
-        <StyledCard>
+        <div id="recipe">
           <Tabs toggleToIngredients={this.toggleToIngredients} toggleToDirections={this.toggleToDirections} selected="ingredients"/>
-          <ul>
-            {this.renderIngredients(recipe.ingredients)}
-          </ul>
-        </StyledCard>
+          <StyledCard>
+            <ul>
+              {this.renderIngredients(recipe.ingredients)}
+            </ul>
+          </StyledCard>
+        </div>
       )
     }
     return (
-      <StyledCard>
+      <div id="recipe">
         <Tabs toggleToIngredients={this.toggleToIngredients} toggleToDirections={this.toggleToDirections} selected="directions"/>
-        <ol>
-          {this.renderDirections(recipe.steps)}
-        </ol>
-      </StyledCard>
+        <StyledCard>
+          <ol>
+            {this.renderDirections(recipe.steps)}
+          </ol>
+        </StyledCard>
+      </div>
     )
   }
 }

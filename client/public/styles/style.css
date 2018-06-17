@@ -95,3 +95,8 @@ body {
 .pointer:hover {
   cursor: pointer;
 }
+
+/************* Random ***************/
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
