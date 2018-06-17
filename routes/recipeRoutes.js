@@ -32,14 +32,12 @@ var upload = multer({
       cb(null, { fieldName: file.fieldname });
     },
     key: (req, file, cb) => {
-      console.log(file);
       cb(null, `${Date.now().toString()}${file.originalname}`);
     }
   })
 })
 app.post('/api/recipes', upload.array('images'), (req, res) => {
   // Construct the recipe that'll be sent up
-  console.log(req.files)
   const newRecipe = new Recipe(
     {
       ...req.body,

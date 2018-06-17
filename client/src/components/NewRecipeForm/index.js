@@ -58,7 +58,6 @@ class NewRecipeForm extends Component {
     }
     else {
       const data = { ...this.state.inputs, ...values }
-      console.log(data)
 
       this.props.addRecipe(data)
       this.props.history.push('/')
