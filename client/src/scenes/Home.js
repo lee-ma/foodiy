@@ -34,12 +34,12 @@ class Home extends Component {
             <Text big black>All Recipes</Text>
             <div className="row" style={{ marginTop: "1.5em" }}>
               <div
-                className="flexbox"
+                className="flexbox grid-cols"
                 style={{
-                  display: 'flex',
-                  minHeight: 'wrap-content',
-                  flexWrap: 'wrap',
-                  padding: '0.5em' }}>
+                  padding: '0',
+                  display: "grid",
+                  justifyContent: "center"
+                }}>
                 {this.renderRecipeCards()}
               </div>
             </div>

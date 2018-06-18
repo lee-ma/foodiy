@@ -25,7 +25,7 @@ class Dashboard extends Component {
                   display: 'flex',
                   minHeight: 'wrap-content',
                   overflowX: 'auto',
-                  padding: '0.5em' }}>
+                  padding: '0.5em'  }}>
                 <RecipeCard
                   imgSrc="https://rasamalaysia.com/wp-content/uploads/2012/10/chicken-teriyaki.jpg"
                   title="Chicken Teriyaki with Asparagus and Mashed Potatoes"
@@ -73,7 +73,12 @@ class Dashboard extends Component {
 
             <div className="row" style={{ marginTop: "1.25em" }}>
               <Text medium black>Recommended for you:</Text>
-              <div className="flexbox" style={{ display: 'flex', minHeight: 'wrap-content', overflowX: 'auto', padding: '0.5em' }}>
+              <div className="flexbox"
+                style={{
+                  display: 'flex',
+                  minHeight: 'wrap-content',
+                  overflowX: 'auto',
+                  padding: '0.5em' }}>
                 <RecipeCard
                   imgSrc="https://amp.businessinsider.com/images/5a451b22b0bcd51d008b7445-750-562.jpg"
                   title="title"

@@ -2,20 +2,18 @@ import React from 'react'
 import styled from 'styled-components'
 import { Text } from './index'
 
-const RecipeCard = (props) => {
-  const { imgSrc, title, time, description, href } = props
-  const StyledCard = styled('a')`
+const StyledCard = styled('a')`
     padding: 0 0 1em 0;
-    margin: 0 1em;
-    min-width: 18em;
-    max-width: 18em;
+    margin: 0 1em 1em 1em;
+    min-width: 17em;
     max-height: 22em;
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
     :hover {
       text-decoration: none;
-      /* box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); */
     };
 }`
+const RecipeCard = (props) => {
+  const { imgSrc, title, time, description, href } = props
 
   return (
     <StyledCard href={href}>
@@ -24,7 +22,7 @@ const RecipeCard = (props) => {
         style={{
           backgroundImage: `url(${imgSrc})`,
           width: '100%',
-          paddingBottom: '100%',
+          paddingBottom: '75%',
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
