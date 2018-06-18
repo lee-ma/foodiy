@@ -9,9 +9,25 @@ const Recipe = mongoose.model('recipe');
 
 module.exports = app => {
   app.get('/api/recipes', (req, res) => {
-    Recipe.find({})
-    .then(allRecipes => res.send(allRecipes))
-    .catch(err => console.log(err))
+    // Default return all recipes TODO: add pagination
+    if (!req.query.q) {
+      Recipe.find({})
+      .then(allRecipes => res.send(allRecipes))
+      .catch(err => console.log(err))
+    }
+
+    // When there is a search term
+    else {
+      const { q } = req.query
+      Recipe
+      .find({ $text: { $search: q }},
+      { score: {$meta: "textScore"}})
+      .sort({ score: { $meta: "textScore" } })
+      .then(recipes => {
+        if (recipes.length === 0) res.send(["No Results"])
+        else res.send(recipes)
+      }).catch(err => console.log(err))
+    }
   })
 
   app.get('/api/recipes/:id', (req,res) => {

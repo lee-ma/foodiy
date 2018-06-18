@@ -4,11 +4,29 @@ import { connect } from 'react-redux'
 import { fetchRecipes } from '../actions'
 
 class Home extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      userSearched: false,
+      searchTerm: ""
+    }
+  }
   componentDidMount() {
-    this.props.fetchRecipes()
+    const { search } = this.props.location
+    const query = search.substring(
+      search.lastIndexOf('q=') + 2,
+      search.length
+    )
+    if (query.length === 0) this.props.fetchRecipes()
+    else {
+      this.setState({ userSearched: true, searchTerm: query })
+      this.props.fetchRecipes(query)
+    }
   }
   renderRecipeCards = () => {
     if (!this.props.recipes) return null
+    else if (this.props.recipes[0] === "No Results") return <Text>No Results Found :(</Text>
 
     return this.props.recipes.map(
       (recipe, index) => {
@@ -27,11 +45,13 @@ class Home extends Component {
   }
 
   render() {
+    const { userSearched, searchTerm } = this.state
     return (
       <div className="container-fluid">
         <div className="row fadein">
           <div className="col-xs-12 col-sm-10 offset-sm-1">
-            <Text big black>All Recipes</Text>
+            {userSearched && <Text big black>Search results for "{searchTerm}"</Text>}
+            {!userSearched && <Text big black>All Recipes</Text>}
             <div className="row" style={{ marginTop: "1.5em" }}>
               <div
                 className="flexbox grid-cols"

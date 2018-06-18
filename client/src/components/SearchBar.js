@@ -1,23 +1,28 @@
-import React from 'react';
-import { Input, Button } from './index';
-import { Formik, Form } from 'formik';
+import React, { Component } from 'react'
+import { Input, Button } from './index'
+import { Formik, Form } from 'formik'
+import { connect } from 'react-redux'
+import { fetchRecipes } from '../actions'
 
 const searchBarInitialValues = {
   searchQuery: ""
 }
 
-class SearchBar extends React.Component {
+class SearchBar extends Component {
   render() {
+    const { handleSubmit } = this.props
     return(
       <div>
         <Formik
           initialValues = {searchBarInitialValues}
-          onSubmit = {(searchTerm) => console.log(searchTerm)}
+          onSubmit = {handleSubmit}
           render = {() => {
             return (
               <span>
                 <Form className="form-inline">
-                  <Input type="text" name="searchQuery" placeholder={"Try: Chicken"} searchbar/>
+                  <Input type="text" name="searchQuery" placeholder={"Try: Chicken"}
+                    searchbar
+                  />
                   <Button searchbar type="submit"><i className="fas fa-search"></i></Button>
                 </Form>
               </span>
@@ -29,4 +34,4 @@ class SearchBar extends React.Component {
   }
 }
 
-export default SearchBar;
+export default connect(null, { fetchRecipes })(SearchBar)

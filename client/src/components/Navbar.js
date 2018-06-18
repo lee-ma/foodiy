@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import {
   Modal,
   LoginForm,
@@ -10,12 +10,14 @@ class Navbar extends Component {
   constructor(props) {
     super(props)
 
+    console.log(this)
     this.state = {
       showLogin: false
     }
 
     this.closeLoginModal.bind(this)
     this.openLoginModal.bind(this)
+    this.handleSearchSubmit = this.handleSearchSubmit.bind(this)
   }
 
   closeLoginModal = () => {
@@ -24,6 +26,11 @@ class Navbar extends Component {
 
   openLoginModal = () => {
     this.setState({ showLogin: true })
+  }
+
+  handleSearchSubmit(query) {
+    this.props.history.push(`/browse?q=${query.searchQuery}`)
+    window.location.reload()
   }
 
   renderNavLinks() {
@@ -39,7 +46,7 @@ class Navbar extends Component {
             </a>
           </li>
         </ul>
-      );
+      )
     } else {
       // Logged in
       return (
@@ -47,7 +54,7 @@ class Navbar extends Component {
           <li className="nav-item">
             <a className="nav-link" href="/newrecipe">
               New Recipe
-          </a>
+            </a>
           </li>
           <li className="nav-item">
             <a className="nav-link" href="/profile">
@@ -60,15 +67,14 @@ class Navbar extends Component {
             </a>
           </li>
         </ul>
-      );
+      )
     }
   }
   render() {
     return (
       <div>
         <nav
-          className="navbar navbar-toggleable-md navbar-light bkg-white"
-        >
+          className="navbar navbar-toggleable-md navbar-light bkg-white">
           <button
             className="navbar-toggler navbar-toggler-right"
             type="button"
@@ -84,7 +90,7 @@ class Navbar extends Component {
           </a>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">
-              <SearchBar/>
+              <SearchBar handleSubmit={this.handleSearchSubmit}/>
             </ul>
             {this.renderNavLinks()}
           </div>
@@ -93,14 +99,14 @@ class Navbar extends Component {
           <LoginForm />
         </Modal>
       </div>
-    );
+    )
   }
 }
 
 function mapStateToProps(state) {
   return {
     user: state.auth
-  };
+  }
 }
 
-export default connect(mapStateToProps)(Navbar);
+export default connect(mapStateToProps)(Navbar)
