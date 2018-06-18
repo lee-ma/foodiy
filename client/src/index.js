@@ -22,7 +22,7 @@ ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <div>
-        <Route path="*" component={Navbar}/>
+        <Route path="/*" component={Navbar}/>
         <Route exact path="/" component={Landing} />
         <Route exact path="/profile" component={Profile} />
         <Route exact path="/newrecipe" component={NewRecipeForm} />

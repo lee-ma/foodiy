@@ -13,15 +13,20 @@ class Home extends Component {
     }
   }
   componentDidMount() {
-    const { search } = this.props.location
-    const query = search.substring(
-      search.lastIndexOf('q=') + 2,
-      search.length
-    )
-    if (query.length === 0) this.props.fetchRecipes()
+    if (this.props.location) {
+      const { search } = this.props.location
+      const query = search.substring(
+        search.lastIndexOf('q=') + 2,
+        search.length
+      )
+      if (query.length === 0) this.props.fetchRecipes()
+      else {
+        this.setState({ userSearched: true, searchTerm: query })
+        this.props.fetchRecipes(query)
+      }
+    }
     else {
-      this.setState({ userSearched: true, searchTerm: query })
-      this.props.fetchRecipes(query)
+      this.props.fetchRecipes()
     }
   }
   renderRecipeCards = () => {
