@@ -9,6 +9,10 @@ body {
   background-color: #feffff;
 }
 
+body {
+  padding: 0 0 20px 0;
+}
+
 .text-input {
   padding: .5rem;
   font-size: 16px;
@@ -120,7 +124,7 @@ body {
   }
 }
 
-@media (max-width: 676px) {
+@media (max-width: 576px) {
   .grid-cols {
     grid-template-columns: 1fr;
   }
