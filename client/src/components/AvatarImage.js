@@ -26,7 +26,6 @@ const PlaceholderCircle = styled('div')`
 
 const AvatarImage = ({ user, size }) => {
   const { avatarImage, firstName, lastName } = user
-  console.log(avatarImage)
   if (avatarImage) {
     return (
       <AvatarCircle size={size} image={avatarImage}/>

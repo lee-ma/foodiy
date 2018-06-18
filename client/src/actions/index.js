@@ -41,7 +41,6 @@ export const fetchRecipes = searchQuery => dispatch => {
       .then(res => dispatch({ type: FETCH_RECIPES, payload: res.data }))
   }
   else {
-    console.log(searchQuery)
     axios
       .get('/api/recipes', { params: {
         q: searchQuery

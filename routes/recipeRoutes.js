@@ -19,10 +19,13 @@ module.exports = app => {
     // When there is a search term
     else {
       const { q } = req.query
+
       Recipe
-      .find({ $text: { $search: q }},
-      { score: {$meta: "textScore"}})
-      .sort({ score: { $meta: "textScore" } })
+      // .find({ $text: { $search: q }},
+      // { score: {$meta: "textScore"}})
+      // .sort({ score: { $meta: "textScore" } })
+      
+      .find({ "title": { $regex: q, $options: 'i' }})
       .then(recipes => {
         if (recipes.length === 0) res.send(["No Results"])
         else res.send(recipes)

@@ -10,7 +10,6 @@ class Navbar extends Component {
   constructor(props) {
     super(props)
 
-    console.log(this)
     this.state = {
       showLogin: false
     }
@@ -30,7 +29,7 @@ class Navbar extends Component {
 
   handleSearchSubmit(query) {
     this.props.history.push(`/browse?q=${query.searchQuery}`)
-    window.location.reload()
+    if (this.props.location.pathname === "/browse") window.location.reload()
   }
 
   renderNavLinks() {
