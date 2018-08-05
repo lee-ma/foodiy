@@ -9,4 +9,4 @@ module.exports = {
   awsSecretKey: process.env.AWS_SECRET_KEY,
   bucketName: process.env.BUCKET_NAME,
   s3Region: process.env.S3_REGION
-};
+}

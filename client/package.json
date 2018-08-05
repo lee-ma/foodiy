@@ -2,15 +2,9 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "proxy": {
-    "/api/*": {
-      "target": "http://localhost:6969/"
-    },
-    "/auth/*": {
-      "target": "http://localhost:6969/"
-    }
-  },
+  "proxy": "http://server:3000",
   "dependencies": {
+    "@babel/runtime": "^7.0.0-beta.56",
     "axios": "^0.18.0",
     "formik": "^0.11.11",
     "prop-types": "^15.6.1",
@@ -25,7 +19,7 @@
     "redux-form": "^7.2.3",
     "redux-thunk": "^2.2.0",
     "styled-components": "^3.2.6",
-    "yup": "^0.25.1"
+    "yup": "0.24.1"
   },
   "scripts": {
     "start": "react-scripts start",

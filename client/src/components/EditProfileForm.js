@@ -27,7 +27,6 @@ class EditProfileForm extends Component {
     }
 
     handleSubmit = (values) => {
-      this.props.hide()
       this.props.updateUser(values)
     }
 

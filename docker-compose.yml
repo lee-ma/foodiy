@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+  server:
+    container_name: server
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: "npm run server"
+    ports: 
+      - "3001:3000"
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+
+  client:
+    container_name: client
+    build:
+      context: .
+    command: "npm run client"
+    volumes:
+      - ./client/src:/usr/src/app/client/src
+      - ./client/public:/usr/src/app/client/public
+    ports:
+      - "3000:3000"
+    links:
+      - server
+    depends_on:
+      - server
+    env_file:
+      - client/.env
