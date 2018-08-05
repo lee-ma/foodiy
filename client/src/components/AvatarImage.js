@@ -8,7 +8,7 @@ const AvatarCircle = styled('div')`
   border-radius: 100%;
   background-image: url(${props => props.image});
   background-position: center;
-  background-repeat: none;
+  background-repeat: no-repeat;
   background-size: cover;
 `
 
@@ -24,15 +24,17 @@ const PlaceholderCircle = styled('div')`
   font-size: 100%;
 `
 
-const AvatarImage = ({ user, size }) => {
+const AvatarImage = ({ user, size, ...otherProps }) => {
   const { avatarImage, firstName, lastName } = user
   if (avatarImage) {
     return (
-      <AvatarCircle size={size} image={avatarImage}/>
+      <AvatarCircle size={size} image={avatarImage} {...otherProps} />
     )
   }
   return (
-    <PlaceholderCircle size={size}>{`${firstName[0]}${lastName[0]}`}</PlaceholderCircle>
+    <PlaceholderCircle size={size} {...otherProps}>
+      {`${firstName[0]}${lastName[0]}`}
+    </PlaceholderCircle>
   )
 }
 

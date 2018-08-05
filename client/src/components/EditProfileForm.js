@@ -51,7 +51,10 @@ class EditProfileForm extends Component {
                   type="text"
                   name="lastName"
                 />
-                <button className="btn btn-success" style={{ marginTop: '0.75em', cursor: 'pointer' }} type="submit">Submit</button>
+                <button
+                  className="btn btn-success"
+                  style={{ marginTop: '0.75em', cursor: 'pointer' }}
+                  type="submit">Update</button>
               </Form>
             )
           }}
