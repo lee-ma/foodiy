@@ -1,12 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Field } from 'formik'
-import { Text } from './index'
-import { fonts } from '../theme'
-
-const inputFeedback = styled('div') `
-  color: #999;
-`
+import { Text } from 'components'
+import { fonts } from 'theme'
 
 const StyledLabel = styled('label') `
   display: block;

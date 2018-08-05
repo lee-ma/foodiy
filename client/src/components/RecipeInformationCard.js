@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { Text } from './index'
+import { Text } from 'components'
 import styled from 'styled-components'
-import { colors, fonts } from '../theme'
+import { colors, fonts } from 'theme'
 import { isEmpty } from 'lodash'
 
 const StyledCard = styled("div")`

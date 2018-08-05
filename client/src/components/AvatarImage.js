@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { colors } from '../theme'
+import { colors } from 'theme'
 
 const AvatarCircle = styled('div')`
   width: ${props => props.size};

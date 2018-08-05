@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 
 const FacebookButton = (props) => {
-    const { text } = props
-    const Facebook = styled('a') `
+  const { text } = props
+  const Facebook = styled('a') `
         background-color: #4267b2;
         margin: 0.5em 0px 0px 0px;
         display: inline-block;
@@ -57,19 +57,19 @@ const FacebookButton = (props) => {
           }
         }
     `
-    return (
-        <Facebook
-            href="#">
-            <div className="content-wrapper">
-                <div className="logo-wrapper">
-                    <img alt="Facebook Icon" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/14082/icon_facebook.png" />
-                </div>
-                <span className="text-container">
-                    <span>{text}</span>
-                </span>
-            </div>
-        </Facebook>
-    )
+  return (
+    <Facebook
+      href="#">
+      <div className="content-wrapper">
+        <div className="logo-wrapper">
+          <img alt="Facebook Icon" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/14082/icon_facebook.png" />
+        </div>
+        <span className="text-container">
+          <span>{text}</span>
+        </span>
+      </div>
+    </Facebook>
+  )
 }
 
 export default FacebookButton

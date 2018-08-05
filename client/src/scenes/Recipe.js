@@ -1,10 +1,10 @@
 import React from 'react'
-import { Text, RecipeInformationCard, AvatarImage } from '../components'
-import shortenText from '../utils/shortenText'
+import { Text, RecipeInformationCard, AvatarImage } from 'components'
+import shortenText from 'utils/shortenText'
 import axios from 'axios'
 import { isEmpty } from 'lodash'
 import styled from 'styled-components'
-import { colors } from '../theme'
+import { colors } from 'theme'
 
 const ScrollToRecipeButton = styled('div')`
   position: fixed;

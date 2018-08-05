@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Text } from './index'
+import { Text } from 'components'
 
 const StyledCard = styled('a')`
     padding: 0 0 1em 0;

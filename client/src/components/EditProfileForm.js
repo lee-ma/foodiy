@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Input } from './index'
-import { updateUser } from '../actions'
+import { Input } from 'components'
+import { updateUser } from 'actions'
 import { Formik, Form } from 'formik'
 import { connect } from 'react-redux'
 import * as yup from 'yup'

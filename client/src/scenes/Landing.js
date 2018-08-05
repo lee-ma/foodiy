@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Text } from '../components'
-import { Home, Dashboard } from './index'
+import { Text } from 'components'
+import { Home, Dashboard } from 'scenes'
 
 class Landing extends Component {
   render() {

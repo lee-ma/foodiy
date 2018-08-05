@@ -7,6 +7,7 @@ import ImageUpload from './ImageUpload'
 import Input from './Input'
 import LoginForm from './LoginForm'
 import Modal from './Modal'
+import Navbar from './Navbar'
 import NewRecipeForm from './NewRecipeForm'
 import RecipeCard from './RecipeCard'
 import RecipeInformationCard from './RecipeInformationCard'
@@ -24,6 +25,7 @@ export {
   Input,
   LoginForm,
   Modal,
+  Navbar,
   NewRecipeForm,
   RecipeCard,
   RecipeInformationCard,

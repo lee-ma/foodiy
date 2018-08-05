@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { Text, RecipeCard } from '../components'
+import { Text, RecipeCard } from 'components'
 import { connect } from 'react-redux'
-import { fetchRecipes } from '../actions'
+import { fetchRecipes } from 'actions'
 
 class Home extends Component {
   constructor(props) {

@@ -7,26 +7,26 @@ class Thumbnail extends Component {
   };
 
   componentWillReceiveProps(nextProps) {
-    if (!nextProps.file) { return; }
+    if (!nextProps.file) { return }
 
     this.setState({ loading: true }, () => {
-      let reader = new FileReader();
+      let reader = new FileReader()
 
       reader.onloadend = () => {
-        this.setState({ loading: false, thumb: reader.result });
-      };
+        this.setState({ loading: false, thumb: reader.result })
+      }
 
-      reader.readAsDataURL(nextProps.file);
-    });
+      reader.readAsDataURL(nextProps.file)
+    })
   }
 
   render() {
-    const { file, remove } = this.props;
-    const { loading, thumb } = this.state;
+    const { file, remove } = this.props
+    const { loading, thumb } = this.state
 
-    if (!file) { return null; }
+    if (!file) { return null }
 
-    if (loading) { return <p>loading...</p>; }
+    if (loading) { return <p>loading...</p> }
 
     return (
       <div>
@@ -37,13 +37,14 @@ class Thumbnail extends Component {
           <i className="far fa-times-circle"></i>
         </span>
         <img src={thumb}
-        alt={file.name}
-        className="img-thumbnail mt-2"
-        height={200}
-        width={200} />
+          alt={file.name}
+          className="img-thumbnail mt-2"
+          height={200}
+          width={200}
+        />
       </div>
 
-    );
+    )
   }
 }
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { EditProfileForm, AvatarImage } from '../components'
+import { EditProfileForm, AvatarImage } from 'components'
 import { connect } from 'react-redux'
 
 class Home extends Component {

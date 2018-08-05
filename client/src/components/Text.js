@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import types from 'prop-types'
-import { fontWeights, fonts, fontSizes, colors, lineHeights, fontStyles } from '../theme'
+import { fontWeights, fonts, fontSizes, colors, lineHeights, fontStyles } from 'theme'
 
 const Text = (props) => {
   const { children, element = 'span' } = props

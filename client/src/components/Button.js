@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import { colors, fonts, fontSizes, fontWeights } from '../theme';
+import React from 'react'
+import styled from 'styled-components'
+import { colors, fonts, fontSizes, fontWeights } from 'theme'
 
 const PrimaryButton = styled('button')`
   display: flex;
@@ -72,4 +72,4 @@ const Button = ({
   }
 }
 
-export default Button;
+export default Button

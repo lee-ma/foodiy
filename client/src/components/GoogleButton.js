@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 
 const GoogleButton = (props) => {
-    const { text } = props
-    const Google = styled('a') `
+  const { text } = props
+  const Google = styled('a') `
     background-color: #4285f4;
     margin: 0.5em 0px 0px 0px;
     display: inline-block;
@@ -59,20 +59,20 @@ const GoogleButton = (props) => {
       }
     }
 `
-    return (
-        <Google
-            className="google sign-in-button margin-vertical-sm"
-            href="/auth/google">
-            <div className="content-wrapper">
-                <div className="logo-wrapper">
-                    <img alt="Google Icon" src="https://developers.google.com/identity/images/g-logo.png" />
-                </div>
-                <span className="text-container">
-                    <span>{text}</span>
-                </span>
-            </div>
-        </Google>
-    )
+  return (
+    <Google
+      className="google sign-in-button margin-vertical-sm"
+      href="/auth/google">
+      <div className="content-wrapper">
+        <div className="logo-wrapper">
+          <img alt="Google Icon" src="https://developers.google.com/identity/images/g-logo.png" />
+        </div>
+        <span className="text-container">
+          <span>{text}</span>
+        </span>
+      </div>
+    </Google>
+  )
 }
 
 export default GoogleButton

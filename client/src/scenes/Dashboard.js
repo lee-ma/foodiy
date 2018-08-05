@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { RecipeCard, Text } from '../components'
+import { RecipeCard, Text } from 'components'
 import { connect } from 'react-redux'
 
 class Dashboard extends Component {

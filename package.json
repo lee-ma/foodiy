@@ -9,8 +9,7 @@
     "server": "nodemon index.js",
     "client": "npm run start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild":
-      "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "author": "Rock Zhou & Lee Ma",
   "license": "ISC",
@@ -30,6 +29,7 @@
     "passport-facebook": "^2.1.1",
     "passport-google-oauth20": "^1.0.0",
     "passport-local": "^1.0.0",
-    "react-dropzone": "^4.2.10"
+    "react-dropzone": "^4.2.10",
+    "react-scripts": "^1.1.4"
   }
 }

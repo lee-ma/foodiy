@@ -4,14 +4,12 @@ import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import { BrowserRouter, Route } from 'react-router-dom'
 import reduxThunk from 'redux-thunk'
-import { fetchUser } from './actions'
+import { fetchUser } from 'actions'
 
-import reducers from './reducers'
+import reducers from 'reducers'
 
-import { Landing, Profile, Recipe, Home } from './scenes'
-import { NewRecipeForm } from './components'
-
-import Navbar from './components/Navbar'
+import { Landing, Profile, Recipe, Home } from 'scenes'
+import { NewRecipeForm, Navbar } from 'components'
 
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk))
 

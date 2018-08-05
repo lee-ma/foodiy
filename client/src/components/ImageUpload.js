@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Dropzone from 'react-dropzone'
-import { Thumbnail, Text } from './index'
-import { colors } from '../theme'
+import { Thumbnail, Text } from 'components'
+import { colors } from 'theme'
 
 const dropzoneStyle = {
   width: "100%",

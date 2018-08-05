@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, GoogleButton, FacebookButton, Input } from './index'
+import { Text, GoogleButton, FacebookButton, Input } from 'components'
 import { Formik, Form } from 'formik'
 import * as yup from 'yup'
 
