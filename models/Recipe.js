@@ -1,24 +1,57 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+module.exports = (sequelize, DataTypes) => {
+  const Recipe = sequelize.define('recipe', {
+    id: {
+      type: DataTypes.INTEGER,
+      field: 'id',
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    title: {
+      type: DataTypes.STRING,
+      field: 'title',
+      allowNull: false
+    },
+    description: {
+      type: DataTypes.STRING,
+      field: 'description',
+      allowNull: false
+    },
+    ingredients: {
+      type: DataTypes.ARRAY(DataTypes.STRING),
+      field: 'ingredients',
+      allowNull: false
+    },
+    steps: {
+      type: DataTypes.ARRAY(DataTypes.STRING),
+      field: 'steps',
+      allowNull: false
+    },
+    images: {
+      type: DataTypes.ARRAY(DataTypes.STRING),
+      field: 'images',
+      allowNull: false
+    },
+    rating: {
+      type: DataTypes.INTEGER,
+      field: 'rating',
+      allowNull: true
+    },
+    time: {
+      type: DataTypes.INTEGER,
+      field: 'time',
+      allowNull: false
+    }
+  })
 
-const RecipeSchema = new Schema({
-  title: String,
-  description: String,
-  ingredients: [String],
-  steps: [String],
-  images: [String],
-  rating: Number,
-  time: Number,
-  author: {
-      type: Schema.Types.ObjectId,
-      ref: 'user'
-  },
-  comments: [
-      {
-          type: Schema.Types.ObjectId,
-          ref: 'comment'
-      }
-  ]
-}, {usePushEach: true});
+  Recipe.associate = model => {
+    const { User, Comment } = model
 
-mongoose.model('recipe', RecipeSchema);
+    Recipe.hasOne(User, { as: "author" })
+
+    Recipe.hasMany(Comment, { as: "comments" })
+  }
+
+  return Recipe
+}
+

@@ -1,22 +1,25 @@
 const express = require('express')
-const mongoose = require('mongoose')
 const passport = require('passport')
+const Sequelize = require('sequelize')
 const bodyParser = require('body-parser')
 const cookieSession = require('cookie-session')
 const keys = require('./config/keys')
 
-require('./models/User')
-require('./models/Recipe')
-require('./models/Comment')
-require('./services/passport')
-require('./services/awsconfig')
+// require('./services/passport')
+// require('./services/awsconfig')
 
-const User = mongoose.model('user')
-const Recipe = mongoose.model('recipe')
+const sequelize = new Sequelize(keys.postgresURI)
 
-mongoose.Promise = global.Promise
+sequelize.authenticate()
+  .then(() => console.log("authenticated"))
+  .catch(err => console.error(err))
 
-mongoose.connect(keys.mongoURI)
+const User = require('./models/User')(sequelize, Sequelize)
+const Recipe = require('./models/Recipe')(sequelize, Sequelize)
+const Comment = require('./models/Comment')(sequelize, Sequelize)
+
+User.findAll()
+  .then(users => console.log(users))
 
 const app = express()
 
@@ -31,11 +34,11 @@ app.use(
     keys: [keys.cookieKey]
   })
 )
-app.use(passport.initialize())
-app.use(passport.session())
+// app.use(passport.initialize())
+// app.use(passport.session())
 
-require('./routes/authRoutes')(app)
-require('./routes/recipeRoutes')(app)
+// require('./routes/authRoutes')(app)
+// require('./routes/recipeRoutes')(app)
 
 if (process.env.NODE_ENV === 'production') {
   // Express needs to serve up production assets like main.js

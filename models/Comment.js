@@ -1,13 +1,25 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+module.exports = (sequelize, DataTypes) => {
+  const Comment = sequelize.define('comment', {
+    id: {
+      type: DataTypes.INTEGER,
+      field: 'id',
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    content: {
+      type: DataTypes.STRING,
+      field: 'content',
+      allowNull: false
+    }
+  })
 
-const CommentSchema = new Schema({
-  author: {
-      type: Schema.Types.ObjectId,
-      ref: 'user'
-  },
-  content: String,
-  createdAt: Date
-});
+  Comment.associate = model => {
+    const { Recipe, User } = model
 
-mongoose.model('comment', CommentSchema);
+    Comment.belongsTo(Recipe, { as: "recipe" })
+    Comment.belongsTo(User, { as: "poster" })
+  }
+
+  return Comment
+}
