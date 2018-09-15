@@ -5,21 +5,43 @@ const bodyParser = require('body-parser')
 const cookieSession = require('cookie-session')
 const keys = require('./config/keys')
 
-// require('./services/passport')
-// require('./services/awsconfig')
+const db = {}
 
 const sequelize = new Sequelize(keys.postgresURI)
 
+db.sequelize = sequelize
+db.Sequelize = Sequelize
+
+module.exports = db
+
+require('./services/passport')
+require('./services/awsconfig')
+
+/* Import models */
+const User = sequelize.import('./models/User')
+const Recipe = sequelize.import('./models/Recipe')
+const Comment = sequelize.import('./models/Comment')
+
+/* Sync with db */
+User.sync()
+Recipe.sync()
+
+/* Associate models */
+db.User = User
+db.Recipe = Recipe
+
+const { models } = sequelize
+
+Object.keys(models).forEach(modelName => {
+  if (models[modelName].associate) {
+    models[modelName].associate(db)
+  }
+})
+
+/* Connect to db */
 sequelize.authenticate()
-  .then(() => console.log("authenticated"))
+  .then(() => console.log("connected to db"))
   .catch(err => console.error(err))
-
-const User = require('./models/User')(sequelize, Sequelize)
-const Recipe = require('./models/Recipe')(sequelize, Sequelize)
-const Comment = require('./models/Comment')(sequelize, Sequelize)
-
-User.findAll()
-  .then(users => console.log(users))
 
 const app = express()
 
@@ -34,11 +56,11 @@ app.use(
     keys: [keys.cookieKey]
   })
 )
-// app.use(passport.initialize())
-// app.use(passport.session())
+app.use(passport.initialize())
+app.use(passport.session())
 
-// require('./routes/authRoutes')(app)
-// require('./routes/recipeRoutes')(app)
+require('./routes/authRoutes')(app)
+require('./routes/recipeRoutes')(app)
 
 if (process.env.NODE_ENV === 'production') {
   // Express needs to serve up production assets like main.js
@@ -51,7 +73,7 @@ if (process.env.NODE_ENV === 'production') {
   })
 }
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 5000
 app.listen(PORT, () => {
   console.log('Running on port ', PORT)
 })

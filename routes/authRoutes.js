@@ -1,6 +1,7 @@
 const passport = require('passport')
-const mongoose = require('mongoose')
-const User = mongoose.model('user')
+const { sequelize } = require('../index')
+
+const User = sequelize.import('../models/User')
 
 module.exports = app => {
   app.get(
@@ -27,9 +28,11 @@ module.exports = app => {
     res.send(req.user)
   })
 
-  app.put('/api/user', (req) => {
-    User.findByIdAndUpdate(req.user._id, req.body)
-      .then()
-      .catch(err => console.log(err))
+  app.put('/api/user', (req, res) => {
+    User.update(req.body, { returning: true, where: { id: req.user.id }})
+      .then(([ rowsUpdate, [updatedUser]]) => {
+        res.send(updatedUser)
+      })
+      .catch(err => console.error(err))
   })
 }

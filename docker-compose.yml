@@ -7,8 +7,15 @@ services:
       context: .
       dockerfile: Dockerfile
     command: "npm run server"
+    volumes:
+      - ./index.js:/usr/src/app/index.js
+      - ./models:/usr/src/app/models
+      - ./routes:/usr/src/app/routes
+      - ./services:/usr/src/app/services
+    expose:
+      - 5000
     ports: 
-      - "3001:3000"
+      - 5000:5000
     environment:
       - NODE_ENV=development
       - CHOKIDAR_USEPOLLING=true
@@ -21,8 +28,10 @@ services:
     volumes:
       - ./client/src:/usr/src/app/client/src
       - ./client/public:/usr/src/app/client/public
+    expose:
+      - 3000
     ports:
-      - "3000:3000"
+      - 3000:3000
     links:
       - server
     depends_on:
