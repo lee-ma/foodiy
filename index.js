@@ -29,6 +29,7 @@ Recipe.sync()
 /* Associate models */
 db.User = User
 db.Recipe = Recipe
+db.Comment = Comment
 
 const { models } = sequelize
 

@@ -12,7 +12,9 @@ module.exports = app => {
   app.get('/api/recipes', (req, res) => {
     // Default return all recipes TODO: add pagination
     if (!req.query.q) {
-      Recipe.findAll()
+      Recipe.findAll({
+        include: User
+      })
         .then(allRecipes => res.send(allRecipes))
         .catch(err => console.log(err))
     }
@@ -48,7 +50,7 @@ module.exports = app => {
   })
 
   app.get('/api/recipes/:id', (req, res) => {
-    Recipe.findAll({ where: { id: req.params.id }})
+    Recipe.findOne({ where: { id: req.params.id }, include: User })
       .then(foundRecipe => res.send(foundRecipe))
       .catch(err => console.log(err))
   })
@@ -78,12 +80,7 @@ module.exports = app => {
         steps: JSON.parse(req.body.steps),
         ingredients: JSON.parse(req.body.ingredients),
         images: req.files.map(file => file.location),
-        user: req.user,
-      },
-      {
-        include: [{
-          model: User
-        }]
+        userId: req.user.id,
       }
     )
       .then(recipe => res.send(recipe))

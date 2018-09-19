@@ -76,8 +76,8 @@ class Recipe extends React.Component {
             <Text big bold block
               style={{ marginBottom: "0.2em", lineHeight: "1" }}>{recipe.title}</Text>
             <div style={{ display: "flex", justifyContent: "left", verticalAlign: "center", marginBottom: "1.3em" }}>
-              <AvatarImage user={recipe.author}/>
-              <Text style={{ marginLeft: "0.5em", marginTop: "0.25em" }} semiBold>{`${recipe.author.firstName} ${recipe.author.lastName}`}</Text>
+              <AvatarImage user={recipe.user}/>
+              <Text style={{ marginLeft: "0.5em", marginTop: "0.25em" }} semiBold>{`${recipe.user.firstName} ${recipe.user.lastName}`}</Text>
             </div>
             <Text greyDark>{descriptionHidden ? shortenText(recipe.description, maxLength) : recipe.description}</Text>
             {showButton &&

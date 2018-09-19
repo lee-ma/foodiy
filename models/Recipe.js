@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-  const Recipe = sequelize.define('recipe', {
+  const Recipe = sequelize.define("recipe", {
     id: {
       type: DataTypes.INTEGER,
       field: "id",
@@ -41,14 +41,18 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DECIMAL,
       field: "time",
       allowNull: false
-    }
+    },
+    userId: DataTypes.INTEGER
   })
 
   Recipe.associate = models => {
-    const { User, Comment } = models
+    const { User, Recipe } = models // MAKE SURE TO INCLUDE THE CURRENT MODEL
 
     Recipe.belongsTo(User, {
-      onUpdate: "cascade"
+      onDelete: "CASCADE",
+      foreignKey: {
+        allowNull: false
+      }
     })
     //Recipe.hasMany(Comment, { foreignKey: "recipeId" })
   }
