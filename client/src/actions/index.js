@@ -55,3 +55,7 @@ export const fetchRecipe = id => dispatch => {
     .get(`/api/recipes/${id}`)
     .then(res => dispatch({ type: FETCH_RECIPE, payload: res.data }))
 }
+
+export const addComment = id => dispatch => {
+  console.log(dispatch)
+}

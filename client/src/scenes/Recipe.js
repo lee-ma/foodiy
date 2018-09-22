@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, RecipeInformationCard, AvatarImage } from 'components'
+import { Text, RecipeInformationCard, AvatarImage, CommentBox } from 'components'
 import shortenText from 'utils/shortenText'
 import axios from 'axios'
 import { isEmpty } from 'lodash'
@@ -73,7 +73,7 @@ class Recipe extends React.Component {
               backgroundPosition: 'center',
               margin: '0.5em 0 1em 0' }}
             />
-            <Text big bold block
+            <Text big semiBold block
               style={{ marginBottom: "0.2em", lineHeight: "1" }}>{recipe.title}</Text>
             <div style={{ display: "flex", justifyContent: "left", verticalAlign: "center", marginBottom: "1.3em" }}>
               <AvatarImage user={recipe.user}/>
@@ -87,6 +87,12 @@ class Recipe extends React.Component {
               green
               underline>{descriptionHidden ? "Show More" : "Show Less"}</Text>
             }
+            <div className="margin-vertical-md" style={{ width: '100%' }}>
+              <Text medium semiBold>
+                Leave a Comment
+              </Text>
+              <CommentBox/>
+            </div>
             {window.innerWidth < 992 && <hr />}
           </div>
           <div className="col-xs-12 col-lg-3">
