@@ -11,14 +11,29 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       field: 'content',
       allowNull: false
+    },
+    rating: {
+      type: DataTypes.INTEGER,
+      field: 'rating',
+      allowNull: true
+    },
+    recipeId: {
+      type: DataTypes.INTEGER,
+      field: 'recipeId',
+      allowNull: false
+    },
+    userId: {
+      type: DataTypes.INTEGER,
+      field: 'userId',
+      allowNull: false
     }
   })
 
   Comment.associate = model => {
-    const { Recipe, User } = model
+    const { Recipe, User, Comment } = model
 
-    Comment.belongsTo(Recipe, { as: "recipe" })
-    Comment.belongsTo(User, { as: "poster" })
+    Comment.belongsTo(Recipe)
+    Comment.belongsTo(User)
   }
 
   return Comment

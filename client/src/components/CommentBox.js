@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import ReactStars from 'react-stars'
+import { withRouter } from 'react-router-dom'
 import { Input, Button, Text } from 'components'
-import { Formik, Form } from 'formik'
+import { Formik, Form, Field } from 'formik'
 import { connect } from 'react-redux'
 import { addComment } from 'actions'
 import styled from 'styled-components'
@@ -10,45 +11,49 @@ const commentBoxInitialValues = {
   comment: ""
 }
 
-const StyledTextArea = styled('textarea') `
-  font-family: ${({ theme }) => theme.fonts.sansSerif};
-  width: 100%;
-  height: 100px;
-  border: 1px ${({ theme }) => theme.colors.grey} solid;
-  border-radius: 2.5px;
-
-  &&:focus {
-  border-color: ${({ theme }) => theme.colors.grey} !important;
-  };
-`
-
-const ratingChanged = (newRating) => {
-  console.log(newRating)
-}
-
 class CommentBox extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      rating: null
+    }
+  }
+
+  handleSubmit = values => {
+    const { rating } = this.state
+    this.props.addComment(this.props.match.params.id, { ...values, rating })
+  }
+
+  ratingChanged = rating => this.setState({ rating })
 
   render() {
-    const { handleSubmit } = this.props
+    const { rating } = this.state
     return(
       <div>
         <Formik
           initialValues = {commentBoxInitialValues}
-          onSubmit = {handleSubmit}
+          onSubmit = {this.handleSubmit}
           render = {() => {
             return (
               <span>
-                <ReactStars
-                  count={5}
-                  onChange={ratingChanged}
-                  size={24}
-                  color2={'#ffd700'}
-                />
                 <Form className="form-inline">
-                  <StyledTextArea
+                  <Field
+                    name="rating"
+                    type="number"
+                    component={() => <ReactStars
+                      value={rating}
+                      onChange={this.ratingChanged}
+                      size={22}
+                      half={false}
+                      color2={'#ffd700'}
+                    />}
+                  />
+                  <Input
                     type="text"
-                    name="comment"
-                    placeholder={"Leave a comment"}
+                    name="content"
+                    placeholder="Tell us what you think!"
+                    textarea
                   />
                   <Button type="submit" primary style={{ alignItems: "right !important" }}>
                     <Text white>Post</Text>
@@ -63,4 +68,4 @@ class CommentBox extends Component {
   }
 }
 
-export default connect(null, { addComment })(CommentBox)
+export default withRouter(connect(null, { addComment })(CommentBox))

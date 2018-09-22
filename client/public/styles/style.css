@@ -119,6 +119,10 @@ body {
   display: none;
 }
 
+::placeholder {
+  color: #9e9e9e !important;
+}
+
 /****************** CSS GRID ***************/
 @media (max-width: 5000px) {
   .grid-cols {

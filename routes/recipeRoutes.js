@@ -7,6 +7,7 @@ const keys = require('../config/keys')
 const { Op } = Sequelize
 const User = sequelize.import('../models/User')
 const Recipe = sequelize.import('../models/Recipe')
+const Comment = sequelize.import('../models/Comment')
 
 module.exports = app => {
   app.get('/api/recipes', (req, res) => {
@@ -50,7 +51,7 @@ module.exports = app => {
   })
 
   app.get('/api/recipes/:id', (req, res) => {
-    Recipe.findOne({ where: { id: req.params.id }, include: User })
+    Recipe.findOne({ where: { id: req.params.id }, include: [User, Comment] })
       .then(foundRecipe => res.send(foundRecipe))
       .catch(err => console.log(err))
   })

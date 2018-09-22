@@ -30,9 +30,10 @@ module.exports = (sequelize, DataTypes) => {
   })
 
   User.associate = models => {
-    const { Recipe, User } = models
+    const { Recipe, User, Comment } = models
 
     User.hasMany(Recipe)
+    User.hasMany(Comment)
   }
 
   return User
