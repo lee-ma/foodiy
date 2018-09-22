@@ -1,4 +1,4 @@
-import { ADD_RECIPE, FETCH_RECIPES, FETCH_RECIPE } from 'actions/types'
+import { ADD_RECIPE, FETCH_RECIPES, FETCH_RECIPE, ADD_COMMENT } from 'actions/types'
 
 export default function(state = null, action) {
   switch (action.type) {
@@ -8,7 +8,9 @@ export default function(state = null, action) {
   case FETCH_RECIPES:
     return action.payload
   case FETCH_RECIPE:
-    return [...state, action.payload]
+    return state ? [...state, action.payload] : [action.payload]
+  case ADD_COMMENT:
+    return state ? [...state, action.payload] : [action.payload]
   default:
     return state
   }

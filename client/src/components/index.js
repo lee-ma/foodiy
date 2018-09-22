@@ -14,6 +14,7 @@ import RecipeInformationCard from './RecipeInformationCard'
 import SearchBar from './SearchBar'
 import Text from './Text'
 import Thumbnail from './Thumbnail'
+import CommentBox from './CommentBox'
 
 export {
   AvatarImage,
@@ -31,5 +32,6 @@ export {
   RecipeInformationCard,
   SearchBar,
   Text,
-  Thumbnail
+  Thumbnail,
+  CommentBox
 }

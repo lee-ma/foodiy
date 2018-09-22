@@ -1,7 +1,9 @@
 import React from 'react'
-import { Text, RecipeInformationCard, AvatarImage } from 'components'
+import { Text, RecipeInformationCard, AvatarImage, CommentBox } from 'components'
+import { fetchRecipe, getRecipeById } from 'actions'
+import { withRouter } from 'react-router-dom'
 import shortenText from 'utils/shortenText'
-import axios from 'axios'
+import { connect } from 'react-redux'
 import { isEmpty } from 'lodash'
 import styled from 'styled-components'
 import { colors } from 'theme'
@@ -25,7 +27,6 @@ class Recipe extends React.Component {
     super(props)
 
     this.state = {
-      recipe: {},
       descriptionHidden: true,
       showButton: false,
       maxLength: 100,
@@ -33,15 +34,14 @@ class Recipe extends React.Component {
     }
   }
 
+  componentWillReceiveProps = props => {
+    !isEmpty(props.recipe) && this.checkShowButton(props.recipe.description)
+  }
+
   componentWillMount() {
     const { id } = this.props.match.params
-    axios.get(`/api/recipes/${id}`)
-      .then(res => {
-        this.checkShowButton(res.data.description)
-        this.setState({
-          recipe: res.data
-        })
-      })
+
+    this.props.fetchRecipe(id)
   }
 
   toggleHiddenDescription = () => {
@@ -50,14 +50,15 @@ class Recipe extends React.Component {
       : this.setState({ descriptionHidden: true })
   }
 
-  checkShowButton(desc) {
-    if (desc.length > this.state.maxLength) {
+  checkShowButton = desc => {
+    if (desc && (desc.length > this.state.maxLength)) {
       this.setState({ showButton: true })
     }
   }
 
   render() {
-    const { recipe, descriptionHidden, maxLength, showButton, activeImageIndex } = this.state
+    const { descriptionHidden, maxLength, showButton, activeImageIndex } = this.state
+    const { recipe } = this.props
     const { images } = recipe
     if (isEmpty(recipe)) return null
     return(
@@ -73,7 +74,7 @@ class Recipe extends React.Component {
               backgroundPosition: 'center',
               margin: '0.5em 0 1em 0' }}
             />
-            <Text big bold block
+            <Text big semiBold block
               style={{ marginBottom: "0.2em", lineHeight: "1" }}>{recipe.title}</Text>
             <div style={{ display: "flex", justifyContent: "left", verticalAlign: "center", marginBottom: "1.3em" }}>
               <AvatarImage user={recipe.user}/>
@@ -87,6 +88,12 @@ class Recipe extends React.Component {
               green
               underline>{descriptionHidden ? "Show More" : "Show Less"}</Text>
             }
+            <div className="margin-vertical-lg" style={{ width: '100%' }}>
+              <Text medium semiBold>
+                Leave a Comment
+              </Text>
+              <CommentBox/>
+            </div>
             {window.innerWidth < 992 && <hr />}
           </div>
           <div className="col-xs-12 col-lg-3">
@@ -105,4 +112,8 @@ class Recipe extends React.Component {
   }
 }
 
-export default Recipe
+const mapStateToProps = (state, ownProps) => ({
+  recipe: getRecipeById(state, ownProps.match.params.id)
+})
+
+export default withRouter(connect(mapStateToProps, { fetchRecipe })(Recipe))

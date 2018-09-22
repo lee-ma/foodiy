@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { FETCH_USER, UPDATE_USER, ADD_RECIPE, FETCH_RECIPE, FETCH_RECIPES } from './types'
+import { FETCH_USER, UPDATE_USER, ADD_RECIPE, FETCH_RECIPE, FETCH_RECIPES, ADD_COMMENT } from './types'
 
 /** USER ACTIONS **/
 
@@ -55,3 +55,14 @@ export const fetchRecipe = id => dispatch => {
     .get(`/api/recipes/${id}`)
     .then(res => dispatch({ type: FETCH_RECIPE, payload: res.data }))
 }
+
+export const addComment = (recipeId, data) => dispatch => {
+  axios
+    .post(`/api/recipes/${recipeId}/comments`, data)
+    .then(res => dispatch({ type: ADD_COMMENT, payload: res.data }))
+}
+
+/* TO GET DATA FROM STATE */
+export const getRecipeById = (state, id) => state.recipes
+  ? state.recipes.find(recipe => recipe.id === Number(id)) || {}
+  : {}
