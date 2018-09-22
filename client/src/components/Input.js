@@ -13,11 +13,11 @@ const StyledLabel = styled('label') `
 const StyledInput = styled('input') `
   font-family: ${({ theme }) => theme.fonts.sansSerif};
   transition: 1s;
-  width: ${props => props.searchbar ? '200px' : 'auto'} !important;
+  width: ${props => props.searchbar ? '200px' : '100%'} !important;
 
   &&:focus {
   border-color: ${({ theme }) => theme.colors.grey} !important;
-  width: ${props => props.searchbar ? '300px' : 'auto'} !important;
+  width: ${props => props.searchbar ? '300px' : '100%'} !important;
   transition: ${props => props.searchbar ? 'width 0.5s' : ''}
   };
   height: ${props => props.searchbar ? '2.6em' : 'auto'}

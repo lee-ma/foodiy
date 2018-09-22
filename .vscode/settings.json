@@ -4,5 +4,5 @@
     "emmet.includeLanguages": {
         "javascript": "javascriptreact"
     },
-    "workbench.colorTheme": "Material Theme Darker High Contrast"
+    "workbench.colorTheme": "One Dark Pro"
 }
