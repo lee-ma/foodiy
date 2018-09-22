@@ -1,39 +1,38 @@
 module.exports = (sequelize, DataTypes) => {
-  const User = sequelize.define('user', {
+  const User = sequelize.define("user", {
     id: {
       type: DataTypes.INTEGER,
-      field: 'id',
+      field: "id",
       allowNull: false,
       primaryKey: true,
       autoIncrement: true
     },
     firstName: {
       type: DataTypes.STRING,
-      field: 'firstName',
+      field: "firstName",
       allowNull: false
     },
     lastName: {
       type: DataTypes.STRING,
-      field: 'lastName',
+      field: "lastName",
       allowNull: false
     },
     googleId: {
       type: DataTypes.STRING,
-      field: 'googleId',
+      field: "googleId",
       allowNull: true
     },
     avatarImage: {
       type: DataTypes.STRING,
-      field: 'avatarImage',
+      field: "avatarImage",
       allowNull: true
     }
   })
 
-  User.associate = model => {
-    const { Recipe } = model
+  User.associate = models => {
+    const { Recipe, User } = models
 
-    User.hasMany(Recipe, { as: "recipes" })
-    User.hasMany(Comment, { as: "comments" })
+    User.hasMany(Recipe)
   }
 
   return User

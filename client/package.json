@@ -2,7 +2,17 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://server:3000",
+  "proxy": {
+    "/auth/google": {
+      "target": "http://server:5000"
+    },
+    "/auth/facebook": {
+      "target": "http://server:5000"
+    },
+    "/api/*": {
+      "target": "http://server:5000"
+    }
+  },
   "dependencies": {
     "@babel/runtime": "^7.0.0-beta.56",
     "axios": "^0.18.0",

@@ -42,7 +42,7 @@ class Home extends Component {
             title={recipe.title}
             description={recipe.description}
             time={recipe.time}
-            href={`/recipes/${recipe._id}`}
+            href={`/recipes/${recipe.id}`}
           />
         )
       }

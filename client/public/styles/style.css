@@ -100,6 +100,20 @@ body {
   cursor: pointer;
 }
 
+.w100 {
+  width: 100%;
+}
+
+.f-jcc {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.f-aic {
+  display: flex !important;
+  align-items: center !important;
+}
+
 /************* Random ***************/
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
