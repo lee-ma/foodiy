@@ -2,31 +2,25 @@ import React from 'react'
 import styled from 'styled-components'
 import { Field } from 'formik'
 import { Text } from 'components'
-import { fonts } from 'theme'
 
 const StyledLabel = styled('label') `
   display: block;
-  font-family: ${fonts.sansSerif};
+  font-family: ${({ theme }) => theme.fonts.sansSerif};
   margin-bottom: 0;
   margin-top: 0.25em;
 `
 
 const StyledInput = styled('input') `
-  &&{
-    font-family: ${fonts.sansSerif};
-    transition: 1s;
-    :focus {
-      padding-right: ${
-  props => props.searchbar ? '40%' : 'auto'
-};
-      transition: ${
-  props => props.searchbar ? '0.5s' : ''
-}
-    };
-    height: ${
-  props => props.searchbar ? '2.75em' : 'auto'
-}
-  }
+  font-family: ${({ theme }) => theme.fonts.sansSerif};
+  transition: 1s;
+  width: ${props => props.searchbar ? '200px' : 'auto'} !important;
+
+  &&:focus {
+  border-color: ${({ theme }) => theme.colors.grey} !important;
+  width: ${props => props.searchbar ? '300px' : 'auto'} !important;
+  transition: ${props => props.searchbar ? 'width 0.5s' : ''}
+  };
+  height: ${props => props.searchbar ? '2.6em' : 'auto'}
 `
 
 const TextInput = ({ name, label, placeholder, ...rest }) => (

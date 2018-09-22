@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import {
   Modal,
@@ -108,4 +109,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(Navbar)
+export default withRouter(connect(mapStateToProps)(Navbar))

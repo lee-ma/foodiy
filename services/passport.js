@@ -5,6 +5,7 @@ const _ = require('lodash')
 const { sequelize } = require('../index')
 
 const User = sequelize.import('../models/User')
+const Recipe = sequelize.import('../models/Recipe')
 
 passport.serializeUser(function(user, done) {
   done(null, user)
@@ -23,7 +24,7 @@ passport.use(
       proxy: true
     },
     (accessToken, refreshToken, profile, done) => {
-      User.findOne({ where: { googleId: profile.googleId }})
+      User.findOne({ where: { googleId: profile.id }})
         .then(existingUser => {
           if (existingUser) {
             return done(null, existingUser)

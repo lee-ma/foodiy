@@ -6,42 +6,38 @@ import { fontWeights, fonts, fontSizes, colors, lineHeights, fontStyles } from '
 const Text = (props) => {
   const { children, element = 'span' } = props
   const StyledText = styled(element)`
-    &&{
-      font-family: ${
-  props => props.serif ? fonts.serif :
+    &&
+{
+  font-family: ${props => props.serif ? fonts.serif :
     props.logo ? fonts.logo : fonts.sansSerif
 };
-      font-weight: ${
-  props => props.bold ? fontWeights.bold :
+  font-weight: ${props => props.bold ? fontWeights.bold :
     props.semiBold ? fontWeights.semiBold :
       props.light ? fontWeights.light : fontWeights.default
 };
-      font-size: ${
-  props => props.tiny ? fontSizes.tiny :
+  font-size: ${props => props.tiny ? fontSizes.tiny :
     props.small ? fontSizes.small :
       props.medium ? fontSizes.medium :
         props.big ? fontSizes.big :
           props.huge ? fontSizes.huge : fontSizes.default
 };
-      text-align: ${
-  props => props.center ? 'center' :
+  text-align: ${props => props.center ? 'center' :
     props.right ? 'right' : 'left'
 };
-      color: ${
-  props => props.green ? colors.green :
+  color: ${props => props.green ? colors.green :
     props.error ? colors.error :
       props.grey ? colors.grey :
-        props.greyDark ? colors.greyDark : colors.black
+        props.white ? colors.white :
+          props.greyDark ? colors.greyDark : colors.black
 };
-      line-height: ${
-  props => props.tight ? lineHeights.tight :
+  line-height: ${props => props.tight ? lineHeights.tight :
     props.loose ? lineHeights.loose : lineHeights.default
 };
-      font-style: ${
-  props => props.italic ? fontStyles.italic : 'normal'
+  font-style: ${props => props.italic ? fontStyles.italic : 'normal'
 };
-      display: ${'block'};
-    }`
+  display: block;
+  width: ${props => props.block ? '100%' : ''};
+}`
   return <StyledText {...props}>{children}</StyledText>
 }
 

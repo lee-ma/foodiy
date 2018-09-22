@@ -6,6 +6,7 @@ const StyledCard = styled('a')`
     padding: 0 0 1em 0;
     margin: 0 1em 1em 1em;
     min-width: 13em;
+    width: 13em;
     max-height: 28em;
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
     :hover {
@@ -18,6 +19,7 @@ const RecipeCard = (props) => {
   return (
     <StyledCard href={href}>
       <div
+        title={title}
         className="row"
         style={{
           backgroundImage: `url(${imgSrc})`,

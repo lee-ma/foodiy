@@ -2,6 +2,7 @@ const passport = require('passport')
 const { sequelize } = require('../index')
 
 const User = sequelize.import('../models/User')
+const Recipe = sequelize.import('../models/Recipe')
 
 module.exports = app => {
   app.get(
@@ -25,7 +26,11 @@ module.exports = app => {
   })
 
   app.get('/api/user', (req, res) => {
-    res.send(req.user)
+    if (!req.user) res.send(null)
+    else {
+      User.findById(req.user.id, { include: Recipe })
+        .then(user => res.send(user))
+    }
   })
 
   app.put('/api/user', (req, res) => {
