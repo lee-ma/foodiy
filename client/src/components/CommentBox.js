@@ -55,7 +55,7 @@ class CommentBox extends Component {
                     placeholder="Tell us what you think!"
                     textarea
                   />
-                  <Button type="submit" primary style={{ alignItems: "right !important" }}>
+                  <Button type="submit" primary>
                     <Text white>Post</Text>
                   </Button>
                 </Form>
