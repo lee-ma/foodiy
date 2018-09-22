@@ -3,6 +3,7 @@ import { Text } from 'components'
 import styled from 'styled-components'
 import { colors, fonts } from 'theme'
 import { isEmpty } from 'lodash'
+import StickyBox from 'react-sticky-box'
 
 const StyledCard = styled("div")`
   min-height: 70vh;
@@ -92,25 +93,29 @@ class RecipeInformationCard extends Component {
 
     if (selectedTab === "ingredients") {
       return (
-        <div id="recipe">
-          <Tabs toggleToIngredients={this.toggleToIngredients} toggleToDirections={this.toggleToDirections} selected="ingredients"/>
-          <StyledCard>
-            <ul>
-              {this.renderIngredients(recipe.ingredients)}
-            </ul>
-          </StyledCard>
-        </div>
+        <StickyBox offset={50} bottom={window.innerWidth < 767 ? true : false}>
+          <div id="recipe">
+            <Tabs toggleToIngredients={this.toggleToIngredients} toggleToDirections={this.toggleToDirections} selected="ingredients"/>
+            <StyledCard>
+              <ul>
+                {this.renderIngredients(recipe.ingredients)}
+              </ul>
+            </StyledCard>
+          </div>
+        </StickyBox>
       )
     }
     return (
-      <div id="recipe">
-        <Tabs toggleToIngredients={this.toggleToIngredients} toggleToDirections={this.toggleToDirections} selected="directions"/>
-        <StyledCard>
-          <ol>
-            {this.renderDirections(recipe.steps)}
-          </ol>
-        </StyledCard>
-      </div>
+      <StickyBox offset={50} bottom={window.innerWidth < 767 ? true : false}>
+        <div id="recipe">
+          <Tabs toggleToIngredients={this.toggleToIngredients} toggleToDirections={this.toggleToDirections} selected="directions"/>
+          <StyledCard>
+            <ol>
+              {this.renderDirections(recipe.steps)}
+            </ol>
+          </StyledCard>
+        </div>
+      </StickyBox>
     )
   }
 }

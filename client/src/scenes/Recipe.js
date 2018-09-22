@@ -1,5 +1,6 @@
 import React from 'react'
 import { Text, RecipeInformationCard, AvatarImage, CommentBox } from 'components'
+import StickyBox from "react-sticky-box"
 import { fetchRecipe, getRecipeById } from 'actions'
 import { withRouter } from 'react-router-dom'
 import shortenText from 'utils/shortenText'
