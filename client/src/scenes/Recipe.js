@@ -87,7 +87,7 @@ class Recipe extends React.Component {
               green
               underline>{descriptionHidden ? "Show More" : "Show Less"}</Text>
             }
-            <div className="margin-vertical-md" style={{ width: '100%' }}>
+            <div className="margin-vertical-lg" style={{ width: '100%' }}>
               <Text medium semiBold>
                 Leave a Comment
               </Text>

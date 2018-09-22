@@ -50,15 +50,9 @@ class CommentBox extends Component {
                     name="comment"
                     placeholder={"Leave a comment"}
                   />
-                  {/* <Button searchbar type="submit">
-                            <span className="f-aic f-jcc">
-                            <i
-                                style={{ color: "white", marginRight: 5 }}
-                                className="fas fa-search m-r-"
-                            />
-                            <Text white>Go</Text>
-                            </span>
-                        </Button> */}
+                  <Button type="submit" primary style={{ alignItems: "right !important" }}>
+                    <Text white>Post</Text>
+                  </Button>
                 </Form>
               </span>
             )
