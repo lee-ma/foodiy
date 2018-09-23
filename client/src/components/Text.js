@@ -15,11 +15,12 @@ const Text = (props) => {
     props.semiBold ? fontWeights.semiBold :
       props.light ? fontWeights.light : fontWeights.default
 };
-  font-size: ${props => props.tiny ? fontSizes.tiny :
-    props.small ? fontSizes.small :
-      props.medium ? fontSizes.medium :
-        props.big ? fontSizes.big :
-          props.huge ? fontSizes.huge : fontSizes.default
+  font-size: ${props => props.fontSize ?
+    props.fontSize : props.tiny ? fontSizes.tiny :
+      props.small ? fontSizes.small :
+        props.medium ? fontSizes.medium :
+          props.big ? fontSizes.big :
+            props.huge ? fontSizes.huge : fontSizes.default
 };
   text-align: ${props => props.center ? 'center' :
     props.right ? 'right' : 'left'
