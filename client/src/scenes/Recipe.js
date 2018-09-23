@@ -1,14 +1,14 @@
-import React from 'react'
-import { Text, RecipeInformationCard, AvatarImage, CommentBox, Slider } from 'components'
-import { fetchRecipe, getRecipeById } from 'actions'
-import { withRouter } from 'react-router-dom'
-import shortenText from 'utils/shortenText'
-import _ from 'lodash'
-import { connect } from 'react-redux'
-import { isEmpty } from 'lodash'
-import styled from 'styled-components'
+import React from "react"
+import { Text, RecipeInformationCard, AvatarImage, CommentBox, Slider } from "components"
+import { fetchRecipe, getRecipeById } from "actions"
+import { withRouter } from "react-router-dom"
+import shortenText from "utils/shortenText"
+import _ from "lodash"
+import { connect } from "react-redux"
+import { isEmpty } from "lodash"
+import styled from "styled-components"
 
-const CircleButton = styled('div')`
+const CircleButton = styled("div")`
   position: fixed;
   display: flex;
   justify-content: center;
@@ -26,14 +26,14 @@ const ScrollToRecipeButton = ({ atBottom }) => {
   return <div>
     {atBottom && <CircleButton onClick={() => window.scrollTo(0, 0)}>
       <i
-        style={{ fontSize: '22px', color: 'white' }}
+        style={{ fontSize: "22px", color: "white" }}
         className="fas fa-chevron-up"
       />
     </CircleButton>}
     {!atBottom && <a href="#recipe">
       <CircleButton>
         <i
-          style={{ fontSize: '22px', color: 'white' }}
+          style={{ fontSize: "22px", color: "white" }}
           className="fas fa-chevron-down"
         />
       </CircleButton>
@@ -50,7 +50,6 @@ class Recipe extends React.Component {
       descriptionHidden: true,
       showButton: false,
       maxLength: 100,
-      activeImageIndex: 0,
       atBottom: false
     }
   }
@@ -117,7 +116,7 @@ class Recipe extends React.Component {
       <div className="container-fluid" style={{ marginTop: "2.5em" }}>
         <div className="row">
           <div className="col-xs-12 col-lg-7 offset-lg-1" style={{ marginBottom: "1em" }}>
-            <div style={{ width: '100%', margin:'0.5em 0 1em 0' }}>
+            <div style={{ width: "100%", margin:"0.5em 0 1em 0" }}>
               <Slider images={images}/>
             </div>
             <Text big semiBold block
@@ -134,7 +133,7 @@ class Recipe extends React.Component {
               green
               underline>{descriptionHidden ? "Show More" : "Show Less"}</Text>
             }
-            <div className="margin-vertical-lg" style={{ width: '100%' }}>
+            <div className="margin-vertical-lg" style={{ width: "100%" }}>
               <Text medium semiBold>
                 Leave a Comment
               </Text>
