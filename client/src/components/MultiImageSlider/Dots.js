@@ -1,8 +1,8 @@
-import React from 'react'
-import styled from 'styled-components'
-import Dot from './Dot'
+import React from "react"
+import styled from "styled-components"
+import Dot from "./Dot"
 
-const DotsContainer = styled('div')`
+const DotsContainer = styled("div")`
   position: absolute;
   bottom: 0;
   width: 100%;

@@ -1,8 +1,8 @@
-import React from 'react'
-import styled from 'styled-components'
-import { colors, fonts, fontSizes, fontWeights } from 'theme'
+import React from "react"
+import styled from "styled-components"
+import { colors, fonts, fontSizes, fontWeights } from "theme"
 
-const PrimaryButton = styled('button')`
+const PrimaryButton = styled("button")`
   display: flex;
   justify-content: center;
   vertical-align: middle;
@@ -24,7 +24,7 @@ const PrimaryButton = styled('button')`
   }
 `
 
-const SecondaryButton = styled('button')`
+const SecondaryButton = styled("button")`
   background-color: ${colors.grey};
   margin: 0.5em 0;
   display: flex;
@@ -43,7 +43,7 @@ const SecondaryButton = styled('button')`
   }
 `
 
-const SearchButton = styled('button')`
+const SearchButton = styled("button")`
   background-color: ${colors.green};
   margin-left: -3.25em;
   margin-top: 0.25em;

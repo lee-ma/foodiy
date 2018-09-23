@@ -1,7 +1,7 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react"
+import styled from "styled-components"
 
-const StyledSlide = styled('div')`
+const StyledSlide = styled("div")`
     display: inline-block;
     height: 100%;
     width: 101%;

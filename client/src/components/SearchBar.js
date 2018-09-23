@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import { Input, Button, Text } from 'components'
-import { Formik, Form } from 'formik'
-import { connect } from 'react-redux'
-import { fetchRecipes } from 'actions'
+import React, { Component } from "react"
+import { Input, Button, Text } from "components"
+import { Formik, Form } from "formik"
+import { connect } from "react-redux"
+import { fetchRecipes } from "actions"
 
 const searchBarInitialValues = {
   searchQuery: ""

@@ -1,16 +1,16 @@
-const { sequelize, Sequelize } = require('../index')
-const aws = require('aws-sdk')
-const multer = require('multer')
-const multerS3 = require('multer-s3')
-const keys = require('../config/keys')
+const { sequelize, Sequelize } = require("../index")
+const aws = require("aws-sdk")
+const multer = require("multer")
+const multerS3 = require("multer-s3")
+const keys = require("../config/keys")
 
 const { Op } = Sequelize
-const User = sequelize.import('../models/User')
-const Recipe = sequelize.import('../models/Recipe')
-const Comment = sequelize.import('../models/Comment')
+const User = sequelize.import("../models/User")
+const Recipe = sequelize.import("../models/Recipe")
+const Comment = sequelize.import("../models/Comment")
 
 module.exports = app => {
-  app.get('/api/recipes', (req, res) => {
+  app.get("/api/recipes", (req, res) => {
     // Default return all recipes TODO: add pagination
     if (!req.query.q) {
       Recipe.findAll({
@@ -50,7 +50,7 @@ module.exports = app => {
     }
   })
 
-  app.get('/api/recipes/:id', (req, res) => {
+  app.get("/api/recipes/:id", (req, res) => {
     Recipe.findOne({ where: { id: req.params.id }, include: [User, Comment] })
       .then(foundRecipe => res.send(foundRecipe))
       .catch(err => console.log(err))
@@ -73,7 +73,7 @@ module.exports = app => {
     })
   })
 
-  app.post('/api/recipes', upload.array('images'), (req, res) => {
+  app.post("/api/recipes", upload.array("images"), (req, res) => {
     Recipe.create(
       {
         ...req.body,

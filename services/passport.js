@@ -1,11 +1,11 @@
-const passport = require('passport')
-const GoogleStrategy = require('passport-google-oauth20').Strategy
-const keys = require('../config/keys')
-const _ = require('lodash')
-const { sequelize } = require('../index')
+const passport = require("passport")
+const GoogleStrategy = require("passport-google-oauth20").Strategy
+const keys = require("../config/keys")
+const _ = require("lodash")
+const { sequelize } = require("../index")
 
-const User = sequelize.import('../models/User')
-const Recipe = sequelize.import('../models/Recipe')
+const User = sequelize.import("../models/User")
+const Recipe = sequelize.import("../models/Recipe")
 
 passport.serializeUser(function(user, done) {
   done(null, user)
@@ -20,7 +20,7 @@ passport.use(
     {
       clientID: keys.googleclientID,
       clientSecret: keys.googleclientSecret,
-      callbackURL: '/auth/google/callback',
+      callbackURL: "/auth/google/callback",
       proxy: true
     },
     (accessToken, refreshToken, profile, done) => {

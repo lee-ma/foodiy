@@ -1,9 +1,9 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react"
+import styled from "styled-components"
 
 const FacebookButton = (props) => {
   const { text } = props
-  const Facebook = styled('a') `
+  const Facebook = styled("a") `
         background-color: #4267b2;
         margin: 0.5em 0px 0px 0px;
         display: inline-block;

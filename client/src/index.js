@@ -1,18 +1,18 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { Provider } from 'react-redux'
-import { createStore, applyMiddleware } from 'redux'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import reduxThunk from 'redux-thunk'
-import { fetchUser } from 'actions'
-import { ThemeProvider } from 'styled-components'
+import React from "react"
+import ReactDOM from "react-dom"
+import { Provider } from "react-redux"
+import { createStore, applyMiddleware } from "redux"
+import { BrowserRouter, Route, Switch } from "react-router-dom"
+import reduxThunk from "redux-thunk"
+import { fetchUser } from "actions"
+import { ThemeProvider } from "styled-components"
 
-import reducers from 'reducers'
+import reducers from "reducers"
 
-import theme from 'theme'
+import theme from "theme"
 
-import { Landing, Profile, Recipe, Home, NotFound } from 'scenes'
-import { NewRecipeForm, Navbar } from 'components'
+import { Landing, Profile, Recipe, Home, NotFound } from "scenes"
+import { NewRecipeForm, Navbar } from "components"
 
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk))
 
@@ -37,5 +37,5 @@ ReactDOM.render(
       </BrowserRouter>
     </ThemeProvider>
   </Provider>,
-  document.querySelector('#root')
+  document.querySelector("#root")
 )

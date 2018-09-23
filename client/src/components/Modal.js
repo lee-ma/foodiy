@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
-import styled from 'styled-components'
-import { Text } from 'components'
-import { colors } from 'theme'
+import React, { Component } from "react"
+import styled from "styled-components"
+import { Text } from "components"
+import { colors } from "theme"
 
-const StyledModal = styled('div') `
+const StyledModal = styled("div") `
     margin-top: 100px;
     background-color: #feffff;
     display: inline-block;
@@ -11,7 +11,7 @@ const StyledModal = styled('div') `
     padding: 1em 2em;
 `
 
-const Overlay = styled('div') `
+const Overlay = styled("div") `
     position: absolute;
     top: 0;
     bottom: 0;
@@ -29,7 +29,7 @@ class Modal extends Component {
         <Overlay>
           <div className="row">
             <StyledModal className="col-10 offset-1 col-sm-6 offset-sm-3 col-lg-4 offset-lg-4 slideinfromtop">
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+              <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <Text big>{title}</Text>
                 <span onClick={hide} className="pointer">
                   <i className="fas fa-times" />
@@ -37,7 +37,7 @@ class Modal extends Component {
               </div>
               <div className="row">
                 <div className="col-3">
-                  <hr style={{ borderColor: colors.green, width: '100%', float: "left", margin: "10px 0 35px 0", borderWidth: "2px", display: "block" }} />
+                  <hr style={{ borderColor: colors.green, width: "100%", float: "left", margin: "10px 0 35px 0", borderWidth: "2px", display: "block" }} />
                 </div>
               </div>
               <div>

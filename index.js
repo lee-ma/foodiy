@@ -1,9 +1,9 @@
-const express = require('express')
-const passport = require('passport')
-const Sequelize = require('sequelize')
-const bodyParser = require('body-parser')
-const cookieSession = require('cookie-session')
-const keys = require('./config/keys')
+const express = require("express")
+const passport = require("passport")
+const Sequelize = require("sequelize")
+const bodyParser = require("body-parser")
+const cookieSession = require("cookie-session")
+const keys = require("./config/keys")
 
 const db = {}
 
@@ -14,13 +14,13 @@ db.Sequelize = Sequelize
 
 module.exports = db
 
-require('./services/passport')
-require('./services/awsconfig')
+require("./services/passport")
+require("./services/awsconfig")
 
 /* Import models */
-const User = sequelize.import('./models/User')
-const Recipe = sequelize.import('./models/Recipe')
-const Comment = sequelize.import('./models/Comment')
+const User = sequelize.import("./models/User")
+const Recipe = sequelize.import("./models/Recipe")
+const Comment = sequelize.import("./models/Comment")
 
 /* Sync with db */
 User.sync()
@@ -61,22 +61,22 @@ app.use(
 app.use(passport.initialize())
 app.use(passport.session())
 
-require('./routes/authRoutes')(app)
-require('./routes/recipeRoutes')(app)
-require('./routes/commentRoutes')(app)
+require("./routes/authRoutes")(app)
+require("./routes/recipeRoutes")(app)
+require("./routes/commentRoutes")(app)
 
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === "production") {
   // Express needs to serve up production assets like main.js
-  app.use(express.static('client/build'))
+  app.use(express.static("client/build"))
 
   // Express needs to give index.html if it doesn't recognize the route
-  const path = require('path')
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+  const path = require("path")
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
   })
 }
 
 const PORT = process.env.PORT || 5000
 app.listen(PORT, () => {
-  console.log('Running on port ', PORT)
+  console.log("Running on port ", PORT)
 })

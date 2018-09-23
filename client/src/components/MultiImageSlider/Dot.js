@@ -1,8 +1,8 @@
-import React from 'react'
-import styled from 'styled-components'
-import { colors } from 'theme'
+import React from "react"
+import styled from "styled-components"
+import { colors } from "theme"
 
-const StyledActiveDot = styled('div')`
+const StyledActiveDot = styled("div")`
   background: ${colors.green};
   display: inline-block;
   padding: 7px;
@@ -11,7 +11,7 @@ const StyledActiveDot = styled('div')`
   border-radius: 50%;
 `
 
-const StyledDot = styled('div')`
+const StyledDot = styled("div")`
   background: ${colors.white};
   display: inline-block;
   padding: 7px;

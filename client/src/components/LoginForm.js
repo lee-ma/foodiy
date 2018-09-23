@@ -1,7 +1,7 @@
-import React from 'react'
-import { Text, GoogleButton, FacebookButton, Input } from 'components'
-import { Formik, Form } from 'formik'
-import * as yup from 'yup'
+import React from "react"
+import { Text, GoogleButton, FacebookButton, Input } from "components"
+import { Formik, Form } from "formik"
+import * as yup from "yup"
 
 const createValidationSchema = yup.object().shape({
   email: yup.string().trim().required("Please enter your email"),
@@ -20,7 +20,7 @@ const LoginForm = () => {
         <GoogleButton text="Sign in with Google" />
         <FacebookButton text="Sign in with Facebook" />
       </div>
-      <Text bold style={{ marginTop: '2em', textAlign: 'center' }}>OR</Text>
+      <Text bold style={{ marginTop: "2em", textAlign: "center" }}>OR</Text>
       <Formik
         intialValues={initValues}
         onSubmit={(values) => console.log(values)}
@@ -30,7 +30,7 @@ const LoginForm = () => {
             <Form>
               <Input type="email" label="Email" name="email" />
               <Input type="password" label="Password" name="password" />
-              <button className="btn btn-success" style={{ float: 'right', marginTop: '0.75em' }} type="submit">Login</button>
+              <button className="btn btn-success" style={{ float: "right", marginTop: "0.75em" }} type="submit">Login</button>
             </Form>
           )
         }}

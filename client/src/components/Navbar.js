@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
-import { withRouter } from 'react-router-dom'
-import { connect } from 'react-redux'
+import React, { Component } from "react"
+import { withRouter } from "react-router-dom"
+import { connect } from "react-redux"
 import {
   Modal,
   LoginForm,
   SearchBar
-} from './index'
+} from "./index"
 
 class Navbar extends Component {
   constructor(props) {

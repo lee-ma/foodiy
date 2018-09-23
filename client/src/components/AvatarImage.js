@@ -1,8 +1,8 @@
-import React from 'react'
-import styled from 'styled-components'
-import { colors } from 'theme'
+import React from "react"
+import styled from "styled-components"
+import { colors } from "theme"
 
-const AvatarCircle = styled('div')`
+const AvatarCircle = styled("div")`
   width: ${props => props.size};
   height: ${props => props.size};
   border-radius: 100%;
@@ -12,7 +12,7 @@ const AvatarCircle = styled('div')`
   background-size: cover;
 `
 
-const PlaceholderCircle = styled('div')`
+const PlaceholderCircle = styled("div")`
   width: ${props => props.size};
   height: ${props => props.size};
   border-radius: 100%;

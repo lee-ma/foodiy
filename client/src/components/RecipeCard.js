@@ -1,8 +1,8 @@
-import React from 'react'
-import styled from 'styled-components'
-import { Text } from 'components'
+import React from "react"
+import styled from "styled-components"
+import { Text } from "components"
 
-const StyledCard = styled('a')`
+const StyledCard = styled("a")`
     padding: 0 0 1em 0;
     margin: 0 1em 1em 1em;
     min-width: 13em;
@@ -25,18 +25,18 @@ const RecipeCard = (props) => {
         className="row"
         style={{
           backgroundImage: `url(${imgSrc})`,
-          width: '100%',
-          paddingBottom: '75%',
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          margin: '0'
+          width: "100%",
+          paddingBottom: "75%",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          margin: "0"
         }}
       />
       <div style={{ marginTop: "0.5em" }}>
-        <Text medium bold style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: "ellipsis" }}>{title}</Text>
-        <Text>Cooking Time:{' '}{time}{` hour${time === 1 ? "" : "s"}`}</Text>
-        <Text grey small style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: "ellipsis" }}>{description}</Text>
+        <Text medium bold style={{ whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{title}</Text>
+        <Text>Cooking Time:{" "}{time}{` hour${time === 1 ? "" : "s"}`}</Text>
+        <Text grey small style={{ whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{description}</Text>
       </div>
     </StyledCard>
   )

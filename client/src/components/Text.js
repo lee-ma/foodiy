@@ -1,10 +1,10 @@
-import React from 'react'
-import styled from 'styled-components'
-import types from 'prop-types'
-import { fontWeights, fonts, fontSizes, colors, lineHeights, fontStyles } from 'theme'
+import React from "react"
+import styled from "styled-components"
+import types from "prop-types"
+import { fontWeights, fonts, fontSizes, colors, lineHeights, fontStyles } from "theme"
 
 const Text = (props) => {
-  const { children, element = 'span' } = props
+  const { children, element = "span" } = props
   const StyledText = styled(element)`
     &&
 {
@@ -22,8 +22,8 @@ const Text = (props) => {
           props.big ? fontSizes.big :
             props.huge ? fontSizes.huge : fontSizes.default
 };
-  text-align: ${props => props.center ? 'center' :
-    props.right ? 'right' : 'left'
+  text-align: ${props => props.center ? "center" :
+    props.right ? "right" : "left"
 };
   color: ${props => props.green ? colors.green :
     props.error ? colors.error :
@@ -34,10 +34,10 @@ const Text = (props) => {
   line-height: ${props => props.tight ? lineHeights.tight :
     props.loose ? lineHeights.loose : lineHeights.default
 };
-  font-style: ${props => props.italic ? fontStyles.italic : 'normal'
+  font-style: ${props => props.italic ? fontStyles.italic : "normal"
 };
   display: block;
-  width: ${props => props.block ? '100%' : ''};
+  width: ${props => props.block ? "100%" : ""};
 }`
   return <StyledText {...props}>{children}</StyledText>
 }

@@ -1,4 +1,4 @@
-import { ADD_RECIPE, FETCH_RECIPES, FETCH_RECIPE, ADD_COMMENT } from 'actions/types'
+import { ADD_RECIPE, FETCH_RECIPES, FETCH_RECIPE, ADD_COMMENT } from "actions/types"
 
 export default function(state = null, action) {
   switch (action.type) {

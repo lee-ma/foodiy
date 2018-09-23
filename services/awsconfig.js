@@ -1,5 +1,5 @@
 var AWS = require("aws-sdk")
-var keys = require('../config/keys')
+var keys = require("../config/keys")
 
 AWS.config.update({
   secretAccessKey: keys.awsSecretKey,

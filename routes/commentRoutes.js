@@ -1,12 +1,12 @@
-const { sequelize } = require('../index')
+const { sequelize } = require("../index")
 
-const User = sequelize.import('../models/User')
-const Recipe = sequelize.import('../models/Recipe')
-const Comment = sequelize.import('../models/Comment')
+const User = sequelize.import("../models/User")
+const Recipe = sequelize.import("../models/Recipe")
+const Comment = sequelize.import("../models/Comment")
 
 module.exports = app => {
 
-  app.post('/api/recipes/:recipeId/comments', (req, res) => {
+  app.post("/api/recipes/:recipeId/comments", (req, res) => {
     Comment.create(
       {
         ...req.body,

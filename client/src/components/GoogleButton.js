@@ -1,9 +1,9 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react"
+import styled from "styled-components"
 
 const GoogleButton = (props) => {
   const { text } = props
-  const Google = styled('a') `
+  const Google = styled("a") `
     background-color: #4285f4;
     margin: 0.5em 0px 0px 0px;
     display: inline-block;

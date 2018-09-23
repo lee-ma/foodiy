@@ -1,7 +1,7 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react"
+import styled from "styled-components"
 
-const StyledLeftArrow = styled('div')`
+const StyledLeftArrow = styled("div")`
   display: flex;
   align-items: center;
   justify-content: center;

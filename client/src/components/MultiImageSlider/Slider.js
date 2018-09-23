@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
-import styled from 'styled-components'
-import Slide from './Slide'
-import Dots from './Dots'
-import LeftArrow from './LeftArrow'
-import RightArrow from './RightArrow'
+import React, { Component } from "react"
+import styled from "styled-components"
+import Slide from "./Slide"
+import Dots from "./Dots"
+import LeftArrow from "./LeftArrow"
+import RightArrow from "./RightArrow"
 
-const StyledSlider  = styled('div')`
+const StyledSlider  = styled("div")`
   position: relative;
   width: 100%;
   display: inline-block;
@@ -18,7 +18,7 @@ const StyledSlider  = styled('div')`
   white-space: nowrap;
 `
 
-const SlideWrapper = styled('div')`
+const SlideWrapper = styled("div")`
   position: relative;
   height: 100%;
   width: 100%;
@@ -87,7 +87,7 @@ export default class Slider extends Component {
   }
 
   slideWidth = () => {
-    return document.querySelector('.slide').clientWidth + 1
+    return document.querySelector(".slide").clientWidth + 1
   }
 
   hoverSlider = () => {
@@ -104,7 +104,7 @@ export default class Slider extends Component {
         <SlideWrapper
           style={{
             transform: `translateX(${translateValue}px)`,
-            transition: 'transform ease-out 0.45s',
+            transition: "transform ease-out 0.45s",
           }}>
           {
             this.state.images.map((image, i) => (

@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import { Text, RecipeCard } from 'components'
-import { connect } from 'react-redux'
-import { fetchRecipes } from 'actions'
+import React, { Component } from "react"
+import { Text, RecipeCard } from "components"
+import { connect } from "react-redux"
+import { fetchRecipes } from "actions"
 
 class Home extends Component {
   constructor(props) {
@@ -16,7 +16,7 @@ class Home extends Component {
     if (this.props.location) {
       const { search } = this.props.location
       const query = search.substring(
-        search.lastIndexOf('q=') + 2,
+        search.lastIndexOf("q=") + 2,
         search.length
       )
       if (query.length === 0) this.props.fetchRecipes()
@@ -61,7 +61,7 @@ class Home extends Component {
               <div
                 className="flexbox grid-cols"
                 style={{
-                  padding: '0',
+                  padding: "0",
                   display: "grid",
                   justifyContent: "center"
                 }}>

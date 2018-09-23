@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
-import { Text } from 'components'
-import styled from 'styled-components'
-import { colors, fonts } from 'theme'
-import { isEmpty } from 'lodash'
-import StickyBox from 'react-sticky-box'
+import React, { Component } from "react"
+import { Text } from "components"
+import styled from "styled-components"
+import { colors, fonts } from "theme"
+import { isEmpty } from "lodash"
+import StickyBox from "react-sticky-box"
 
 const StyledCard = styled("div")`
   min-height: 70vh;
@@ -35,13 +35,13 @@ const Tabs = ({ toggleToDirections, toggleToIngredients, selected }) => {
       <TabButton
         style={{
           color: selected === "ingredients" ? colors.green : colors.grey,
-          borderBottom: selected === "ingredients" ? `2px solid ${colors.green}` : `2px solid transparent`
+          borderBottom: selected === "ingredients" ? `2px solid ${colors.green}` : "2px solid transparent"
         }}
         onClick={toggleToIngredients}>Ingredients</TabButton>
       <TabButton
         style={{
           color: selected === "directions" ? colors.green : colors.grey,
-          borderBottom: selected === "directions" ? `2px solid ${colors.green}` : `2px solid transparent`
+          borderBottom: selected === "directions" ? `2px solid ${colors.green}` : "2px solid transparent"
         }}
         onClick={toggleToDirections}>Directions</TabButton>
     </div>

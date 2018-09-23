@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import { Input, Text, Button } from '../index'
-import { Form } from 'formik'
-import * as yup from 'yup'
+import React, { Component } from "react"
+import { Input, Text, Button } from "../index"
+import { Form } from "formik"
+import * as yup from "yup"
 
 export const RecipeSchema = yup.object().shape({
   ingredients: yup.array().min(1, "Please enter at least one ingredient"),

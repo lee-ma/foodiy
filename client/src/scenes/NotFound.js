@@ -1,8 +1,8 @@
 import React from "react"
-import styled from 'styled-components'
-import { Text } from 'components'
+import styled from "styled-components"
+import { Text } from "components"
 
-const StyledImage = styled('img')`
+const StyledImage = styled("img")`
   max-height: 80vh;
   @media (max-width: 767px) {
     margin-top: 90px;

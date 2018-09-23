@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import { RecipeCard, Text } from 'components'
-import { connect } from 'react-redux'
-import _ from 'lodash'
+import React, { Component } from "react"
+import { RecipeCard, Text } from "components"
+import { connect } from "react-redux"
+import _ from "lodash"
 
 class Dashboard extends Component {
   renderMyRecipes = () => {
@@ -26,7 +26,7 @@ class Dashboard extends Component {
     }
     return (
       //TODO: Fix the alignment problems
-      <div className="container-fluid" style={{ minHeight: '100vh', marginTop: "2.5em" }}>
+      <div className="container-fluid" style={{ minHeight: "100vh", marginTop: "2.5em" }}>
 
         <div className="row fadein">
           <div className="col-xs-12 col-sm-10 offset-sm-1">
@@ -38,10 +38,10 @@ class Dashboard extends Component {
               <div
                 className="flexbox"
                 style={{
-                  display: 'flex',
-                  minHeight: 'wrap-content',
-                  overflowX: 'auto',
-                  padding: '0.5em'  }}>
+                  display: "flex",
+                  minHeight: "wrap-content",
+                  overflowX: "auto",
+                  padding: "0.5em"  }}>
                 {this.renderMyRecipes()}
               </div>
             </div>
@@ -50,10 +50,10 @@ class Dashboard extends Component {
               <Text medium black block>Recommended for you:</Text>
               <div className="flexbox"
                 style={{
-                  display: 'flex',
-                  minHeight: 'wrap-content',
-                  overflowX: 'auto',
-                  padding: '0.5em' }}>
+                  display: "flex",
+                  minHeight: "wrap-content",
+                  overflowX: "auto",
+                  padding: "0.5em" }}>
                 <RecipeCard
                   imgSrc="https://amp.businessinsider.com/images/5a451b22b0bcd51d008b7445-750-562.jpg"
                   title="title"
@@ -101,7 +101,7 @@ class Dashboard extends Component {
 
             <div className="row" style={{ marginTop: "1.25em" }}>
               <Text medium black block>Popular:</Text>
-              <div className="flexbox" style={{ display: 'flex', minHeight: 'wrap-content', overflowX: 'auto', padding: '0.5em' }}>
+              <div className="flexbox" style={{ display: "flex", minHeight: "wrap-content", overflowX: "auto", padding: "0.5em" }}>
                 <RecipeCard
                   imgSrc="https://amp.businessinsider.com/images/5a451b22b0bcd51d008b7445-750-562.jpg"
                   title="title"

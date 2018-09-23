@@ -1,30 +1,30 @@
-import React from 'react'
-import styled from 'styled-components'
-import { Field } from 'formik'
-import { Text } from 'components'
+import React from "react"
+import styled from "styled-components"
+import { Field } from "formik"
+import { Text } from "components"
 
-const StyledLabel = styled('label') `
+const StyledLabel = styled("label") `
   display: block;
   font-family: ${({ theme }) => theme.fonts.sansSerif};
   margin-bottom: 0;
   margin-top: 0.25em;
 `
 
-const StyledInput = styled('input') `
+const StyledInput = styled("input") `
   font-family: ${({ theme }) => theme.fonts.sansSerif};
   transition: 1s;
-  width: ${props => props.searchbar ? '200px' : '100%' } !important;
-  height: ${props => props.textarea ? '5em' : 'auto'} !important;
+  width: ${props => props.searchbar ? "200px" : "100%" } !important;
+  height: ${props => props.textarea ? "5em" : "auto"} !important;
 
   &&:focus {
   border-color: ${({ theme }) => theme.colors.grey} !important;
-  width: ${props => props.searchbar ? '300px' : '100%'} !important;
-  transition: ${props => props.searchbar ? 'width 0.5s' : ''}
+  width: ${props => props.searchbar ? "300px" : "100%"} !important;
+  transition: ${props => props.searchbar ? "width 0.5s" : ""}
   };
-  height: ${props => props.searchbar ? '2.6em' : 'auto'}
+  height: ${props => props.searchbar ? "2.6em" : "auto"}
 `
 
-const StyledTextArea = styled('textarea') `
+const StyledTextArea = styled("textarea") `
   font-family: ${({ theme }) => theme.fonts.sansSerif};
   width: 100%;
   height: 100px;

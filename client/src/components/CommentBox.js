@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
-import ReactStars from 'react-stars'
-import { withRouter } from 'react-router-dom'
-import { Input, Button, Text } from 'components'
-import { Formik, Form, Field } from 'formik'
-import { connect } from 'react-redux'
-import { addComment } from 'actions'
+import React, { Component } from "react"
+import ReactStars from "react-stars"
+import { withRouter } from "react-router-dom"
+import { Input, Button, Text } from "components"
+import { Formik, Form, Field } from "formik"
+import { connect } from "react-redux"
+import { addComment } from "actions"
 
 const commentBoxInitialValues = {
   comment: ""
@@ -58,7 +58,7 @@ class CommentBox extends Component {
                         onChange={this.ratingChanged}
                         size={22}
                         half={false}
-                        color2={'#ffd700'}
+                        color2={"#ffd700"}
                       />
                       {error && <Text error small>{error}</Text>}
                     </span>}
