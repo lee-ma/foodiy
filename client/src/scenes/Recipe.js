@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, RecipeInformationCard, AvatarImage, CommentBox } from 'components'
+import { Text, RecipeInformationCard, AvatarImage, CommentBox, Slider } from 'components'
 import { fetchRecipe, getRecipeById } from 'actions'
 import { withRouter } from 'react-router-dom'
 import shortenText from 'utils/shortenText'
@@ -108,7 +108,6 @@ class Recipe extends React.Component {
       descriptionHidden,
       maxLength,
       showButton,
-      activeImageIndex,
       atBottom
     } = this.state
     const { recipe } = this.props
@@ -118,15 +117,9 @@ class Recipe extends React.Component {
       <div className="container-fluid" style={{ marginTop: "2.5em" }}>
         <div className="row">
           <div className="col-xs-12 col-lg-7 offset-lg-1" style={{ marginBottom: "1em" }}>
-            <div style={{
-              backgroundImage: `url(${images[activeImageIndex]})`, // TODO: Make it possible to view multiple images
-              width: '100%',
-              paddingBottom: '60%',
-              backgroundRepeat: 'no-repeat',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              margin: '0.5em 0 1em 0' }}
-            />
+            <div style={{ width: '100%', margin:'0.5em 0 1em 0' }}>
+              <Slider images={images}/>
+            </div>
             <Text big semiBold block
               style={{ marginBottom: "0.2em", lineHeight: "1" }}>{recipe.title}</Text>
             <div style={{ display: "flex", justifyContent: "left", verticalAlign: "center", marginBottom: "1.3em" }}>

@@ -15,6 +15,7 @@ import SearchBar from './SearchBar'
 import Text from './Text'
 import Thumbnail from './Thumbnail'
 import CommentBox from './CommentBox'
+import Slider from './MultiImageSlider/Slider'
 
 export {
   AvatarImage,
@@ -33,5 +34,6 @@ export {
   SearchBar,
   Text,
   Thumbnail,
-  CommentBox
+  CommentBox,
+  Slider
 }
