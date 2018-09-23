@@ -1,15 +1,14 @@
-import React from 'react'
-import { Text, RecipeInformationCard, AvatarImage, CommentBox, Slider } from 'components'
-import StickyBox from "react-sticky-box"
-import { fetchRecipe, getRecipeById } from 'actions'
-import { withRouter } from 'react-router-dom'
-import shortenText from 'utils/shortenText'
-import { connect } from 'react-redux'
-import { isEmpty } from 'lodash'
-import styled from 'styled-components'
-import { colors } from 'theme'
+import React from "react"
+import { Text, RecipeInformationCard, AvatarImage, CommentBox, Slider } from "components"
+import { fetchRecipe, getRecipeById } from "actions"
+import { withRouter } from "react-router-dom"
+import shortenText from "utils/shortenText"
+import _ from "lodash"
+import { connect } from "react-redux"
+import { isEmpty } from "lodash"
+import styled from "styled-components"
 
-const ScrollToRecipeButton = styled('div')`
+const CircleButton = styled("div")`
   position: fixed;
   display: flex;
   justify-content: center;
@@ -20,8 +19,28 @@ const ScrollToRecipeButton = styled('div')`
   width: 40px;
   border-radius: 20px;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-  background-color: ${colors.green};
+  background-color: ${({ theme }) => theme.colors.green};
 `
+
+const ScrollToRecipeButton = ({ atBottom }) => {
+  return <div>
+    {atBottom && <CircleButton onClick={() => window.scrollTo(0, 0)}>
+      <i
+        style={{ fontSize: "22px", color: "white" }}
+        className="fas fa-chevron-up"
+      />
+    </CircleButton>}
+    {!atBottom && <a href="#recipe">
+      <CircleButton>
+        <i
+          style={{ fontSize: "22px", color: "white" }}
+          className="fas fa-chevron-down"
+        />
+      </CircleButton>
+    </a>
+    }
+  </div>
+}
 
 class Recipe extends React.Component {
   constructor(props) {
@@ -31,10 +50,11 @@ class Recipe extends React.Component {
       descriptionHidden: true,
       showButton: false,
       maxLength: 100,
-      activeImageIndex: 0
+      atBottom: false
     }
   }
 
+  /* LIFECYCLE METHODS */
   componentWillReceiveProps = props => {
     !isEmpty(props.recipe) && this.checkShowButton(props.recipe.description)
   }
@@ -45,6 +65,31 @@ class Recipe extends React.Component {
     this.props.fetchRecipe(id)
   }
 
+  componentDidMount() {
+    window.addEventListener("scroll", _.debounce(this.handleScroll, 100))
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.handleScroll)
+  }
+
+  /* METHODS FOR SCROLLING */
+  handleScroll = () => {
+    const windowHeight = window.innerHeight
+    const body = document.body
+    const html = document.documentElement
+    const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight)
+    const windowBottom = windowHeight + window.pageYOffset
+
+    // Say that we are at the bottom
+    if (windowBottom >= docHeight) this.setState({ atBottom: true })
+    else {
+      // Set that we are not at the bottom if we previously had been
+      this.state.atBottom && this.setState({ atBottom: false })
+    }
+  }
+
+  /* METHODS FOR DESCRIPTION */
   toggleHiddenDescription = () => {
     this.state.descriptionHidden
       ? this.setState({ descriptionHidden: false })
@@ -58,7 +103,12 @@ class Recipe extends React.Component {
   }
 
   render() {
-    const { descriptionHidden, maxLength, showButton } = this.state
+    const {
+      descriptionHidden,
+      maxLength,
+      showButton,
+      atBottom
+    } = this.state
     const { recipe } = this.props
     const { images } = recipe
     if (isEmpty(recipe)) return null
@@ -66,7 +116,7 @@ class Recipe extends React.Component {
       <div className="container-fluid" style={{ marginTop: "2.5em" }}>
         <div className="row">
           <div className="col-xs-12 col-lg-7 offset-lg-1" style={{ marginBottom: "1em" }}>
-            <div style={{ width: '100%', margin:'0.5em 0 1em 0' }}>
+            <div style={{ width: "100%", margin:"0.5em 0 1em 0" }}>
               <Slider images={images}/>
             </div>
             <Text big semiBold block
@@ -83,7 +133,7 @@ class Recipe extends React.Component {
               green
               underline>{descriptionHidden ? "Show More" : "Show Less"}</Text>
             }
-            <div className="margin-vertical-lg" style={{ width: '100%' }}>
+            <div className="margin-vertical-lg" style={{ width: "100%" }}>
               <Text medium semiBold>
                 Leave a Comment
               </Text>
@@ -96,11 +146,7 @@ class Recipe extends React.Component {
           </div>
         </div>
         {window.innerWidth < 768 &&
-        <a href="#recipe">
-          <ScrollToRecipeButton>
-            <i style={{ fontSize: '22px', color: 'white' }} className="fas fa-chevron-down"></i>
-          </ScrollToRecipeButton>
-        </a>
+          <ScrollToRecipeButton atBottom={atBottom}/>
         }
       </div>
     )
