@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import Dropzone from 'react-dropzone'
-import { Thumbnail, Text } from 'components'
-import { colors } from 'theme'
+import React, { Component } from "react"
+import Dropzone from "react-dropzone"
+import { Thumbnail, Text } from "components"
+import { colors } from "theme"
 
 const dropzoneStyle = {
   width: "100%",
@@ -9,7 +9,7 @@ const dropzoneStyle = {
   padding: "25px 20px 20px 20px",
   marginTop: "10px",
   height: "auto",
-  border:`2px #b6b6b6 dashed`,
+  border:"2px #b6b6b6 dashed",
   borderRadius: 5,
   display: "flex",
   alignItems: "center",

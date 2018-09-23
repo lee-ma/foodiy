@@ -32,7 +32,7 @@ export default class Slider extends Component {
       images: props.images,
       currentIndex: 0,
       translateValue: 0,
-      hidden: false
+      hidden: false || window.innerWidth <= 767
     }
   }
 
@@ -92,7 +92,7 @@ export default class Slider extends Component {
 
   hoverSlider = () => {
     this.setState({
-      hidden: !this.state.hidden
+      hidden: !this.state.hidden || window.innerWidth <= 767
     })
   }
 

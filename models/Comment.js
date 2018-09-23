@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     content: {
       type: DataTypes.STRING,
       field: 'content',
-      allowNull: false
+      allowNull: true
     },
     rating: {
       type: DataTypes.INTEGER,

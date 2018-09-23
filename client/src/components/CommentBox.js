@@ -5,7 +5,6 @@ import { Input, Button, Text } from 'components'
 import { Formik, Form, Field } from 'formik'
 import { connect } from 'react-redux'
 import { addComment } from 'actions'
-import styled from 'styled-components'
 
 const commentBoxInitialValues = {
   comment: ""
@@ -16,19 +15,31 @@ class CommentBox extends Component {
     super(props)
 
     this.state = {
-      rating: null
+      rating: null,
+      error: null,
+      submitted: false
     }
   }
 
   handleSubmit = values => {
     const { rating } = this.state
-    this.props.addComment(this.props.match.params.id, { ...values, rating })
+    if (!rating) this.setState({ error: "Don't forget a rating!" })
+    else {
+      this.setState({ submitted: true }, () => {
+        this.props.addComment(this.props.match.params.id, { ...values, rating })
+      })
+    }
   }
 
-  ratingChanged = rating => this.setState({ rating })
+  ratingChanged = rating => this.setState({ rating, error: null })
 
   render() {
-    const { rating } = this.state
+    const { rating, error, submitted } = this.state
+    // For after the user submits their comment
+    if (submitted) {
+      return <Text large className="fadein">Thanks for your opinion!</Text>
+    }
+
     return(
       <div>
         <Formik
@@ -41,13 +52,16 @@ class CommentBox extends Component {
                   <Field
                     name="rating"
                     type="number"
-                    component={() => <ReactStars
-                      value={rating}
-                      onChange={this.ratingChanged}
-                      size={22}
-                      half={false}
-                      color2={'#ffd700'}
-                    />}
+                    component={() => <span>
+                      <ReactStars
+                        value={rating}
+                        onChange={this.ratingChanged}
+                        size={22}
+                        half={false}
+                        color2={'#ffd700'}
+                      />
+                      {error && <Text error small>{error}</Text>}
+                    </span>}
                   />
                   <Input
                     type="text"
