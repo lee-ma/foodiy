@@ -35,13 +35,14 @@ class CommentBox extends Component {
 
   render() {
     const { rating, error, submitted } = this.state
+    const { ...otherProps } = this.props
     // For after the user submits their comment
     if (submitted) {
       return <Text large className="fadein">Thanks for your opinion!</Text>
     }
 
     return(
-      <div>
+      <div {...otherProps}>
         <Formik
           initialValues = {commentBoxInitialValues}
           onSubmit = {this.handleSubmit}

@@ -112,7 +112,7 @@ class Recipe extends React.Component {
   renderComments = () => {
     const { comments } = this.props.recipe
     return comments.map((comment, index) => (
-      <Comment comment={comment} />
+      <Comment comment={comment} key={index} />
     ))
   }
 
@@ -151,17 +151,13 @@ class Recipe extends React.Component {
               <Text medium semiBold>
                 Leave a Comment
               </Text>
-              <CommentBox/>
+              <CommentBox style={{ marginBottom: 15 }}/>
+              {this.renderComments()}
             </div>
             {window.innerWidth < 992 && <hr />}
           </div>
           <div className="col-xs-12 col-lg-3">
             <RecipeInformationCard recipe={recipe} />
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-xs-12 col-lg-7 offset-lg-1">
-            {this.renderComments()}
           </div>
         </div>
         {window.innerWidth < 768 &&
