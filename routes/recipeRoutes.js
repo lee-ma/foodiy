@@ -51,12 +51,27 @@ module.exports = app => {
   })
 
   app.get("/api/recipes/:id", (req, res) => {
-    Recipe.findOne({ where: { id: req.params.id }, include: [User, Comment] })
+    Recipe.findOne(
+      {
+        where: { id: req.params.id },
+        include: [
+          {
+            model: User,
+            attributes: ["id", "firstName", "lastName", "avatarImage"]
+          },
+          {
+            model: Comment,
+            include: [{
+              model: User,
+              attributes: ["id", "firstName", "lastName", "avatarImage", "createdAt"]
+            }]
+          }
+        ]
+      })
       .then(foundRecipe => res.send(foundRecipe))
       .catch(err => console.log(err))
   })
 
-  // TODO: Not migrated yet.
   /* S3 Recipe Image Upload */
   var s3 = new aws.S3()
   var upload = multer({

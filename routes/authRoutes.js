@@ -28,7 +28,13 @@ module.exports = app => {
   app.get("/api/user", (req, res) => {
     if (!req.user) res.send(null)
     else {
-      User.findById(req.user.id, { include: Recipe })
+      User.findById(req.user.id,
+        {
+          include: [{
+            model: Recipe,
+            attributes: ["id", "title", "description", "time", "images"]
+          }]
+        })
         .then(user => res.send(user))
     }
   })

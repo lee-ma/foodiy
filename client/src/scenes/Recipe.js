@@ -1,5 +1,11 @@
 import React from "react"
-import { Text, RecipeInformationCard, AvatarImage, CommentBox, Slider } from "components"
+import {
+  Text,
+  RecipeInformationCard,
+  AvatarImage,
+  Comment,
+  CommentBox,
+  Slider } from "components"
 import { fetchRecipe, getRecipeById } from "actions"
 import { withRouter } from "react-router-dom"
 import shortenText from "utils/shortenText"
@@ -102,6 +108,14 @@ class Recipe extends React.Component {
     }
   }
 
+  /* METHODS FOR COMMENTS */
+  renderComments = () => {
+    const { comments } = this.props.recipe
+    return comments.map((comment, index) => (
+      <Comment comment={comment} />
+    ))
+  }
+
   render() {
     const {
       descriptionHidden,
@@ -143,6 +157,11 @@ class Recipe extends React.Component {
           </div>
           <div className="col-xs-12 col-lg-3">
             <RecipeInformationCard recipe={recipe} />
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-xs-12 col-lg-7 offset-lg-1">
+            {this.renderComments()}
           </div>
         </div>
         {window.innerWidth < 768 &&

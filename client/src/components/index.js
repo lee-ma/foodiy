@@ -1,5 +1,6 @@
 import AvatarImage from "./AvatarImage"
 import Button from "./Button"
+import Comment from "./Comment"
 import EditProfileForm from "./EditProfileForm"
 import FacebookButton from "./FacebookButton"
 import GoogleButton from "./GoogleButton"
@@ -20,6 +21,7 @@ import Slider from "./MultiImageSlider/Slider"
 export {
   AvatarImage,
   Button,
+  Comment,
   EditProfileForm,
   FacebookButton,
   GoogleButton,
