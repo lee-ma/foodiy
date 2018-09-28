@@ -8,7 +8,7 @@ import {
   Slider } from "components"
 import { fetchRecipe, getRecipeById } from "actions"
 import { withRouter } from "react-router-dom"
-import shortenText from "utils/shortenText"
+import { shortenText } from "utils"
 import _ from "lodash"
 import { connect } from "react-redux"
 import { isEmpty } from "lodash"
@@ -68,7 +68,7 @@ class Recipe extends React.Component {
   componentWillMount() {
     const { id } = this.props.match.params
 
-    this.props.fetchRecipe(id)
+    _.isEmpty(this.props.recipe) && this.props.fetchRecipe(id)
   }
 
   componentDidMount() {
