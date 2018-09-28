@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
-import { Formik } from 'formik'
-import { Button } from '../index'
-import { connect } from 'react-redux'
-import { addRecipe } from '../../actions'
+import React, { Component } from "react"
+import { Formik } from "formik"
+import { Button } from "components"
+import { connect } from "react-redux"
+import { addRecipe } from "actions"
 
-import InfoForm, { InfoSchema } from './InfoForm'
-import RecipeForm, { RecipeSchema } from './RecipeForm'
+import InfoForm, { InfoSchema } from "./InfoForm"
+import RecipeForm, { RecipeSchema } from "./RecipeForm"
 
 const flowControl = (current, skipNext = false, goBack = false) => {
   const flow = ["info", "recipe"]
@@ -60,7 +60,7 @@ class NewRecipeForm extends Component {
       const data = { ...this.state.inputs, ...values }
 
       this.props.addRecipe(data)
-      this.props.history.push('/')
+      this.props.history.push("/")
     }
   }
 
@@ -71,7 +71,7 @@ class NewRecipeForm extends Component {
   render() {
     const { stage } = this.state
     return (
-      <div style={{ marginTop: "2.5em" }}>
+      <div style={{ marginTop: "2.5em", minHeight: "85vh" }}>
         {(stage !== "info") && <Button className="fadein back-btn" onClick={() => this.goBack()}>
           <i className="fa fa-angle-left m-r-1" />
         </Button>}

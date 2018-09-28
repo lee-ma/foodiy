@@ -2,6 +2,7 @@ import AvatarImage from "./AvatarImage"
 import Button from "./Button"
 import EditProfileForm from "./EditProfileForm"
 import FacebookButton from "./FacebookButton"
+import Footer from "./Footer"
 import GoogleButton from "./GoogleButton"
 import ImageUpload from "./ImageUpload"
 import Input from "./Input"
@@ -22,6 +23,7 @@ export {
   Button,
   EditProfileForm,
   FacebookButton,
+  Footer,
   GoogleButton,
   ImageUpload,
   Input,

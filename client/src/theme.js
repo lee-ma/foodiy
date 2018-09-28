@@ -42,13 +42,18 @@ export const fontStyles = {
   italic: "italic"
 }
 
+export const sizes = {
+  footer: "60px"
+}
+
 const theme = {
-  "fontWeights": fontWeights,
-  "fonts": fonts,
-  "fontSizes": fontSizes,
-  "colors": colors,
-  "lineHeights": lineHeights,
-  "fontStyles": fontStyles
+  fontWeights,
+  fonts,
+  fontSizes,
+  colors,
+  lineHeights,
+  fontStyles,
+  sizes
 }
 
 export default theme

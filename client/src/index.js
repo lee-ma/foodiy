@@ -12,7 +12,7 @@ import reducers from "reducers"
 import theme from "theme"
 
 import { Landing, Profile, Recipe, Home, NotFound } from "scenes"
-import { NewRecipeForm, Navbar } from "components"
+import { NewRecipeForm, Navbar, Footer } from "components"
 
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk))
 
@@ -23,7 +23,7 @@ ReactDOM.render(
   <Provider store={store}>
     <ThemeProvider theme={theme}>
       <BrowserRouter>
-        <div>
+        <div style={{ minHeight: "95vh" }}>
           <Navbar />
           <Switch>
             <Route exact path="/" component={Landing} />
@@ -33,6 +33,7 @@ ReactDOM.render(
             <Route path="/browse" component={Home} />
             <Route component={NotFound} />
           </Switch>
+          <Footer />
         </div>
       </BrowserRouter>
     </ThemeProvider>
