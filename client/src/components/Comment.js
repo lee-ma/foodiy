@@ -1,15 +1,13 @@
 import React from "react"
 import moment from "moment"
 import { AvatarImage, Text } from "components"
-import { generateDaysAgoText } from "utils"
 
 const calculateDate = date => {
-  const difference = moment().diff(moment(date))
-  return generateDaysAgoText(difference)
+  return moment(date).fromNow()
 }
 
 const Comment = ({ comment, ...otherProps }) => (
-  <div style={{ margin: "1em 0" }}>
+  <div style={{ margin: "2em 0" }}>
     <div className="f-aic" {...otherProps}>
       <AvatarImage user={comment.user} />
       <div style={{ marginLeft: 10 }}>
@@ -22,7 +20,7 @@ const Comment = ({ comment, ...otherProps }) => (
         <Text grey>{calculateDate(comment.createdAt)}</Text>
       </div>
     </div>
-    <div>
+    <div style={{ marginLeft: 40 }}>
       <Text>{comment.content}</Text>
     </div>
   </div>

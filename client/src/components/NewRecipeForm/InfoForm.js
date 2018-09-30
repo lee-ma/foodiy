@@ -28,11 +28,7 @@ const InfoForm = ({ values, handleSubmit, setFieldValue }) => {
               type="text"
             />
             <Input
-<<<<<<< HEAD
-              label="Time (minutes)"
-=======
               label="Time (Minutes)"
->>>>>>> 85ee50619196d2f206e4c48f1077372272685747
               name="time"
               type="number"
               step={1}
