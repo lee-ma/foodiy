@@ -4,12 +4,8 @@ body {
   width: 100%;
   min-height: 95vh !important;
   margin: 0px;
-  padding: 0 1em 20px 1em;
+  padding: 0 1em;
   background-color: #feffff;
-}
-
-body {
-  padding: 0 0 20px 0;
 }
 
 .text-input {

@@ -1,7 +1,7 @@
-import React from 'react'
-import { Input, Button, Text, ImageUpload } from '../index'
-import { Form } from 'formik'
-import * as yup from 'yup'
+import React from "react"
+import { Input, Button, Text, ImageUpload } from "../index"
+import { Form } from "formik"
+import * as yup from "yup"
 
 export const InfoSchema = yup.object().shape({
   title: yup.string().trim().required("Enter a title for your recipe!"),
@@ -28,7 +28,11 @@ const InfoForm = ({ values, handleSubmit, setFieldValue }) => {
               type="text"
             />
             <Input
+<<<<<<< HEAD
               label="Time (minutes)"
+=======
+              label="Time (Minutes)"
+>>>>>>> 85ee50619196d2f206e4c48f1077372272685747
               name="time"
               type="number"
               step={1}
@@ -36,7 +40,7 @@ const InfoForm = ({ values, handleSubmit, setFieldValue }) => {
             <ImageUpload values={values} setFieldValue={setFieldValue}/>
             <Button type="submit">
               To Ingredients and Steps
-              <i className="fas fa-arrow-right" style={{ marginLeft: '5px' }}></i>
+              <i className="fas fa-arrow-right" style={{ marginLeft: "5px" }}></i>
             </Button>
           </Form>
         </div>

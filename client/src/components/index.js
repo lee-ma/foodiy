@@ -3,6 +3,7 @@ import Button from "./Button"
 import Comment from "./Comment"
 import EditProfileForm from "./EditProfileForm"
 import FacebookButton from "./FacebookButton"
+import Footer from "./Footer"
 import GoogleButton from "./GoogleButton"
 import ImageUpload from "./ImageUpload"
 import Input from "./Input"
@@ -24,6 +25,7 @@ export {
   Comment,
   EditProfileForm,
   FacebookButton,
+  Footer,
   GoogleButton,
   ImageUpload,
   Input,
