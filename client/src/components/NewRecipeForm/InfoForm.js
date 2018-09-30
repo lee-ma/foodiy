@@ -28,10 +28,10 @@ const InfoForm = ({ values, handleSubmit, setFieldValue }) => {
               type="text"
             />
             <Input
-              label="Time (hours)"
+              label="Time (minutes)"
               name="time"
               type="number"
-              step={0.25}
+              step={1}
             />
             <ImageUpload values={values} setFieldValue={setFieldValue}/>
             <Button type="submit">
