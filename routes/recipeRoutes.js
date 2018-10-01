@@ -24,25 +24,34 @@ module.exports = app => {
     else {
       const { q } = req.query
 
-      Recipe
-      // .find({ $text: { $search: q }},
-      // { score: {$meta: "textScore"}})
-      // .sort({ score: { $meta: "textScore" } })
-
-        .findAll({ where: {
-          [Op.or]: [
-            {
-              title: {
-                [Op.like]: `%${q}%`
-              }
-            },
-            {
-              description: {
-                [Op.like]: `%${q}%`
-              }
+      Recipe.findAll({ where: {
+        [Op.or]: [
+          {
+            title: {
+              [Op.like]: `%${q}%`
             }
-          ]
-        }})
+          },
+          {
+            description: {
+              [Op.like]: `%${q}%`
+            }
+          }
+        ]
+      },
+      include: [
+        {
+          model: User,
+          attributes: ["id", "firstName", "lastName", "avatarImage"]
+        },
+        {
+          model: Comment,
+          include: [{
+            model: User,
+            attributes: ["id", "firstName", "lastName", "avatarImage", "createdAt"]
+          }]
+        }
+      ]
+      })
         .then(recipes => {
           if (recipes.length === 0) res.send(["No Results"])
           else res.send(recipes)
