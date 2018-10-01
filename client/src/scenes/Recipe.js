@@ -111,7 +111,7 @@ class Recipe extends React.Component {
   /* METHODS FOR COMMENTS */
   renderComments = () => {
     const { comments } = this.props.recipe
-    return comments.map((comment, index) => (
+    return comments.slice(0).reverse().map((comment, index) => (
       <Comment comment={comment} key={index} />
     ))
   }

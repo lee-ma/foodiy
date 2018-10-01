@@ -20,13 +20,10 @@ export default function(state = null, action) {
           newState.push(recipe)
         }
       })
-      console.log("newState", newState)
       return newState
     } else if (state) {
-      console.log("hesfdj")
       return [...state, action.payload]
     }
-    console.log("action.payload", action.payload)
     return [action.payload]
   default:
     return state

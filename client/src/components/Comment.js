@@ -3,6 +3,9 @@ import moment from "moment"
 import { AvatarImage, Text } from "components"
 
 const calculateDate = date => {
+  if (moment(date).fromNow() === "a few seconds ago") {
+    return "<1 minute ago"
+  }
   return moment(date).fromNow()
 }
 
@@ -20,7 +23,7 @@ const Comment = ({ comment, ...otherProps }) => (
         <Text grey>{calculateDate(comment.createdAt)}</Text>
       </div>
     </div>
-    <div style={{ marginLeft: 40 }}>
+    <div style={{ marginLeft: 42 }}>
       <Text>{comment.content}</Text>
     </div>
   </div>
