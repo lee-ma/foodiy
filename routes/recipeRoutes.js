@@ -24,25 +24,34 @@ module.exports = app => {
     else {
       const { q } = req.query
 
-      Recipe
-      // .find({ $text: { $search: q }},
-      // { score: {$meta: "textScore"}})
-      // .sort({ score: { $meta: "textScore" } })
-
-        .findAll({ where: {
-          [Op.or]: [
-            {
-              title: {
-                [Op.like]: `%${q}%`
-              }
-            },
-            {
-              description: {
-                [Op.like]: `%${q}%`
-              }
+      Recipe.findAll({ where: {
+        [Op.or]: [
+          {
+            title: {
+              [Op.like]: `%${q}%`
             }
-          ]
-        }})
+          },
+          {
+            description: {
+              [Op.like]: `%${q}%`
+            }
+          }
+        ]
+      },
+      include: [
+        {
+          model: User,
+          attributes: ["id", "firstName", "lastName", "avatarImage"]
+        },
+        {
+          model: Comment,
+          include: [{
+            model: User,
+            attributes: ["id", "firstName", "lastName", "avatarImage", "createdAt"]
+          }]
+        }
+      ]
+      })
         .then(recipes => {
           if (recipes.length === 0) res.send(["No Results"])
           else res.send(recipes)
@@ -51,12 +60,27 @@ module.exports = app => {
   })
 
   app.get("/api/recipes/:id", (req, res) => {
-    Recipe.findOne({ where: { id: req.params.id }, include: [User, Comment] })
+    Recipe.findOne(
+      {
+        where: { id: req.params.id },
+        include: [
+          {
+            model: User,
+            attributes: ["id", "firstName", "lastName", "avatarImage"]
+          },
+          {
+            model: Comment,
+            include: [{
+              model: User,
+              attributes: ["id", "firstName", "lastName", "avatarImage", "createdAt"]
+            }]
+          }
+        ]
+      })
       .then(foundRecipe => res.send(foundRecipe))
       .catch(err => console.log(err))
   })
 
-  // TODO: Not migrated yet.
   /* S3 Recipe Image Upload */
   var s3 = new aws.S3()
   var upload = multer({

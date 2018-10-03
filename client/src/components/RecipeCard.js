@@ -1,8 +1,9 @@
 import React from "react"
 import styled from "styled-components"
 import { Text } from "components"
+import { Link } from "react-router-dom"
 
-const StyledCard = styled("a")`
+const StyledCard = styled(Link)`
     padding: 0 0 1em 0;
     margin: 0 1em 1em 1em;
     min-width: 13em;
@@ -19,7 +20,7 @@ const RecipeCard = (props) => {
   const { imgSrc, title, time, description, href } = props
 
   return (
-    <StyledCard href={href}>
+    <StyledCard to={href}>
       <div
         title={title}
         className="row"

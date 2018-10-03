@@ -1,8 +1,14 @@
 import React from "react"
-import { Text, RecipeInformationCard, AvatarImage, CommentBox, Slider } from "components"
+import {
+  Text,
+  RecipeInformationCard,
+  AvatarImage,
+  Comment,
+  CommentBox,
+  Slider } from "components"
 import { fetchRecipe, getRecipeById } from "actions"
 import { withRouter } from "react-router-dom"
-import shortenText from "utils/shortenText"
+import { shortenText } from "utils"
 import _ from "lodash"
 import { connect } from "react-redux"
 import { isEmpty } from "lodash"
@@ -62,7 +68,7 @@ class Recipe extends React.Component {
   componentWillMount() {
     const { id } = this.props.match.params
 
-    this.props.fetchRecipe(id)
+    _.isEmpty(this.props.recipe) && this.props.fetchRecipe(id)
   }
 
   componentDidMount() {
@@ -102,6 +108,14 @@ class Recipe extends React.Component {
     }
   }
 
+  /* METHODS FOR COMMENTS */
+  renderComments = () => {
+    const { comments } = this.props.recipe
+    return comments.slice(0).reverse().map((comment, index) => (
+      <Comment comment={comment} key={index} />
+    ))
+  }
+
   render() {
     const {
       descriptionHidden,
@@ -137,7 +151,8 @@ class Recipe extends React.Component {
               <Text medium semiBold>
                 Leave a Comment
               </Text>
-              <CommentBox/>
+              <CommentBox style={{ marginBottom: 15 }}/>
+              {this.renderComments()}
             </div>
             {window.innerWidth < 992 && <hr />}
           </div>

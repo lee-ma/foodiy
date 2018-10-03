@@ -1,8 +1,0 @@
-{
-    "window.zoomLevel": 0,
-    "eslint.autoFixOnSave": true,
-    "emmet.includeLanguages": {
-        "javascript": "javascriptreact"
-    },
-    "workbench.colorTheme": "One Dark Pro"
-}

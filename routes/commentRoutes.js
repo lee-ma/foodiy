@@ -15,8 +15,21 @@ module.exports = app => {
       }
     )
       .then(() => {
-        Recipe.findOne({ where: { id: req.params.id }, include: [User, Comment] })
-          .then(foundRecipe => res.send(foundRecipe))
+        Recipe.findOne({
+          where: { id: req.params.recipeId },
+          include: [
+            {
+              model: User
+            },
+            {
+              model: Comment,
+              include: [User]
+            }
+          ]
+        })
+          .then(foundRecipe => {
+            res.send(foundRecipe)
+          })
           .catch(err => console.log(err))
       })
       .catch(err => console.log(err))

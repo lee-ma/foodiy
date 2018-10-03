@@ -1,5 +1,6 @@
 import AvatarImage from "./AvatarImage"
 import Button from "./Button"
+import Comment from "./Comment"
 import EditProfileForm from "./EditProfileForm"
 import FacebookButton from "./FacebookButton"
 import Footer from "./Footer"
@@ -21,6 +22,7 @@ import Slider from "./MultiImageSlider/Slider"
 export {
   AvatarImage,
   Button,
+  Comment,
   EditProfileForm,
   FacebookButton,
   Footer,

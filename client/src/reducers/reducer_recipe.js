@@ -4,13 +4,27 @@ export default function(state = null, action) {
   switch (action.type) {
   case ADD_RECIPE:
     if (state) return [...state, action.payload]
-    return action.payload
+    return [action.payload]
   case FETCH_RECIPES:
     return action.payload
   case FETCH_RECIPE:
-    return state ? [...state, action.payload] : [action.payload]
   case ADD_COMMENT:
-    return state ? [...state, action.payload] : [action.payload]
+    let newState = []
+    const recipeInState = state ? state.find(recipe => recipe.id === action.payload.id) : false
+
+    if (recipeInState) {
+      state.forEach(recipe => {
+        if (recipe.id === action.payload.id) {
+          newState.push(action.payload)
+        } else {
+          newState.push(recipe)
+        }
+      })
+      return newState
+    } else if (state) {
+      return [...state, action.payload]
+    }
+    return [action.payload]
   default:
     return state
   }
