@@ -4,7 +4,8 @@ import { connect } from "react-redux"
 import {
   Modal,
   LoginForm,
-  SearchBar
+  SearchBar,
+  AvatarImage
 } from "./index"
 
 class Navbar extends Component {
@@ -49,6 +50,8 @@ class Navbar extends Component {
       )
     } else {
       // Logged in
+      const { user } = this.props
+      const { showCaret } = this.state
       return (
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">
@@ -56,15 +59,26 @@ class Navbar extends Component {
               New Recipe
             </a>
           </li>
-          <li className="nav-item">
-            <a className="nav-link" href="/profile">
-              Profile
+          <li className="nav-item dropdown" >
+            <a className="nav-link dropdown f-aic"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false">
+              <div className="f-aic" onClick={this.toggleCaret}>
+                <AvatarImage user={user}/>
+                <div style={{ marginLeft: 7.5, marginRight: 7.5 }}>
+                  {user.firstName}
+                </div>
+                <i className="fas fa-caret-down" style={{ display: `${showCaret}` }}/>
+              </div>
             </a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="/api/logout">
-              Logout
-            </a>
+            <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <a className="nav-link dropdown-item text-center" href="/profile" style={{ fontSize: "1.25em" }}>My Profile</a>
+              <div className="dropdown-divider"></div>
+              <a className="nav-link dropdown-item text-center" href="/api/logout" style={{ fontSize: "1.25em" }}>Logout</a>
+            </div>
           </li>
         </ul>
       )

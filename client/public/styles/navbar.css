@@ -25,9 +25,14 @@
 }
 
 .navbar-toggler-icon {
-  color: white;
+  color: #feffff;
 }
 
 .bkg-white {
+  background-color: #feffff;
+}
+
+.dropdown-item:hover {
+  color: #00C853;
   background-color: #feffff;
 }
