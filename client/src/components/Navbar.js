@@ -5,7 +5,8 @@ import {
   Modal,
   LoginForm,
   SearchBar,
-  AvatarImage
+  AvatarImage,
+  SignupForm
 } from "./index"
 
 class Navbar extends Component {
@@ -13,11 +14,14 @@ class Navbar extends Component {
     super(props)
 
     this.state = {
-      showLogin: false
+      showLogin: false,
+      showSignup: false
     }
 
     this.closeLoginModal.bind(this)
     this.openLoginModal.bind(this)
+    this.closeSignupModal.bind(this)
+    this.openSignupModal.bind(this)
     this.handleSearchSubmit = this.handleSearchSubmit.bind(this)
   }
 
@@ -29,6 +33,14 @@ class Navbar extends Component {
     this.setState({ showLogin: true })
   }
 
+  closeSignupModal = () => {
+    this.setState({ showSignup: false })
+  }
+
+  openSignupModal = () => {
+    this.setState({ showSignup: true })
+  }
+
   handleSearchSubmit(query) {
     this.props.history.push(`/browse?q=${query.searchQuery}`)
     if (this.props.location.pathname === "/browse") window.location.reload()
@@ -38,11 +50,13 @@ class Navbar extends Component {
     if (!this.props.user) {
       return (
         <ul className="navbar-nav ml-auto">
-          <li className="nav-link" onClick={this.openLoginModal}>
-            Login
+          <li className="nav-item">
+            <a className="nav-link" onClick={ this.openLoginModal }>
+              Login
+            </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">
+            <a className="nav-link" onClick={this.openSignupModal}>
               Sign up
             </a>
           </li>
@@ -111,6 +125,9 @@ class Navbar extends Component {
         </nav>
         <Modal show={this.state.showLogin} hide={this.closeLoginModal} title="Log In">
           <LoginForm />
+        </Modal>
+        <Modal show={this.state.showSignup} hide={this.closeLoginModal} title="Create an Account">
+          <SignupForm />
         </Modal>
       </div>
     )

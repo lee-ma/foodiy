@@ -24,6 +24,28 @@ module.exports = (sequelize, DataTypes) => {
       field: "googleId",
       allowNull: true
     },
+    email: {
+      type: DataTypes.STRING,
+      field: "email",
+      allowNull: true,
+      validate: {
+        isEmail: {
+          args: true,
+          msg: "Email is not valid"
+        }
+      }
+    },
+    password: {
+      type: DataTypes.STRING,
+      field: "password",
+      allowNull: true,
+      validate: {
+        min: {
+          args: [6],
+          msg: "Password must be at least 6 characters in length"
+        }
+      }
+    },
     avatarImage: {
       type: DataTypes.STRING,
       field: "avatarImage",
