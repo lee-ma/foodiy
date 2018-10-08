@@ -1,5 +1,5 @@
 import React from "react"
-import { Text, GoogleButton, FacebookButton, Input } from "components"
+import { Text, GoogleButton, FacebookButton, Input, Button, ImageUpload } from "components"
 import { Formik, Form } from "formik"
 import * as yup from "yup"
 
@@ -36,7 +36,7 @@ const SignupForm = () => {
               <Input type="email" label="Email" name="email" />
               <Input type="password" label="Password" name="password" />
               <Input type="password" label="Confirm Password" name="confirmPassword" />
-              <button className="btn btn-success" style={{ float: "right", marginTop: "0.75em" }} type="submit">Login</button>
+              <Button primary style={{ float: "right", marginTop: "0.75em" }} type="submit">Sign Up</Button>
             </Form>
           )
         }}
