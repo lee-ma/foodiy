@@ -66,18 +66,18 @@ passport.use("local-login",
   new LocalStrategy({
     usernameField: "email",
     passwordField: "password",
-    passReqToCallback: true,
-    proxy: true
+    passReqToCallback: true
   }, (req, email, password, done) => {
     User.findOne({ where: { email: email }})
-      .then(user => {
-        if(!user) {
+      .then(async existingUser => {
+        if(!existingUser) {
           return done(null, false, { message: "No user associated with that email" })
         }
-        if(!user.validPassword(password)) {
+        if(!await existingUser.validPassword(password)) {
           return done(null, false, { message: "Invalid password" })
         }
+
+        return done(null, existingUser)
       })
-      .then(user => done(null, user))
   })
 )

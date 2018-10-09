@@ -53,11 +53,15 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {
     hooks : {
-      beforeCreate : (user , options) => {
+      beforeCreate : (user, options) => {
         user.password = user.password && user.password !== "" ? bcrypt.hashSync(user.password, 10) : ""
       }
     }
   })
+
+  User.prototype.validPassword = async function(password) {
+    return await bcrypt.compareSync(password, this.password)
+  }
 
   User.associate = models => {
     const { Recipe, User, Comment } = models

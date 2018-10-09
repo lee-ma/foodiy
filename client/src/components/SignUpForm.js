@@ -22,13 +22,14 @@ const initValues = {
 
 class SignupForm extends React.Component{
 
-  createAccount = (userInfo) => {
+  createAccount = (userInfo, hide) => {
     const { email, password, firstName, lastName } = userInfo
 
-    this.props.createUser({ email, password, firstName, lastName })
+    this.props.createUser({ email, password, firstName, lastName }, hide)
   }
 
   render() {
+    const { hide } = this.props
     return (
       <div>
         <div className="col-xs-12">
@@ -38,7 +39,7 @@ class SignupForm extends React.Component{
         <Text bold style={{ marginTop: "2em", textAlign: "center" }}>OR</Text>
         <Formik
           intialValues={initValues}
-          onSubmit={(values) => this.createAccount(values)}
+          onSubmit={(values) => this.createAccount(values, hide)}
           validationSchema={createValidationSchema}
           render={() => {
             return (
