@@ -1,5 +1,5 @@
 import React from "react"
-import { Text, GoogleButton, FacebookButton, Input, Button, ImageUpload } from "components"
+import { Text, GoogleButton, FacebookButton, Input, Button } from "components"
 import { Formik, Form } from "formik"
 import { connect } from "react-redux"
 import { createUser } from "actions"
