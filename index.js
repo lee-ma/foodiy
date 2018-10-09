@@ -25,11 +25,7 @@ const Tag = sequelize.import("./models/Tag")
 const RecipeTag = sequelize.import("./models/RecipeTag")
 
 /* Sync with db */
-User.sync()
-Recipe.sync()
-Comment.sync()
-Tag.sync()
-RecipeTag.sync()
+sequelize.sync()
 
 /* Associate models */
 db.User = User

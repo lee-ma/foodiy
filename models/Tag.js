@@ -11,6 +11,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       field: "name",
       allowNull: false
+    },
+    color: {
+      type: DataTypes.STRING,
+      field: "color",
+      allowNull: false
     }
   })
 

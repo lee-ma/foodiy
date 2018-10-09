@@ -19,11 +19,13 @@ const Tag = styled("div")`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.green};
+  border: 1px solid ${props => props.color};
   border-radius: 2px;
-  color: white !important;
-  padding: 3px 5px;
-  margin: 5px 3px 5px 0;
+  padding: 2px 5px;
+  margin: 5px 5px 5px 0;
+  & > span {
+    color: ${props => props.color} !important;
+  }
 `
 
 const CircleButton = styled("div")`
@@ -133,8 +135,8 @@ class Recipe extends React.Component {
   renderTags = () => {
     const { tags } = this.props.recipe
     return tags.map((tag, index) => (
-      <Tag key={index}>
-        <Text white small>{tag.name}</Text>
+      <Tag key={index} color={tag.color}>
+        <Text green small>{tag.name}</Text>
       </Tag>
     ))
   }
