@@ -6,8 +6,10 @@ import { createUser } from "actions"
 import * as yup from "yup"
 
 const createValidationSchema = yup.object().shape({
-  email: yup.string().trim().required("Please enter your email"),
-  password: yup.string().trim().required("Please enter your password"),
+  firstName: yup.string().trim().required("Please enter your first name"),
+  lastName: yup.string().trim().required("Please enter your last name"),
+  email: yup.string().trim().email("Please enter a valid email").required("Please enter your email"),
+  password: yup.string().trim().min(6, "Password must be at least 6 characters").required("Please enter your password"),
   confirmPassword: yup.string().oneOf(
     [yup.ref("password")],
     "Passwords do not match",
