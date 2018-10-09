@@ -15,6 +15,17 @@ import { connect } from "react-redux"
 import { isEmpty } from "lodash"
 import styled from "styled-components"
 
+const Tag = styled("div")`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${({ theme }) => theme.colors.green};
+  border-radius: 2px;
+  color: white !important;
+  padding: 3px 5px;
+  margin: 5px 3px 5px 0;
+`
+
 const CircleButton = styled("div")`
   position: fixed;
   display: flex;
@@ -118,6 +129,16 @@ class Recipe extends React.Component {
     ))
   }
 
+  /* METHODS FOR TAGS */
+  renderTags = () => {
+    const { tags } = this.props.recipe
+    return tags.map((tag, index) => (
+      <Tag key={index}>
+        <Text white small>{tag.name}</Text>
+      </Tag>
+    ))
+  }
+
   render() {
     const {
       descriptionHidden,
@@ -149,6 +170,9 @@ class Recipe extends React.Component {
                 green
                 underline>{descriptionHidden ? "Show More" : "Show Less"}</Text>
             }
+            <div className="f-aic f-jcfs" style={{ marginTop: 10 }}>
+              {this.renderTags()}
+            </div>
             <div className="margin-vertical-lg" style={{ width: "100%" }}>
               <Text medium semiBold>
                 Leave a Comment

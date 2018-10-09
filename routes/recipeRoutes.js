@@ -121,6 +121,9 @@ module.exports = app => {
   })
 
   app.post("/api/recipes", upload.array("images"), (req, res) => {
+    const promises = []
+    let newRecipe = {}
+    // first, create the recipe
     Recipe.create(
       {
         ...req.body,
@@ -131,7 +134,20 @@ module.exports = app => {
         userId: req.user.id,
       }
     )
+      // now we create RecipeTag for every recipe/tag relation we need to make
+      .then(recipe => {
+        newRecipe = recipe
+        JSON.parse(req.body.tags).forEach(tagId => {
+          const tagPromise = RecipeTag.create({ recipeId: recipe.id, tagId })
+          promises.push(tagPromise)
+        })
+      })
+
+    // save all the RecipeTags and return the recipe
+    Promise.all(promises)
+      .then(() => {
+        Recipe.findById(newRecipe.id)
+      })
       .then(recipe => res.send(recipe))
-      .catch(err => console.log(err))
   })
 }

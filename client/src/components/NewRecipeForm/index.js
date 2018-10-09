@@ -55,7 +55,7 @@ class NewRecipeForm extends Component {
     // If the next page isn't the last page of the form, we have to save the inputs to submit all at once
     if (nextStage === "recipe") {
       let inputValues = values
-      this.setState({ "stage": nextStage, "inputs": { ...this.state.inputs, ...inputValues }})
+      this.setState({ "stage": nextStage, "inputs": { ...this.state.inputs, ...inputValues } })
     }
     else {
       const data = { ...this.state.inputs, ...values }

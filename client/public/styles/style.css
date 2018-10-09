@@ -104,6 +104,11 @@ body {
   justify-content: center !important;
 }
 
+.f-jcfs {
+  display: flex !important;
+  justify-content: flex-start !important;
+}
+
 .f-aic {
   display: flex !important;
   align-items: center !important;

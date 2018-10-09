@@ -25,6 +25,7 @@ export const addRecipe = recipeData => dispatch => {
   data.append("time", recipeData.time)
   data.append("steps", JSON.stringify(recipeData.steps))
   data.append("ingredients", JSON.stringify(recipeData.ingredients))
+  data.append("tags", JSON.stringify(recipeData.tags))
   for (var i = 0; i < recipeData.images.length; i++) {
     data.append("images", recipeData.images[i])
   }
