@@ -61,7 +61,7 @@ const Button = ({
   secondary,
   ...otherProps
 }) => {
-  if(searchbar) {
+  if (searchbar) {
     return <SearchButton {...otherProps} className="btn">{children}</SearchButton>
   }
   else if (secondary) {

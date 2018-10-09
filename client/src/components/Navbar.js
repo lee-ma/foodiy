@@ -3,11 +3,17 @@ import { withRouter } from "react-router-dom"
 import { connect } from "react-redux"
 import {
   Modal,
+  Button,
   LoginForm,
   SearchBar,
+<<<<<<< HEAD
   AvatarImage,
   SignupForm
 } from "./index"
+=======
+  AvatarImage
+} from "components"
+>>>>>>> 25931d938dcd2fa4546f6c0f4cfcb1c265a7b1bb
 
 class Navbar extends Component {
   constructor(props) {
@@ -69,9 +75,11 @@ class Navbar extends Component {
       return (
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">
-            <a className="nav-link" href="/newrecipe">
-              New Recipe
-            </a>
+            <Button style={{ marginRight: "1em" }}>
+              <a className="nav-button" href="/newrecipe">
+                New Recipe
+              </a>
+            </Button>
           </li>
           <li className="nav-item dropdown" >
             <a className="nav-link dropdown f-aic"
@@ -81,11 +89,11 @@ class Navbar extends Component {
               aria-haspopup="true"
               aria-expanded="false">
               <div className="f-aic" onClick={this.toggleCaret}>
-                <AvatarImage user={user}/>
+                <AvatarImage user={user} />
                 <div style={{ marginLeft: 7.5, marginRight: 7.5 }}>
                   {user.firstName}
                 </div>
-                <i className="fas fa-caret-down" style={{ display: `${showCaret}` }}/>
+                <i className="fas fa-caret-down" style={{ display: `${showCaret}` }} />
               </div>
             </a>
             <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -94,7 +102,7 @@ class Navbar extends Component {
               <a className="nav-link dropdown-item text-center" href="/api/logout" style={{ fontSize: "1.25em" }}>Logout</a>
             </div>
           </li>
-        </ul>
+        </ul >
       )
     }
   }
@@ -118,7 +126,7 @@ class Navbar extends Component {
           </a>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">
-              <SearchBar handleSubmit={this.handleSearchSubmit}/>
+              <SearchBar handleSubmit={this.handleSearchSubmit} />
             </ul>
             {this.renderNavLinks()}
           </div>

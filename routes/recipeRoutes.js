@@ -14,7 +14,15 @@ module.exports = app => {
     // Default return all recipes TODO: add pagination
     if (!req.query.q) {
       Recipe.findAll({
-        include: User
+        include: [
+          {
+            model: User
+          },
+          {
+            model: Comment,
+            include: [User]
+          }
+        ]
       })
         .then(allRecipes => res.send(allRecipes))
         .catch(err => console.log(err))
@@ -24,33 +32,34 @@ module.exports = app => {
     else {
       const { q } = req.query
 
-      Recipe.findAll({ where: {
-        [Op.or]: [
-          {
-            title: {
-              [Op.like]: `%${q}%`
+      Recipe.findAll({
+        where: {
+          [Op.or]: [
+            {
+              title: {
+                [Op.like]: `%${q}%`
+              }
+            },
+            {
+              description: {
+                [Op.like]: `%${q}%`
+              }
             }
+          ]
+        },
+        include: [
+          {
+            model: User,
+            attributes: ["id", "firstName", "lastName", "avatarImage"]
           },
           {
-            description: {
-              [Op.like]: `%${q}%`
-            }
+            model: Comment,
+            include: [{
+              model: User,
+              attributes: ["id", "firstName", "lastName", "avatarImage", "createdAt"]
+            }]
           }
         ]
-      },
-      include: [
-        {
-          model: User,
-          attributes: ["id", "firstName", "lastName", "avatarImage"]
-        },
-        {
-          model: Comment,
-          include: [{
-            model: User,
-            attributes: ["id", "firstName", "lastName", "avatarImage", "createdAt"]
-          }]
-        }
-      ]
       })
         .then(recipes => {
           if (recipes.length === 0) res.send(["No Results"])

@@ -5,7 +5,8 @@ import {
   AvatarImage,
   Comment,
   CommentBox,
-  Slider } from "components"
+  Slider
+} from "components"
 import { fetchRecipe, getRecipeById } from "actions"
 import { withRouter } from "react-router-dom"
 import { shortenText } from "utils"
@@ -68,7 +69,8 @@ class Recipe extends React.Component {
   componentWillMount() {
     const { id } = this.props.match.params
 
-    _.isEmpty(this.props.recipe) && this.props.fetchRecipe(id)
+    if (_.isEmpty(this.props.recipe)) this.props.fetchRecipe(id)
+    else this.checkShowButton(this.props.recipe.description)
   }
 
   componentDidMount() {
@@ -84,7 +86,7 @@ class Recipe extends React.Component {
     const windowHeight = window.innerHeight
     const body = document.body
     const html = document.documentElement
-    const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight)
+    const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight)
     const windowBottom = windowHeight + window.pageYOffset
 
     // Say that we are at the bottom
@@ -126,32 +128,32 @@ class Recipe extends React.Component {
     const { recipe } = this.props
     const { images } = recipe
     if (isEmpty(recipe)) return null
-    return(
+    return (
       <div className="container-fluid" style={{ marginTop: "2.5em" }}>
         <div className="row">
           <div className="col-xs-12 col-lg-7 offset-lg-1" style={{ marginBottom: "1em" }}>
-            <div style={{ width: "100%", margin:"0.5em 0 1em 0" }}>
-              <Slider images={images}/>
+            <div style={{ width: "100%", margin: "0.5em 0 1em 0" }}>
+              <Slider images={images} />
             </div>
             <Text big semiBold block
               style={{ marginBottom: "0.2em", lineHeight: "1" }}>{recipe.title}</Text>
             <div style={{ display: "flex", justifyContent: "left", verticalAlign: "center", marginBottom: "1.3em" }}>
-              <AvatarImage user={recipe.user}/>
+              <AvatarImage user={recipe.user} />
               <Text style={{ marginLeft: "0.5em", marginTop: "0.25em" }} semiBold>{`${recipe.user.firstName} ${recipe.user.lastName}`}</Text>
             </div>
             <Text greyDark>{descriptionHidden ? shortenText(recipe.description, maxLength) : recipe.description}</Text>
             {showButton &&
-            <Text
-              onClick={this.toggleHiddenDescription}
-              style={{ cursor: "pointer", display: "inline" }}
-              green
-              underline>{descriptionHidden ? "Show More" : "Show Less"}</Text>
+              <Text
+                onClick={this.toggleHiddenDescription}
+                style={{ cursor: "pointer", display: "inline" }}
+                green
+                underline>{descriptionHidden ? "Show More" : "Show Less"}</Text>
             }
             <div className="margin-vertical-lg" style={{ width: "100%" }}>
               <Text medium semiBold>
                 Leave a Comment
               </Text>
-              <CommentBox style={{ marginBottom: 15 }}/>
+              <CommentBox style={{ marginBottom: 15 }} />
               {this.renderComments()}
             </div>
             {window.innerWidth < 992 && <hr />}
@@ -161,7 +163,7 @@ class Recipe extends React.Component {
           </div>
         </div>
         {window.innerWidth < 768 &&
-          <ScrollToRecipeButton atBottom={atBottom}/>
+          <ScrollToRecipeButton atBottom={atBottom} />
         }
       </div>
     )
