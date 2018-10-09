@@ -21,16 +21,22 @@ require("./services/awsconfig")
 const User = sequelize.import("./models/User")
 const Recipe = sequelize.import("./models/Recipe")
 const Comment = sequelize.import("./models/Comment")
+const Tag = sequelize.import("./models/Tag")
+const RecipeTag = sequelize.import("./models/RecipeTag")
 
 /* Sync with db */
 User.sync()
 Recipe.sync()
 Comment.sync()
+Tag.sync()
+RecipeTag.sync()
 
 /* Associate models */
 db.User = User
 db.Recipe = Recipe
 db.Comment = Comment
+db.Tag = Tag
+db.RecipeTag = RecipeTag
 
 const { models } = sequelize
 
@@ -64,6 +70,7 @@ app.use(passport.session())
 require("./routes/authRoutes")(app)
 require("./routes/recipeRoutes")(app)
 require("./routes/commentRoutes")(app)
+require("./routes/tagRoutes")(app)
 
 if (process.env.NODE_ENV === "production") {
   // Express needs to serve up production assets like main.js

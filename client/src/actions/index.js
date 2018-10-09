@@ -1,5 +1,5 @@
 import axios from "axios"
-import { FETCH_USER, UPDATE_USER, ADD_RECIPE, FETCH_RECIPE, FETCH_RECIPES, ADD_COMMENT } from "./types"
+import { FETCH_USER, UPDATE_USER, ADD_RECIPE, FETCH_RECIPE, FETCH_RECIPES, ADD_COMMENT, FETCH_TAGS } from "./types"
 
 /** USER ACTIONS **/
 
@@ -42,9 +42,10 @@ export const fetchRecipes = searchQuery => dispatch => {
   }
   else {
     axios
-      .get("/api/recipes", { params: {
-        q: searchQuery
-      }
+      .get("/api/recipes", {
+        params: {
+          q: searchQuery
+        }
       })
       .then(res => dispatch({ type: FETCH_RECIPES, payload: res.data }))
   }
@@ -54,6 +55,12 @@ export const fetchRecipe = id => dispatch => {
   axios
     .get(`/api/recipes/${id}`)
     .then(res => dispatch({ type: FETCH_RECIPE, payload: res.data }))
+}
+
+export const fetchTags = () => dispatch => {
+  axios
+    .get("/api/tags")
+    .then(res => dispatch({ type: FETCH_TAGS, payload: res.data }))
 }
 
 export const addComment = (recipeId, data) => dispatch => {

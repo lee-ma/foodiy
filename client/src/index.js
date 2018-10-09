@@ -4,7 +4,7 @@ import { Provider } from "react-redux"
 import { createStore, applyMiddleware } from "redux"
 import { BrowserRouter, Route, Switch } from "react-router-dom"
 import reduxThunk from "redux-thunk"
-import { fetchUser } from "actions"
+import { fetchUser, fetchTags } from "actions"
 import { ThemeProvider } from "styled-components"
 
 import reducers from "reducers"
@@ -18,6 +18,7 @@ const store = createStore(reducers, {}, applyMiddleware(reduxThunk))
 
 /**  Request User No Matter Where They Entered From  **/
 store.dispatch(fetchUser())
+store.dispatch(fetchTags())
 
 ReactDOM.render(
   <Provider store={store}>

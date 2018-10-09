@@ -14,6 +14,7 @@ import NewRecipeForm from "./NewRecipeForm"
 import RecipeCard from "./RecipeCard"
 import RecipeInformationCard from "./RecipeInformationCard"
 import SearchBar from "./SearchBar"
+import TagSelector from "./TagSelector"
 import Text from "./Text"
 import Thumbnail from "./Thumbnail"
 import CommentBox from "./CommentBox"
@@ -36,6 +37,7 @@ export {
   RecipeCard,
   RecipeInformationCard,
   SearchBar,
+  TagSelector,
   Text,
   Thumbnail,
   CommentBox,

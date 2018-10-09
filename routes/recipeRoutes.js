@@ -6,6 +6,8 @@ const keys = require("../config/keys")
 
 const { Op } = Sequelize
 const User = sequelize.import("../models/User")
+const Tag = sequelize.import("../models/Tag")
+const RecipeTag = sequelize.import("../models/RecipeTag")
 const Recipe = sequelize.import("../models/Recipe")
 const Comment = sequelize.import("../models/Comment")
 
@@ -21,6 +23,10 @@ module.exports = app => {
           {
             model: Comment,
             include: [User]
+          },
+          {
+            model: Tag,
+            through: RecipeTag
           }
         ]
       })
@@ -58,6 +64,10 @@ module.exports = app => {
               model: User,
               attributes: ["id", "firstName", "lastName", "avatarImage", "createdAt"]
             }]
+          },
+          {
+            model: Tag,
+            through: { attributes: [] }
           }
         ]
       })
@@ -83,6 +93,10 @@ module.exports = app => {
               model: User,
               attributes: ["id", "firstName", "lastName", "avatarImage", "createdAt"]
             }]
+          },
+          {
+            model: Tag,
+            through: { attributes: [] }
           }
         ]
       })

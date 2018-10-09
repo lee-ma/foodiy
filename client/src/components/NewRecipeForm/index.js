@@ -14,10 +14,10 @@ const flowControl = (current, skipNext = false, goBack = false) => {
     currentIndex++
   }
   if (goBack) {
-    return flow[ currentIndex - 1 ]
+    return flow[currentIndex - 1]
   }
   if (currentIndex !== -1) {
-    return flow[ currentIndex + 1]
+    return flow[currentIndex + 1]
   }
   return flow[0]
 }
@@ -27,7 +27,8 @@ const infoInitValues = (inputs) => {
     title: inputs.title || "",
     description: inputs.description || "",
     images: inputs.images || [],
-    time: inputs.time || ""
+    time: inputs.time || "",
+    tags: []
   }
 }
 
@@ -78,7 +79,7 @@ class NewRecipeForm extends Component {
         {stage === "info" &&
           <Formik
             initialValues={infoInitValues(this.state.inputs)}
-            onSubmit={(values, action) => {this.handleSubmit(values, action)}}
+            onSubmit={(values, action) => { this.handleSubmit(values, action) }}
             component={InfoForm}
             validationSchema={InfoSchema}
           />
@@ -86,7 +87,7 @@ class NewRecipeForm extends Component {
         {stage === "recipe" &&
           <Formik
             initialValues={recipeInitValues}
-            onSubmit={(values, action) => {this.handleSubmit(values, action)}}
+            onSubmit={(values, action) => { this.handleSubmit(values, action) }}
             component={RecipeForm}
             validationSchema={RecipeSchema}
           />
