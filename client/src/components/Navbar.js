@@ -6,14 +6,9 @@ import {
   Button,
   LoginForm,
   SearchBar,
-<<<<<<< HEAD
   AvatarImage,
   SignupForm
 } from "./index"
-=======
-  AvatarImage
-} from "components"
->>>>>>> 25931d938dcd2fa4546f6c0f4cfcb1c265a7b1bb
 
 class Navbar extends Component {
   constructor(props) {

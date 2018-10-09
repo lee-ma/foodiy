@@ -19,7 +19,7 @@ export const createUser = (userValues, hide) => dispatch => {
   axios
     .post("/api/signup", userValues)
     .then(res => {
-      dispatch({ type: CREATE_USER, payload: res.data })
+      dispatch({ type: FETCH_USER, payload: res.data })
       hide()
     })
 }
