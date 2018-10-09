@@ -10,7 +10,7 @@ const calculateDate = date => {
 }
 
 const Comment = ({ comment, ...otherProps }) => (
-  <div style={{ margin: "2em 0", display: "flex", flexWrap: "wrap" }}>
+  <div style={{ margin: "2em 0" }}>
     <div className="f-aic" {...otherProps}>
       <AvatarImage user={comment.user} />
       <div style={{ marginLeft: 10 }}>
