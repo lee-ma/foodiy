@@ -6,7 +6,6 @@ const _ = require("lodash")
 const { sequelize } = require("../index")
 
 const User = sequelize.import("../models/User")
-const Recipe = sequelize.import("../models/Recipe")
 
 passport.serializeUser(function(user, done) {
   done(null, user)
@@ -45,18 +44,18 @@ passport.use("local-signup",
   new LocalStrategy({
     usernameField: "email",
     passwordField: "password",
-    passReqToCallback: true,
-    proxy: true
+    passReqToCallback: true
   }, (req, email, password, done) => {
     User.findOne({ where: { email: email }})
-      .then(user => {
-        if(user) {
+      .then(existingUser => {
+        if(existingUser) {
           return done(null, false, { message: "User with this email already exists" })
         }
         User.create({
           firstName: req.body.firstName,
           lastName: req.body.lastName,
-          password: user.generateHash(password)
+          email: email,
+          password: password
         })
           .then(user => done(null, user))
       })

@@ -126,7 +126,7 @@ class Navbar extends Component {
         <Modal show={this.state.showLogin} hide={this.closeLoginModal} title="Log In">
           <LoginForm />
         </Modal>
-        <Modal show={this.state.showSignup} hide={this.closeLoginModal} title="Create an Account">
+        <Modal show={this.state.showSignup} hide={this.closeSignupModal} title="Create an Account">
           <SignupForm />
         </Modal>
       </div>

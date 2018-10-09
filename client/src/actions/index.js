@@ -1,5 +1,5 @@
 import axios from "axios"
-import { FETCH_USER, UPDATE_USER, ADD_RECIPE, FETCH_RECIPE, FETCH_RECIPES, ADD_COMMENT } from "./types"
+import { FETCH_USER, UPDATE_USER, CREATE_USER, ADD_RECIPE, FETCH_RECIPE, FETCH_RECIPES, ADD_COMMENT } from "./types"
 
 /** USER ACTIONS **/
 
@@ -13,6 +13,12 @@ export const updateUser = userValues => dispatch => {
   axios
     .put("/api/user", userValues)
     .then(res => dispatch({ type: UPDATE_USER, payload: res.data }))
+}
+
+export const createUser = userValues => dispatch => {
+  axios
+    .post("/api/signup", userValues)
+    .then(res => dispatch({ type: CREATE_USER, payload: res.data }))
 }
 
 /** RECIPE ACTIONS **/

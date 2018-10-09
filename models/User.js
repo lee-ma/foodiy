@@ -52,13 +52,9 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true
     }
   }, {
-    freezeTableName: true,
-    instanceMethods: {
-      generateHash(password) {
-        return bcrypt.hash(password, bcrypt.genSaltSync(10))
-      },
-      validPassword(password) {
-        return bcrypt.compare(password, this.password)
+    hooks : {
+      beforeCreate : (user , options) => {
+        user.password = user.password && user.password !== "" ? bcrypt.hashSync(user.password, 10) : ""
       }
     }
   })
