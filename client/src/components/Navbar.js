@@ -8,7 +8,7 @@ import {
   SearchBar,
   AvatarImage,
   SignupForm
-} from "./index"
+} from "components"
 
 class Navbar extends Component {
   constructor(props) {

@@ -30,7 +30,7 @@ class LoginForm extends React.Component {
           <GoogleButton text="Sign in with Google" />
           <FacebookButton text="Sign in with Facebook" />
         </div>
-        <Text bold style={{ marginTop: "2em", textAlign: "center" }}>OR</Text>
+        <Text bold style={{ marginTop: "2em" }} center>OR</Text>
         <Formik
           intialValues={initValues}
           onSubmit={(values) => this.login(values, hide)}
