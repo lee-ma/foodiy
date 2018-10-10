@@ -18,6 +18,7 @@ import Text from "./Text"
 import Thumbnail from "./Thumbnail"
 import CommentBox from "./CommentBox"
 import Slider from "./MultiImageSlider/Slider"
+import SignupForm from "./SignUpForm"
 
 export {
   AvatarImage,
@@ -39,5 +40,6 @@ export {
   Text,
   Thumbnail,
   CommentBox,
-  Slider
+  Slider,
+  SignupForm
 }

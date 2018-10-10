@@ -15,6 +15,24 @@ export const updateUser = userValues => dispatch => {
     .then(res => dispatch({ type: UPDATE_USER, payload: res.data }))
 }
 
+export const createUser = (userValues, hide) => dispatch => {
+  axios
+    .post("/api/signup", userValues)
+    .then(res => {
+      dispatch({ type: FETCH_USER, payload: res.data })
+      hide()
+    })
+}
+
+export const loginUser = (userValues, hide) => dispatch => {
+  axios
+    .post("/api/login", userValues)
+    .then(res => {
+      dispatch({ type: FETCH_USER, payload: res.data })
+      hide()
+    })
+}
+
 /** RECIPE ACTIONS **/
 
 export const addRecipe = recipeData => dispatch => {

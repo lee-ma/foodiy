@@ -1,6 +1,8 @@
 import React from "react"
-import { Text, GoogleButton, FacebookButton, Input } from "components"
+import { Text, GoogleButton, FacebookButton, Input, Button } from "components"
 import { Formik, Form } from "formik"
+import { connect } from "react-redux"
+import { loginUser } from "actions"
 import * as yup from "yup"
 
 const createValidationSchema = yup.object().shape({
@@ -13,30 +15,39 @@ const initValues = {
   password: ""
 }
 
-const LoginForm = () => {
-  return (
-    <div>
-      <div className="col-xs-12">
-        <GoogleButton text="Sign in with Google" />
-        <FacebookButton text="Sign in with Facebook" />
+class LoginForm extends React.Component {
+
+  login = (userInfo, hide) => {
+
+    this.props.loginUser(userInfo, hide)
+  }
+
+  render() {
+    const { hide } = this.props
+    return (
+      <div>
+        <div className="col-xs-12">
+          <GoogleButton text="Sign in with Google" />
+          <FacebookButton text="Sign in with Facebook" />
+        </div>
+        <Text bold style={{ marginTop: "2em" }} center>OR</Text>
+        <Formik
+          intialValues={initValues}
+          onSubmit={(values) => this.login(values, hide)}
+          validationSchema={createValidationSchema}
+          render={() => {
+            return (
+              <Form>
+                <Input type="email" label="Email" name="email" />
+                <Input type="password" label="Password" name="password" />
+                <Button primary style={{ float: "right", marginTop: "0.75em" }} type="submit">Login</Button>
+              </Form>
+            )
+          }}
+        />
       </div>
-      <Text bold style={{ marginTop: "2em", textAlign: "center" }}>OR</Text>
-      <Formik
-        intialValues={initValues}
-        onSubmit={(values) => console.log(values)}
-        validationSchema={createValidationSchema}
-        render={() => {
-          return (
-            <Form>
-              <Input type="email" label="Email" name="email" />
-              <Input type="password" label="Password" name="password" />
-              <button className="btn btn-success" style={{ float: "right", marginTop: "0.75em" }} type="submit">Login</button>
-            </Form>
-          )
-        }}
-      />
-    </div>
-  )
+    )
+  }
 }
 
-export default LoginForm
+export default connect(null, { loginUser })(LoginForm)

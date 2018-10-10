@@ -25,6 +25,16 @@ module.exports = app => {
     res.redirect("/")
   })
 
+  app.post("/api/login", passport.authenticate("local-login"), (req, res) => {
+    res.send(req.user)
+    res.redirect("/")
+  })
+
+  app.post("/api/signup", passport.authenticate("local-signup"), (req, res) => {
+    res.send(req.user)
+    res.redirect("/")
+  })
+
   app.get("/api/user", (req, res) => {
     if (!req.user) res.send(null)
     else {

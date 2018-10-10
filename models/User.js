@@ -1,3 +1,5 @@
+const bcrypt = require("bcrypt")
+
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define("user", {
     id: {
@@ -22,12 +24,44 @@ module.exports = (sequelize, DataTypes) => {
       field: "googleId",
       allowNull: true
     },
+    email: {
+      type: DataTypes.STRING,
+      field: "email",
+      allowNull: true,
+      validate: {
+        isEmail: {
+          args: true,
+          msg: "Email is not valid"
+        }
+      }
+    },
+    password: {
+      type: DataTypes.STRING,
+      field: "password",
+      allowNull: true,
+      validate: {
+        min: {
+          args: [6],
+          msg: "Password must be at least 6 characters in length"
+        }
+      }
+    },
     avatarImage: {
       type: DataTypes.STRING,
       field: "avatarImage",
       allowNull: true
     }
+  }, {
+    hooks : {
+      beforeCreate : (user, options) => {
+        user.password = user.password && user.password !== "" ? bcrypt.hashSync(user.password, 10) : ""
+      }
+    }
   })
+
+  User.prototype.validPassword = async function(password) {
+    return await bcrypt.compareSync(password, this.password)
+  }
 
   User.associate = models => {
     const { Recipe, User, Comment } = models
