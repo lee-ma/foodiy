@@ -13,70 +13,69 @@ const Comment = sequelize.import("../models/Comment")
 
 module.exports = app => {
   app.get("/api/recipes", (req, res) => {
-    // Default return all recipes TODO: add pagination
-    if (!req.query.q) {
-      Recipe.findAll({
-        include: [
-          {
-            model: User
-          },
-          {
-            model: Comment,
-            include: [User]
-          },
-          {
-            model: Tag,
-            through: RecipeTag
-          }
-        ]
-      })
-        .then(allRecipes => res.send(allRecipes))
-        .catch(err => console.log(err))
-    }
+    // TODO: add pagination
+    const { q } = req.query
 
-    // When there is a search term
-    else {
-      const { q } = req.query
-
-      Recipe.findAll({
-        where: {
-          [Op.or]: [
-            {
-              title: {
-                [Op.like]: `%${q}%`
-              }
-            },
-            {
-              description: {
-                [Op.like]: `%${q}%`
-              }
-            }
-          ]
+    Recipe.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ["id", "firstName", "lastName", "avatarImage"]
         },
-        include: [
-          {
+        {
+          model: Comment,
+          include: [{
             model: User,
-            attributes: ["id", "firstName", "lastName", "avatarImage"]
-          },
-          {
-            model: Comment,
-            include: [{
-              model: User,
-              attributes: ["id", "firstName", "lastName", "avatarImage", "createdAt"]
-            }]
-          },
-          {
-            model: Tag,
-            through: { attributes: [] }
-          }
-        ]
-      })
-        .then(recipes => {
-          if (recipes.length === 0) res.send(["No Results"])
-          else res.send(recipes)
-        }).catch(err => console.log(err))
-    }
-  })
+            attributes: ["id", "firstName", "lastName", "avatarImage", "createdAt"]
+          }]
+        },
+        {
+          model: Tag,
+          through: { attributes: [] }
+        }
+      ]
+    })
+      .then(recipes => res.send(recipes))
+
+    // Recipe.findAll({
+    //   where: {
+    //     [Op.or]: [
+    //       {
+    //         title: {
+    //           [Op.iLike]: `%${q}%`
+    //         }
+    //       },
+    //       {
+    //         description: {
+    //           [Op.iLike]: `%${q}%`
+    //         }
+    //       }
+    //     ]
+    //   },
+    //   include: [
+    //     {
+    //       model: User,
+    //       attributes: ["id", "firstName", "lastName", "avatarImage"]
+    //     },
+    //     {
+    //       model: Comment,
+    //       include: [{
+    //         model: User,
+    //         attributes: ["id", "firstName", "lastName", "avatarImage", "createdAt"]
+    //       }]
+    //     },
+    //     {
+    //       model: Tag,
+    //       through: { attributes: [] }
+    //     }
+    //   ]
+    // })
+    //   .then(recipes => {
+    //     if (recipes.length === 0) res.send(["No Results"])
+    //     else res.send(recipes)
+    //   }).catch(err => console.log(err))
+  }
+  )
 
   app.get("/api/recipes/:id", (req, res) => {
     Recipe.findOne(
@@ -115,7 +114,7 @@ module.exports = app => {
         cb(null, { fieldName: file.fieldname })
       },
       key: (req, file, cb) => {
-        cb(null, `${Date.now().toString()}-${file.originalname}`)
+        cb(null, `${Date.now().toString()} - ${file.originalname}`)
       }
     })
   })

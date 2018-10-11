@@ -35,21 +35,12 @@ export const addRecipe = recipeData => dispatch => {
     .then(res => dispatch({ type: ADD_RECIPE, payload: res.data }))
 }
 
-export const fetchRecipes = searchQuery => dispatch => {
-  if (!searchQuery) {
-    axios
-      .get("/api/recipes")
-      .then(res => dispatch({ type: FETCH_RECIPES, payload: res.data }))
-  }
-  else {
-    axios
-      .get("/api/recipes", {
-        params: {
-          q: searchQuery
-        }
-      })
-      .then(res => dispatch({ type: FETCH_RECIPES, payload: res.data }))
-  }
+export const fetchRecipes = queryParams => dispatch => {
+  axios
+    .get("/api/recipes", {
+      params: queryParams
+    })
+    .then(res => dispatch({ type: FETCH_RECIPES, payload: res.data }))
 }
 
 export const fetchRecipe = id => dispatch => {
