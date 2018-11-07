@@ -46,7 +46,7 @@ module.exports = (sequelize, DataTypes) => {
   })
 
   Recipe.associate = models => {
-    const { User, Recipe, Comment } = models // MAKE SURE TO INCLUDE THE CURRENT MODEL
+    const { User, Recipe, Comment, Tag, RecipeTag } = models // MAKE SURE TO INCLUDE THE CURRENT MODEL
 
     Recipe.belongsTo(User, {
       onDelete: "CASCADE",
@@ -55,6 +55,7 @@ module.exports = (sequelize, DataTypes) => {
       }
     })
     Recipe.hasMany(Comment)
+    Recipe.belongsToMany(Tag, { through: RecipeTag })
   }
 
   return Recipe

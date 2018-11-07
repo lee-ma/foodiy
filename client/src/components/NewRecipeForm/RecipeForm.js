@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Input, Text, Button } from "../index"
+import { Input, Text, Button } from "components"
 import { Form } from "formik"
 import * as yup from "yup"
 
@@ -79,7 +79,7 @@ class RecipeForm extends Component {
         </div>
         <div className="row">
           <div className="col-xs-12 col-sm-10 offset-md-1">
-            <Button style={{ padding: "0.75em 1.5em", width: "100%", marginTop: "5em" }}type="submit" form="recipe_form">Submit <i className="fas fa-check" style={{ marginLeft: "5px" }}></i></Button>
+            <Button style={{ padding: "0.75em 1.5em", width: "100%", marginTop: "5em" }} type="submit" form="recipe_form">Submit <i className="fas fa-check" style={{ marginLeft: "5px" }}></i></Button>
           </div>
         </div>
       </div>

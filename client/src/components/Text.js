@@ -34,6 +34,7 @@ const Text = (props) => {
   line-height: ${props => props.tight ? lineHeights.tight :
     props.loose ? lineHeights.loose : lineHeights.default
 };
+  text-decoration: ${props => props.underline ? "underline" : "none"};
   font-style: ${props => props.italic ? fontStyles.italic : "normal"
 };
   display: block;

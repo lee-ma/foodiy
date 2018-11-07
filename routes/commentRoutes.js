@@ -2,6 +2,7 @@ const { sequelize } = require("../index")
 
 const User = sequelize.import("../models/User")
 const Recipe = sequelize.import("../models/Recipe")
+const Tag = sequelize.import("../models/Tag")
 const Comment = sequelize.import("../models/Comment")
 
 module.exports = app => {
@@ -24,6 +25,10 @@ module.exports = app => {
             {
               model: Comment,
               include: [User]
+            },
+            {
+              model: Tag,
+              through: { attributes: [] }
             }
           ]
         })

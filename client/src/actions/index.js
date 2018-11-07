@@ -1,5 +1,5 @@
 import axios from "axios"
-import { FETCH_USER, UPDATE_USER, ADD_RECIPE, FETCH_RECIPE, FETCH_RECIPES, ADD_COMMENT } from "./types"
+import { FETCH_USER, UPDATE_USER, ADD_RECIPE, FETCH_RECIPE, FETCH_RECIPES, ADD_COMMENT, FETCH_TAGS } from "./types"
 
 /** USER ACTIONS **/
 
@@ -43,6 +43,7 @@ export const addRecipe = recipeData => dispatch => {
   data.append("time", recipeData.time)
   data.append("steps", JSON.stringify(recipeData.steps))
   data.append("ingredients", JSON.stringify(recipeData.ingredients))
+  data.append("tags", JSON.stringify(recipeData.tags))
   for (var i = 0; i < recipeData.images.length; i++) {
     data.append("images", recipeData.images[i])
   }
@@ -52,26 +53,24 @@ export const addRecipe = recipeData => dispatch => {
     .then(res => dispatch({ type: ADD_RECIPE, payload: res.data }))
 }
 
-export const fetchRecipes = searchQuery => dispatch => {
-  if (!searchQuery) {
-    axios
-      .get("/api/recipes")
-      .then(res => dispatch({ type: FETCH_RECIPES, payload: res.data }))
-  }
-  else {
-    axios
-      .get("/api/recipes", { params: {
-        q: searchQuery
-      }
-      })
-      .then(res => dispatch({ type: FETCH_RECIPES, payload: res.data }))
-  }
+export const fetchRecipes = queryParams => dispatch => {
+  axios
+    .get("/api/recipes", {
+      params: queryParams
+    })
+    .then(res => dispatch({ type: FETCH_RECIPES, payload: res.data }))
 }
 
 export const fetchRecipe = id => dispatch => {
   axios
     .get(`/api/recipes/${id}`)
     .then(res => dispatch({ type: FETCH_RECIPE, payload: res.data }))
+}
+
+export const fetchTags = () => dispatch => {
+  axios
+    .get("/api/tags")
+    .then(res => dispatch({ type: FETCH_TAGS, payload: res.data }))
 }
 
 export const addComment = (recipeId, data) => dispatch => {
