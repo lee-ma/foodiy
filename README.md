@@ -1,4 +1,4 @@
-# fewd
+# foodiy
 A web app that aims to solve the common problems of online recipe websites. We aim to make the experience of **actually cooking** with the app a smoother one, with clutter-free and easy-to-view recipes.
 
 ## Developing
